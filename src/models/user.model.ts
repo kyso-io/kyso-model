@@ -7,6 +7,7 @@ import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseUser } from './base-user.model';
 import { UserAccount } from './user-account.model';
+import 'reflect-metadata';
 
 export class User extends BaseUser {
   @IsAlphanumeric()
@@ -27,8 +28,8 @@ export class User extends BaseUser {
   public _email_verify_token?: string;
 
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => UserAccount)
+  // @ValidateNested({ each: true })
+  // @Type(() => UserAccount)
   public accounts: UserAccount[];
 
   constructor(

@@ -4,6 +4,7 @@ import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString, ValidateN
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
+import 'reflect-metadata';
 
 export class Team extends BaseModel {
   @ApiProperty()
@@ -36,8 +37,8 @@ export class Team extends BaseModel {
     isArray: true,
   })
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => KysoRole)
+  // @ValidateNested({ each: true })
+  // @Type(() => KysoRole)
   public roles: KysoRole[];
 
   @ApiProperty({

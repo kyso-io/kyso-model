@@ -3,6 +3,7 @@ import { Type } from 'class-transformer';
 import { IsArray, IsBoolean, IsEmail, IsNotEmpty, ValidateNested } from 'class-validator';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
+import 'reflect-metadata';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
@@ -14,8 +15,8 @@ export class Organization extends BaseModel {
     isArray: true,
   })
   @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => KysoRole)
+  // @ValidateNested({ each: true })
+  // @Type(() => KysoRole)
   public roles: KysoRole[];
 
   @ApiProperty({

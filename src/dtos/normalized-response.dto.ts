@@ -1,4 +1,5 @@
 import { ApiProperty, getSchemaPath } from '@nestjs/swagger';
+import { Comment } from '../models/comment.model';
 import { Organization } from '../models/organization.model';
 import { Report } from '../models/report.model';
 import { Team } from '../models/team.model';
