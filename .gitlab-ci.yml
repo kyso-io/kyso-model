@@ -1,4 +1,4 @@
-image: node:14.17.0
+image: node:16.13.2
 
 stages:
   - deploy 
@@ -11,6 +11,7 @@ deploy-to-private-registry:
     - npm config set @kyso-io:registry https://gitlab.kyso.io/api/v4/npm/
     - npm config set //gitlab.kyso.io/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}
     - npm config set //gitlab.kyso.io/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${TEMP_HACK_TOKEN}
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
     - yarn install
     - yarn run prepare
     - yarn publish
