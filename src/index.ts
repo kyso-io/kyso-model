@@ -24,6 +24,8 @@ export * from './enums/team-permissions.enum';
 export * from './enums/team-visibility.enum';
 export * from './enums/user-permissions.enum';
 // MODELS
+export * from './models/action-with-payload.model';
+export * from './models/base-role.model';
 export * from './models/api-error.model';
 export * from './models/base-user.model';
 export * from './models/base.model';
