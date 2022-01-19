@@ -37,6 +37,7 @@
   "dependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-    "es6-shim": "^0.35.6"
+    "es6-shim": "^0.35.6",
+    "mongodb": "^4.3.0"
   }
 }

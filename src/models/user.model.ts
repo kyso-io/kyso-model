@@ -2,6 +2,7 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
 
 import { Exclude, Type } from 'class-transformer';
 import { IsAlphanumeric, IsArray, IsOptional, ValidateNested } from 'class-validator';
+import * as mongo from 'mongodb';
 import { CreateUserRequest } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
@@ -81,3 +82,18 @@ export class User extends BaseUser {
     return newUser;
   }
 }
+
+export const DEFAULT_GLOBAL_ADMIN_USER = new User(
+  'default-admin@kyso.io',
+  'default-admin@kyso.io',
+  'default-admin',
+  LoginProviderEnum.KYSO,
+  '',
+  'free',
+  'https://bit.ly/32hyGaj',
+  false,
+  [GlobalPermissionsEnum.GLOBAL_ADMIN],
+  '',
+  '',
+  new mongo.ObjectId('61a8ae8f9c2bc3c5a2144000').toString()
+);
