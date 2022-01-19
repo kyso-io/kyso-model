@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+=======
+>>>>>>> 0a199bfb737f6135edd6d6a74a6149bd62716750
 
 import { IsArray, IsBoolean, IsEmail, IsNotEmpty } from 'class-validator';
 import { BaseModel } from './base.model';
