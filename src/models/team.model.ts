@@ -1,10 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
+import 'reflect-metadata';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
-import 'reflect-metadata';
 
 export class Team extends BaseModel {
   @ApiProperty()
@@ -54,7 +53,37 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(name: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string) {
+  @ApiProperty()
+  @IsString()
+  public access_domain: string;
+
+  @ApiProperty()
+  @IsString()
+  public email_access: string;
+
+  @ApiProperty()
+  @IsBoolean()
+  public gmail_access_only: boolean;
+
+  @ApiProperty()
+  @IsObject()
+  public company_tax_details: object;
+
+  constructor(
+    name: string,
+    avatar_url: string,
+    bio: string,
+    link: string,
+    location: string,
+    roles: KysoRole[],
+    organization_id: string,
+    visibility: TeamVisibilityEnum,
+    access_domain: string,
+    email_access: string,
+    gmail_access_only: boolean,
+    company_tax_details: object,
+    id?: string
+  ) {
     super();
 
     this.name = name;
@@ -65,6 +94,10 @@ export class Team extends BaseModel {
     this.roles = roles;
     this.organization_id = organization_id;
     this.visibility = visibility;
+    this.access_domain = access_domain;
+    this.email_access = email_access;
+    this.gmail_access_only = gmail_access_only;
+    this.company_tax_details = company_tax_details;
 
     if (id) {
       this.id = id;
