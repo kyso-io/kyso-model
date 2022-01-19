@@ -12,7 +12,6 @@ export class UpdateDiscussionRequest {
   @IsArray()
   public assignees: string[];
 
-<<<<<<< HEAD
   @ApiModelProperty()
   @IsBoolean()
   public closed: boolean;
@@ -34,34 +33,10 @@ export class UpdateDiscussionRequest {
   public main: string;
 
   @ApiModelProperty()
-=======
-  
-  @IsBoolean()
-  public closed: boolean;
-
-  
-  @IsString()
-  public description: string;
-
-  
-  @IsNumber()
-  public discussion_number: number;
-
-  
-  @IsBoolean()
-  public edited: boolean;
-
-  
-  @IsString()
-  public main: string;
-
-  
->>>>>>> 0a199bfb737f6135edd6d6a74a6149bd62716750
   @IsString({ each: true })
   @IsArray()
   public participants: string[];
 
-<<<<<<< HEAD
   @ApiModelProperty()
   @IsBoolean()
   public request_private: boolean;
@@ -75,21 +50,6 @@ export class UpdateDiscussionRequest {
   public title: string;
 
   @ApiModelProperty()
-=======
-  
-  @IsBoolean()
-  public request_private: boolean;
-
-  
-  @IsString()
-  public team_id: string;
-
-  
-  @IsString()
-  public title: string;
-
-  
->>>>>>> 0a199bfb737f6135edd6d6a74a6149bd62716750
   @IsString()
   public url_name: string;
 

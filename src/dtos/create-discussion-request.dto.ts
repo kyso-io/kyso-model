@@ -41,7 +41,6 @@ export class CreateDiscussionRequest {
   @IsArray()
   public participants: string[];
 
-<<<<<<< HEAD
   @ApiModelProperty()
   @IsBoolean()
   public request_private: boolean;
@@ -55,21 +54,6 @@ export class CreateDiscussionRequest {
   public title: string;
 
   @ApiModelProperty()
-=======
-  
-  @IsBoolean()
-  public request_private: boolean;
-
-  
-  @IsString()
-  public team_id: string;
-
-  
-  @IsString()
-  public title: string;
-
-  
->>>>>>> 0a199bfb737f6135edd6d6a74a6149bd62716750
   @IsString()
   public url_name: string;
 
