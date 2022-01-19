@@ -28,6 +28,7 @@ export * from './models/api-error.model';
 export * from './models/base-user.model';
 export * from './models/base.model';
 export * from './models/branch.model';
+export * from './models/discussion.model';
 export * from './models/comment.model';
 export * from './models/constants';
 export * from './models/error.model';
