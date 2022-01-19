@@ -1,6 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsBoolean, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
-import 'reflect-metadata';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';

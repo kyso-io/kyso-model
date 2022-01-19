@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsBoolean, IsDate, IsNumber, IsString } from 'class-validator';
-import { BaseModel } from '..';
+import { BaseModel } from './base.model';
 
 export class Discussion extends BaseModel {
   @ApiProperty()

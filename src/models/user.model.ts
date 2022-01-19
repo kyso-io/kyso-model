@@ -7,7 +7,6 @@ import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseUser } from './base-user.model';
 import { UserAccount } from './user-account.model';
-import 'reflect-metadata';
 
 export class User extends BaseUser {
   @IsAlphanumeric()

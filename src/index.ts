@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-
 // DTOS
 export * from './dtos/base-filter.dto';
 export * from './dtos/batch-report-creation-response.dto';

@@ -1,9 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
-import { IsArray, IsBoolean, IsEmail, IsNotEmpty, ValidateNested } from 'class-validator';
+import { IsArray, IsBoolean, IsEmail, IsNotEmpty } from 'class-validator';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
-import 'reflect-metadata';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
