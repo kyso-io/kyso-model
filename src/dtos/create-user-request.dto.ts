@@ -1,11 +1,11 @@
-import { ApiProperty } from '@nestjs/swagger';
+
 import { IsAlphanumeric } from 'class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseUser } from '../models/base-user.model';
 
 export class CreateUserRequest extends BaseUser {
-  @ApiProperty()
+  
   @IsAlphanumeric()
   public password: string;
 

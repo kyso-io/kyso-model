@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+
 import { IsEnum, IsNotEmpty } from 'class-validator';
 import * as mongo from 'mongodb';
 import { CommentPermissionsEnum } from '../enums/comment-permissions.enum';
@@ -10,22 +10,11 @@ import { TeamPermissionsEnum } from '../enums/team-permissions.enum';
 import { UserPermissionsEnum } from '../enums/user-permissions.enum';
 
 export class KysoRole {
-  @ApiProperty({
-    description: `Role identificator`,
-  })
   public id?: string;
 
-  @ApiProperty({
-    description: `Role name`,
-    required: true,
-  })
   @IsNotEmpty()
   public name: string;
 
-  @ApiProperty({
-    description: `List of permissions related to this role. See permission reference for more details`,
-    required: true,
-  })
   @IsEnum(kysoPermissionsList, { each: true })
   public permissions: KysoPermissions[];
 

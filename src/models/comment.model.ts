@@ -1,41 +1,34 @@
-import { ApiProperty } from '@nestjs/swagger';
+
 import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
 import { BaseModel } from './base.model';
 
 export class Comment extends BaseModel {
-  @ApiProperty({ format: 'faker: lorem.sentance' })
+  
   @IsNotEmpty()
   public text: string;
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
   public user_id: string;
 
-  @ApiProperty({ format: 'faker: lorem.sentance' })
+  
   public username: string;
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
   @IsMongoId()
   public report_id: string;
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
   @IsOptional()
   @IsMongoId()
   public comment_id: string;
 
-  @ApiProperty({ format: 'faker: datatype.boolean' })
   @IsBoolean()
   public marked: boolean
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
   @IsOptional()
   @IsMongoId()
   public marked_by?: string
 
-  @ApiProperty({ format: 'faker: datatype.boolean' })
   @IsBoolean()
   public edited: boolean
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
   @IsOptional()
   @IsMongoId()
   public discussion_id?: string;

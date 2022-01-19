@@ -1,22 +1,16 @@
-import { ApiProperty } from '@nestjs/swagger';
+
 import { IsString } from 'class-validator';
 
 export class UpdateReportRequest {
-  @ApiProperty({
-    required: false,
-  })
+  
   @IsString()
   location: string;
 
-  @ApiProperty({
-    required: false,
-  })
+  
   @IsString()
   link: string;
 
-  @ApiProperty({
-    required: false,
-  })
+  
   @IsString()
   bio: string;
 
