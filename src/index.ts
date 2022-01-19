@@ -40,6 +40,7 @@ export * from './models/discussion.model';
 export * from './models/error.model';
 export * from './models/github-account.model';
 export * from './models/hateoas.model';
+export * from './models/invite.model';
 export * from './models/kyso-role.model';
 export * from './models/login.model';
 export * from './models/organization-member-join.model';
