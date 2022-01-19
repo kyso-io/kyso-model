@@ -1,8 +1,9 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { BaseFilterQuery } from './base-filter.dto';
 
 export class ReportFilterQuery extends BaseFilterQuery {
-  @ApiProperty({
+  @ApiModelProperty({
     title: 'Filter by owner',
     description: 'Return only reports belonging to the specified owner. Can be a user or a team',
     format: 'string',
@@ -10,7 +11,7 @@ export class ReportFilterQuery extends BaseFilterQuery {
   })
   owner: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     title: 'Filter by pinned',
     description: 'Return only reports that are pinned',
     format: 'boolean',
@@ -18,7 +19,7 @@ export class ReportFilterQuery extends BaseFilterQuery {
   })
   pinned: boolean;
 
-  @ApiProperty({
+  @ApiModelProperty({
     title: 'Filter by comma separated tags',
     description: 'Return only reports that has at least one the tags provided',
     format: 'string',

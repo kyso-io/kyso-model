@@ -1,13 +1,14 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { CreateReport } from './create-report.dto';
 
 export class CreateReportRequest {
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   public teams: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
     type: CreateReport,
   })

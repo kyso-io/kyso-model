@@ -1,28 +1,28 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class Repository {
-  @ApiProperty()
+  @ApiModelProperty()
   public owner: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public full_name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public default_branch: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public description: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public is_private: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public language: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public pushed_at: Date;
 
   constructor(owner: string, name: string, full_name: string, default_branch: string, description: string, is_private: boolean, language: string, pushed_at: Date) {

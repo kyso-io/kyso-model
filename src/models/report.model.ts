@@ -1,53 +1,54 @@
-import { ApiExtraModels, ApiProperty } from '@nestjs/swagger';
-import { BatchReportCreation } from '../dtos/batch-report-creation-response.dto';
+//import { ApiExtraModels } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+// import { BatchReportCreation } from '../dtos/batch-report-creation-response.dto';
 import { BaseModel } from './base.model';
 
-@ApiExtraModels(BatchReportCreation)
+// @ApiExtraModels(BatchReportCreation)
 export class Report extends BaseModel {
-  @ApiProperty()
+  @ApiModelProperty()
   public name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public type: 'report';
 
-  @ApiProperty()
+  @ApiModelProperty()
   public views: number;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public stars: number;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public number_of_comments: number;
 
   // We can keep some fields without typing if we want as well
-  @ApiProperty()
+  @ApiModelProperty()
   public analytics: any;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public provider: any;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public source: any;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public pin: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public tags: string[];
 
-  @ApiProperty()
+  @ApiModelProperty()
   public description: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public request_private: boolean;
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @ApiModelProperty({ format: 'faker: datatype.uuid' })
   public user_id: string;
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @ApiModelProperty({ format: 'faker: datatype.uuid' })
   public comment_ids: [string];
 
-  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @ApiModelProperty({ format: 'faker: datatype.uuid' })
   public team_id: string;
 
   public buildHatoes(relations?: any) {

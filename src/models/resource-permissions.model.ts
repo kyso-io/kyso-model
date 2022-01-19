@@ -1,27 +1,28 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { KysoPermissions, kysoPermissionsList } from '../enums/general-permissions.enum';
 
 export class ResourcePermissions {
-  @ApiProperty()
+  @ApiModelProperty()
   public name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public id: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     isArray: true,
     description: 'List of roles applied to that resource',
     enum: kysoPermissionsList,
   })
   public permissions?: KysoPermissions[];
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
     description: 'Permissions inherited from organization',
   })
   public organization_inherited?: boolean;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
     description: 'Organization Id which belongs to',
   })

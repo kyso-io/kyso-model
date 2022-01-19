@@ -1,17 +1,17 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 /**
  * TODO: Decide if we need this
  */
 export class BaseRole {
-    @ApiProperty()
-    public id: string;
+  @ApiModelProperty()
+  public id: string;
 
-    @ApiProperty()
-    public type: string;
+  @ApiModelProperty()
+  public type: string;
 
-    constructor(id: string, type: string) {
-        this.id = id
-        this.type = type
-    }
+  constructor(id: string, type: string) {
+    this.id = id;
+    this.type = type;
+  }
 }

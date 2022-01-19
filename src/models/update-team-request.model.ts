@@ -1,32 +1,33 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsBoolean, IsObject, IsString } from 'class-validator';
 
 export class UpdateTeamRequest {
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public location: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public link: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public bio: string;
-  
-  @ApiProperty()
+
+  @ApiModelProperty()
   @IsString()
   public access_domain: string;
-  
-  @ApiProperty()
+
+  @ApiModelProperty()
   @IsString()
   public email_access: string;
-  
-  @ApiProperty()
+
+  @ApiModelProperty()
   @IsBoolean()
   public gmail_access_only: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsObject()
   public company_tax_details: object;
 

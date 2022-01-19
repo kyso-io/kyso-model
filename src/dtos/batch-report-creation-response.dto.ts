@@ -1,13 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class BatchReportCreation {
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
     enum: ['ERROR', 'OK'],
   })
   status: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   reason: string | null;

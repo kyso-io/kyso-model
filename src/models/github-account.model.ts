@@ -1,13 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class GithubAccount {
-  @ApiProperty()
+  @ApiModelProperty()
   public id: number;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public login: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public orgs: any;
 
   constructor(id: number, login: string, orgs: any) {

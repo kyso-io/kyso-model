@@ -1,38 +1,39 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsAlphanumeric, IsEmail, IsNotEmpty, IsObject, IsUrl } from 'class-validator';
 import { TokenPermissions } from './token-permissions.model';
 
 export class Token {
-  @ApiProperty()
+  @ApiModelProperty()
   @IsNotEmpty()
   public id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsNotEmpty()
   @IsAlphanumeric()
   public username: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsAlphanumeric()
   @IsNotEmpty()
   public nickname: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsEmail()
   @IsNotEmpty()
   public email: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsNotEmpty()
   @IsAlphanumeric()
   public plan: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsNotEmpty()
   @IsObject()
   public permissions: TokenPermissions;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsUrl()
   @IsNotEmpty()
   public avatar_url: string;

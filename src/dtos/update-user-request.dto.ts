@@ -1,18 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class UpdateUserRequest {
-  @ApiProperty()
+  @ApiModelProperty()
   @IsOptional()
   @IsNotEmpty()
   public nickname: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsOptional()
   @IsString()
   public bio: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsOptional()
   @IsString()
   public accessToken: string;

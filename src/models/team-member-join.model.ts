@@ -1,19 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class TeamMemberJoin {
-  @ApiProperty()
+  @ApiModelProperty()
   public team_id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public member_id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public role_names: string[];
 
-  @ApiProperty()
+  @ApiModelProperty()
   public active: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public id: string | null;
 
   constructor(team_id: string, member_id: string, role_names: string[], active: boolean, id?: string) {

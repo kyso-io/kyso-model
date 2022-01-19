@@ -1,27 +1,28 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsDate, IsOptional, IsUUID } from 'class-validator';
 import { Hateoas } from './hateoas.model';
 
 export class BaseModel {
-  @ApiProperty()
+  @ApiModelProperty()
   public type?: string;
 
   @IsUUID()
   @IsOptional()
-  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @ApiModelProperty({ format: 'faker: datatype.uuid' })
   public id?: string;
 
   @IsDate()
   @IsOptional()
-  @ApiProperty()
+  @ApiModelProperty()
   public created_at?: Date;
 
   @IsDate()
   @IsOptional()
-  @ApiProperty()
+  @ApiModelProperty()
   public updated_at?: Date;
 
-  @ApiProperty({
+  @ApiModelProperty({
     default: {},
   })
   public links: Hateoas | {};

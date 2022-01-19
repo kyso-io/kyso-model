@@ -1,34 +1,34 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class CreateReport {
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
     description: 'Git provider to retrieve the code',
     enum: ['github', 'gitlab', 'bitbucket'],
   })
   public provider: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
   })
   public owner: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
   })
   public name: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
   })
   public default_branch: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   public path: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: true,
   })
   public team_id: string;

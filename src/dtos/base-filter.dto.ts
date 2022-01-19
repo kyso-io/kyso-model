@@ -1,7 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class BaseFilterQuery {
-  @ApiProperty({
+  @ApiModelProperty({
     minimum: 1,
     title: 'Page',
     description: 'Allows skipping some elements for pagination purposes',
@@ -13,7 +13,7 @@ export class BaseFilterQuery {
   })
   public page: number;
 
-  @ApiProperty({
+  @ApiModelProperty({
     minimum: 1,
     maximum: 100,
     title: 'Items per page',
@@ -26,7 +26,7 @@ export class BaseFilterQuery {
   })
   public per_page: number;
 
-  @ApiProperty({
+  @ApiModelProperty({
     title: 'Fields',
     description: 'Specify which fields of the reports will be returned',
     format: 'string',
@@ -34,7 +34,7 @@ export class BaseFilterQuery {
   })
   public fields: string | null;
 
-  @ApiProperty({
+  @ApiModelProperty({
     title: 'Sort by',
     description: 'Decide how the returned reports are sorted',
     format: 'string',

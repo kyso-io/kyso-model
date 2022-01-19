@@ -1,67 +1,68 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsArray, IsBoolean, IsDate, IsNumber, IsString } from 'class-validator';
 import { BaseModel } from './base.model';
 
 export class Discussion extends BaseModel {
-  @ApiProperty()
+  @ApiModelProperty()
   @IsBoolean()
   public answered: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString({ each: true })
   @IsArray()
   public assignees: string[];
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public user_id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsBoolean()
   public closed: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public description: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsNumber()
   public discussion_number: number;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsBoolean()
   public edited: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public main: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsDate()
   public mark_delete_at: Date | null;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public owner_name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString({ each: true })
   @IsArray()
   public participants: string[];
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsBoolean()
   public private: boolean;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public team_id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public title: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   @IsString()
   public url_name: string;
 

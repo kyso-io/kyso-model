@@ -1,19 +1,20 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { KysoPermissions } from '../enums/general-permissions.enum';
 import { ResourcePermissions } from './resource-permissions.model';
 
 export class TokenPermissions {
-  @ApiProperty({
+  @ApiModelProperty({
     isArray: true,
   })
   public global?: KysoPermissions[];
 
-  @ApiProperty({
+  @ApiModelProperty({
     isArray: true,
   })
   public teams?: ResourcePermissions[];
 
-  @ApiProperty({
+  @ApiModelProperty({
     isArray: true,
   })
   public organizations?: ResourcePermissions[];

@@ -1,13 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class Branch {
-  @ApiProperty()
+  @ApiModelProperty()
   public name: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public commit: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public is_default: boolean;
 
   constructor(name: string, commit: string, is_default: boolean) {

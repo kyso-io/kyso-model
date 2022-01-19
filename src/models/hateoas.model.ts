@@ -1,10 +1,10 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class Hateoas {
-  @ApiProperty()
+  @ApiModelProperty()
   public self_api: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public self_ui: string;
 
   constructor(self_api: string, self_ui: string) {

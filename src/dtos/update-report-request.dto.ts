@@ -1,20 +1,21 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsString } from 'class-validator';
 
 export class UpdateReportRequest {
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   @IsString()
   location: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   @IsString()
   link: string;
 
-  @ApiProperty({
+  @ApiModelProperty({
     required: false,
   })
   @IsString()

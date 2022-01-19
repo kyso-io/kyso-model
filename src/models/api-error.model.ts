@@ -1,13 +1,13 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class ApiError {
-  @ApiProperty()
+  @ApiModelProperty()
   public statusCode: number;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public message: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public error: string;
 
   constructor(statusCode: number, message: string, error: string) {

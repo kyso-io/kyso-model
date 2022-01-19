@@ -1,4 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsUrl, Length } from 'class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
@@ -7,46 +8,46 @@ import { BaseModel } from './base.model';
 export class BaseUser extends BaseModel {
   @IsEmail()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public email: string;
 
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public username: string;
 
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public nickname: string;
 
   @IsNotEmpty()
-  @ApiProperty({
-    enum: LoginProviderEnum,
+  @ApiModelProperty({
+    enumName: LoginProviderEnum.constructor.name,
   })
   public provider: LoginProviderEnum;
 
   @Length(0, 500)
-  @ApiProperty({
+  @ApiModelProperty({
     maxLength: 500,
   })
   public bio: string;
 
   @IsAlphanumeric()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public plan: string;
 
   @IsUrl()
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public avatar_url: string;
 
   @IsBoolean()
-  @ApiProperty()
+  @ApiModelProperty()
   public email_verified: boolean;
 
   @IsArray()
   @IsEnum(GlobalPermissionsEnum, { each: true })
-  @ApiProperty()
+  @ApiModelProperty()
   public global_permissions: GlobalPermissionsEnum[];
 
   constructor(

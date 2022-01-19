@@ -1,4 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
+
 import { Exclude, Type } from 'class-transformer';
 import { IsAlphanumeric, IsArray, IsOptional, ValidateNested } from 'class-validator';
 import * as mongo from 'mongodb';
@@ -10,20 +11,20 @@ import { UserAccount } from './user-account.model';
 
 export class User extends BaseUser {
   @IsAlphanumeric()
-  @ApiProperty()
+  @ApiModelProperty()
   @Exclude()
   public hashed_password: string;
 
   @IsAlphanumeric()
   @IsOptional()
-  @ApiProperty({
+  @ApiModelProperty({
     description: 'OAUTH2 token from OAUTH login providers',
   })
   public accessToken: string;
 
   @IsAlphanumeric()
   @IsOptional()
-  @ApiProperty()
+  @ApiModelProperty()
   public _email_verify_token?: string;
 
   @IsArray()

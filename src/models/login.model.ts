@@ -1,23 +1,23 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsNotEmpty, IsOptional } from 'class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 
 export class Login {
   @IsOptional()
-  @ApiProperty({
+  @ApiModelProperty({
     description: `Username to login. Only required in kyso provider. This field is ignored in the rest of providers`,
     required: false,
   })
   public username?: string;
 
   @IsNotEmpty()
-  @ApiProperty()
+  @ApiModelProperty()
   public password: string;
 
   @IsNotEmpty()
-  @ApiProperty({
+  @ApiModelProperty({
     description: `Authentication provider in which the user wants to rely. See schema for details`,
-    enum: LoginProviderEnum,
+    enumName: LoginProviderEnum.constructor.name,
   })
   public provider: LoginProviderEnum;
 

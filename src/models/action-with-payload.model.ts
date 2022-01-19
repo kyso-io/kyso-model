@@ -1,10 +1,10 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class ActionWithPayload<T> {
-    @ApiProperty()
-    public payload: T | null;
+  @ApiModelProperty()
+  public payload: T | null;
 
-    constructor(payload: T) {
-        this.payload = payload
-    }
+  constructor(payload: T) {
+    this.payload = payload;
+  }
 }

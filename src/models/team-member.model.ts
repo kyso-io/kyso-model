@@ -1,25 +1,25 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 export class TeamMember {
-  @ApiProperty()
+  @ApiModelProperty()
   public id: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public nickname: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public username: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public team_roles: string[];
 
-  @ApiProperty()
+  @ApiModelProperty()
   public bio: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public avatar_url: string;
 
-  @ApiProperty()
+  @ApiModelProperty()
   public email: string;
 
   constructor(id: string, nickname: string, username: string, team_roles: string[], bio: string, avatar_url: string, email: string) {
