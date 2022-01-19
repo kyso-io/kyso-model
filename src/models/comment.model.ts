@@ -35,6 +35,11 @@ export class Comment extends BaseModel {
   @IsBoolean()
   public edited: boolean
 
+  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @IsOptional()
+  @IsMongoId()
+  public discussion_id?: string;
+
   constructor(text: string, user_id: string, report_id: string, comment_id: string, username: string) {
     super();
     this.text = text;
