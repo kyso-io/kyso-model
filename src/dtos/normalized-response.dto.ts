@@ -7,13 +7,13 @@ import { User } from '../models/user.model';
 
 const MODELS = [User, Report, Comment, Team, Organization];
 
-export class NormalizedResponse {
+export class NormalizedResponse<T> {
   @ApiProperty({
     description: 'The specific data that has been requested, it is an array or object',
     example: 'a report, or list of reports',
     oneOf: [...MODELS.map(model => ({ $ref: getSchemaPath(model) })), ...MODELS.map(model => ({ type: 'array', items: { $ref: getSchemaPath(model) } }))],
   })
-  data: any;
+  data: T;
 
   @ApiProperty({
     description: 'object with all the fetched relations',
