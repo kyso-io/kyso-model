@@ -12,20 +12,8 @@ export class UpdateDiscussionRequest {
   public assignees: string[];
 
   @ApiProperty()
-  @IsString()
-  public author_id: string;
-
-  @ApiProperty()
   @IsBoolean()
   public closed: boolean;
-
-  @ApiProperty()
-  @IsString()
-  public content: string;
-
-  @ApiProperty()
-  @IsString()
-  public comment_id: string;
 
   @ApiProperty()
   @IsString()
@@ -67,15 +55,11 @@ export class UpdateDiscussionRequest {
   constructor(
     answered: boolean,
     assignees: string[],
-    author_id: string,
     closed: boolean,
-    content: string,
-    comment_id: string,
     description: string,
     discussion_number: number,
     edited: boolean,
     main: string,
-    owner_name: string,
     participants: string[],
     request_private: boolean,
     team_id: string,
@@ -84,10 +68,7 @@ export class UpdateDiscussionRequest {
   ) {
     this.answered = answered;
     this.assignees = assignees;
-    this.author_id = author_id;
     this.closed = closed;
-    this.content = content;
-    this.comment_id = comment_id;
     this.description = description;
     this.discussion_number = discussion_number;
     this.edited = edited;

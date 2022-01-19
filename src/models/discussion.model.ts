@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsArray, IsBoolean, IsDate, IsInt, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsDate, IsNumber, IsString } from 'class-validator';
 import { BaseModel } from '..';
 
 export class Discussion extends BaseModel {
@@ -14,23 +14,11 @@ export class Discussion extends BaseModel {
 
   @ApiProperty()
   @IsString()
-  public author_id: string;
+  public user_id: string;
 
   @ApiProperty()
   @IsBoolean()
   public closed: boolean;
-
-  @ApiProperty()
-  @IsString()
-  public content: string;
-
-  @ApiProperty()
-  @IsString()
-  public comment_id: string;
-
-  @ApiProperty()
-  @IsDate()
-  public created_at: Date;
 
   @ApiProperty()
   @IsString()
@@ -50,11 +38,7 @@ export class Discussion extends BaseModel {
 
   @ApiProperty()
   @IsDate()
-  public mark_delete_at: Date;
-
-  @ApiProperty()
-  @IsInt()
-  public number_of_comments: number;
+  public mark_delete_at: Date | null;
 
   @ApiProperty()
   @IsString()
@@ -81,52 +65,36 @@ export class Discussion extends BaseModel {
   @IsString()
   public url_name: string;
 
-  @ApiProperty()
-  @IsDate()
-  public updated_at: Date;
-
   constructor(
     answered: boolean,
     assignees: string[],
-    author_id: string,
+    user_id: string,
     closed: boolean,
-    content: string,
-    comment_id: string,
-    created_at: Date,
     description: string,
     discussion_number: number,
-    edited: boolean,
     main: string,
-    mark_delete_at: Date,
-    number_of_comments: number,
     owner_name: string,
     participants: string[],
     request_private: boolean,
     team_id: string,
     title: string,
-    url_name: string,
-    updated_at: Date
+    url_name: string
   ) {
     super();
     this.answered = answered;
     this.assignees = assignees;
-    this.author_id = author_id;
+    this.user_id = user_id;
     this.closed = closed;
-    this.content = content;
-    this.comment_id = comment_id;
-    this.created_at = created_at;
     this.description = description;
     this.discussion_number = discussion_number;
-    this.edited = edited;
     this.main = main;
-    this.mark_delete_at = mark_delete_at;
-    this.number_of_comments = number_of_comments;
     this.owner_name = owner_name;
     this.participants = participants;
     this.private = request_private;
     this.team_id = team_id;
     this.title = title;
     this.url_name = url_name;
-    this.updated_at = updated_at;
+    this.edited = false;
+    this.mark_delete_at = null;
   }
 }
