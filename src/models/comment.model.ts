@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
 import { BaseModel } from './base.model';
 
 export class Comment extends BaseModel {
@@ -22,6 +22,24 @@ export class Comment extends BaseModel {
   @IsMongoId()
   public comment_id: string;
 
+  @ApiProperty({ format: 'faker: datatype.boolean' })
+  @IsBoolean()
+  public marked: boolean
+
+  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @IsOptional()
+  @IsMongoId()
+  public marked_by?: string
+
+  @ApiProperty({ format: 'faker: datatype.boolean' })
+  @IsBoolean()
+  public edited: boolean
+
+  @ApiProperty({ format: 'faker: datatype.uuid' })
+  @IsOptional()
+  @IsMongoId()
+  public discussion_id?: string;
+
   constructor(text: string, user_id: string, report_id: string, comment_id: string, username: string) {
     super();
     this.text = text;
@@ -29,5 +47,7 @@ export class Comment extends BaseModel {
     this.report_id = report_id;
     this.comment_id = comment_id;
     this.username = username;
+    this.marked = false
+    this.edited = false
   }
 }
