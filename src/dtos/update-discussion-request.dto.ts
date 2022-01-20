@@ -1,55 +1,41 @@
-import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
-
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
 
 export class UpdateDiscussionRequest {
-  @ApiModelProperty()
   @IsBoolean()
   public answered: boolean;
 
-  @ApiModelProperty()
   @IsString({ each: true })
   @IsArray()
   public assignees: string[];
 
-  @ApiModelProperty()
   @IsBoolean()
   public closed: boolean;
 
-  @ApiModelProperty()
   @IsString()
   public description: string;
 
-  @ApiModelProperty()
   @IsNumber()
   public discussion_number: number;
 
-  @ApiModelProperty()
   @IsBoolean()
   public edited: boolean;
 
-  @ApiModelProperty()
   @IsString()
   public main: string;
 
-  @ApiModelProperty()
   @IsString({ each: true })
   @IsArray()
   public participants: string[];
 
-  @ApiModelProperty()
   @IsBoolean()
   public request_private: boolean;
 
-  @ApiModelProperty()
   @IsString()
   public team_id: string;
 
-  @ApiModelProperty()
   @IsString()
   public title: string;
 
-  @ApiModelProperty()
   @IsString()
   public url_name: string;
 
