@@ -1,4 +1,3 @@
-import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 import { IsArray, IsBoolean, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
@@ -6,66 +5,54 @@ import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 
 export class Team extends BaseModel {
-  @ApiModelProperty()
+
   @IsNotEmpty()
   public name: string;
 
-  @ApiModelProperty()
+
   @IsOptional()
   @IsString()
   public avatar_url: string;
 
-  @ApiModelProperty()
+
   @IsOptional()
   @IsString()
   public bio: string;
 
-  @ApiModelProperty()
+
   @IsOptional()
   @IsString()
   public link: string;
 
-  @ApiModelProperty()
+
   @IsOptional()
   @IsString()
   public location: string;
 
-  @ApiModelProperty({
-    required: true,
-    type: KysoRole,
-    isArray: true,
-  })
   @IsArray()
   // @ValidateNested({ each: true })
   // @Type(() => KysoRole)
   public roles: KysoRole[];
 
-  @ApiModelProperty({
-    required: true,
-    enumName: TeamVisibilityEnum.constructor.name,
-  })
   @IsEnum(TeamVisibilityEnum)
   public visibility: TeamVisibilityEnum;
 
-  @ApiModelProperty({
-    required: true,
-  })
   @IsMongoId()
   public organization_id: string;
 
-  @ApiModelProperty()
+
   @IsString()
   public access_domain: string;
 
-  @ApiModelProperty()
+
   @IsString()
   public email_access: string;
 
-  @ApiModelProperty()
+
   @IsBoolean()
   public gmail_access_only: boolean;
 
-  @ApiModelProperty()
+
   @IsObject()
   public company_tax_details: object;
 

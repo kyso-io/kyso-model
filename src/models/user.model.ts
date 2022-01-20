@@ -1,4 +1,3 @@
-import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 
 import { Exclude, Type } from 'class-transformer';
 import { IsAlphanumeric, IsArray, IsOptional, ValidateNested } from 'class-validator';
@@ -10,20 +9,15 @@ import { UserAccount } from './user-account.model';
 
 export class User extends BaseUser {
   @IsAlphanumeric()
-  @ApiModelProperty()
   @Exclude()
   public hashed_password: string;
 
   @IsAlphanumeric()
   @IsOptional()
-  @ApiModelProperty({
-    description: 'OAUTH2 token from OAUTH login providers',
-  })
   public accessToken: string;
 
   @IsAlphanumeric()
   @IsOptional()
-  @ApiModelProperty()
   public _email_verify_token?: string;
 
   @IsArray()
