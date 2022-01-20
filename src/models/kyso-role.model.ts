@@ -4,7 +4,6 @@ import { IsEnum, IsNotEmpty } from 'class-validator';
 import { KysoPermissions, kysoPermissionsList } from '../enums/general-permissions.enum';
 
 export class KysoRole {
-
   public id?: string;
 
   @IsNotEmpty()
@@ -21,3 +20,4 @@ export class KysoRole {
       this.id = _id;
     }
   }
+}
