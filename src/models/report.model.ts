@@ -1,9 +1,5 @@
-//import { ApiExtraModels } from '@nestjs/swagger';
-
-// import { BatchReportCreation } from '../dtos/batch-report-creation-response.dto';
 import { BaseModel } from './base.model';
 
-// @ApiExtraModels(BatchReportCreation)
 export class Report extends BaseModel {
   public name: string;
 

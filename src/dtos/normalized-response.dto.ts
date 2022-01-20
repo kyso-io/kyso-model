@@ -1,5 +1,3 @@
-import { getSchemaPath } from '@nestjs/swagger';
-
 import { Comment } from '../models/comment.model';
 import { Organization } from '../models/organization.model';
 import { Report } from '../models/report.model';
