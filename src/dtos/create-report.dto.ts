@@ -1,4 +1,4 @@
-export class CreateReport {
+export class CreateReportDTO {
   public provider: string;
 
   public owner: string;

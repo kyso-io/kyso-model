@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
-export class UpdateUserRequest {
+export class UpdateUserRequestDTO {
   @IsOptional()
   @IsNotEmpty()
   public nickname: string;

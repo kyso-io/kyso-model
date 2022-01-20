@@ -1,6 +1,6 @@
-import { BaseFilterQuery } from './base-filter.dto';
+import { BaseFilterQueryDTO } from './base-filter.dto';
 
-export class ReportFilterQuery extends BaseFilterQuery {
+export class ReportFilterQueryDTO extends BaseFilterQueryDTO {
   owner: string;
 
   pinned: boolean;

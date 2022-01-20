@@ -1,11 +1,11 @@
-import { CreateReport } from './create-report.dto';
+import { CreateReportDTO } from './create-report.dto';
 
-export class CreateReportRequest {
+export class CreateReportRequestDTO {
   public teams: string;
 
-  public reports: CreateReport | CreateReport[];
+  public reports: CreateReportDTO | CreateReportDTO[];
 
-  constructor(teams: string, reports: CreateReport | CreateReport[]) {
+  constructor(teams: string, reports: CreateReportDTO | CreateReportDTO[]) {
     this.teams = teams;
     this.reports = reports;
   }

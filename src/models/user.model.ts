@@ -1,6 +1,6 @@
 import { Exclude, Type } from 'class-transformer';
 import { IsAlphanumeric, IsArray, IsOptional, ValidateNested } from 'class-validator';
-import { CreateUserRequest } from '../dtos/create-user-request.dto';
+import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseUser } from './base-user.model';
@@ -56,7 +56,7 @@ export class User extends BaseUser {
     return newUser;
   }
 
-  static fromCreateUserRequest(request: CreateUserRequest): User {
+  static fromCreateUserRequest(request: CreateUserRequestDTO): User {
     const newUser = new User(
       request.email,
       request.username,

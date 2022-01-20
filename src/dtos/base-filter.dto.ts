@@ -1,4 +1,4 @@
-export class BaseFilterQuery {
+export class BaseFilterQueryDTO {
   public page: number;
   public per_page: number;
   public fields: string | null;

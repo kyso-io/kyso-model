@@ -3,7 +3,7 @@ import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseUser } from '../models/base-user.model';
 
-export class CreateUserRequest extends BaseUser {
+export class CreateUserRequestDTO extends BaseUser {
   @IsAlphanumeric()
   public password: string;
 

@@ -1,14 +1,14 @@
 import { ArrayMinSize, IsArray } from 'class-validator';
-import { UserRole } from './user-role.dto';
+import { UserRoleDTO } from './user-role.dto';
 
-export class UpdateTeamMembers {
+export class UpdateTeamMembersDTO {
   @IsArray()
   @ArrayMinSize(1)
   // @ValidateNested({ each: true })
   // @Type(() => UserRole)
-  public members: UserRole[];
+  public members: UserRoleDTO[];
 
-  constructor(members: UserRole[]) {
+  constructor(members: UserRoleDTO[]) {
     this.members = members;
   }
 }

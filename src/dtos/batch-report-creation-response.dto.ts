@@ -1,4 +1,4 @@
-export class BatchReportCreation {
+export class BatchReportCreationDTO {
   status: string;
   reason: string | null;
 

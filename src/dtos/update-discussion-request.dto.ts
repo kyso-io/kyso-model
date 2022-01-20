@@ -1,6 +1,6 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
 
-export class UpdateDiscussionRequest {
+export class UpdateDiscussionRequestDTO {
   @IsBoolean()
   public answered: boolean;
 

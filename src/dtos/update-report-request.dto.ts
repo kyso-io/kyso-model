@@ -1,6 +1,6 @@
 import { IsString } from 'class-validator';
 
-export class UpdateReportRequest {
+export class UpdateReportRequestDTO {
   @IsString()
   location: string;
 
