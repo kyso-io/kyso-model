@@ -3,7 +3,7 @@ import { BaseModel } from './base.model';
 export class Report extends BaseModel {
   public name: string;
 
-  public type: 'report';
+  public type: string;
 
   public views: number;
 
