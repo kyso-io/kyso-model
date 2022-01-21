@@ -1,5 +1,3 @@
-
-
 import { IsEnum, IsNotEmpty } from 'class-validator';
 import { KysoPermissions, kysoPermissionsList } from '../enums/general-permissions.enum';
 
