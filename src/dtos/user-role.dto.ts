@@ -2,13 +2,13 @@ import { IsNotEmpty, IsString } from 'class-validator';
 
 export class UserRoleDTO {
   @IsString()
-  public username: string;
+  public userId: string;
 
   @IsNotEmpty()
   public role: string;
 
-  constructor(username: string, role: string) {
-    this.username = username;
+  constructor(userId: string, role: string) {
+    this.userId = userId;
     this.role = role;
   }
 }
