@@ -5,5 +5,5 @@ import { Team } from './team.model'
 import { Organization } from './organization.model'
 
 export interface Relations {
-    [key: string]: User | Report | Comment | Team | Organization | null
+    [key: string]: User | Report | Comment | Team | Organization | any | null
 }
