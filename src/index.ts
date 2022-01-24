@@ -43,6 +43,7 @@ export * from './models/login.model';
 export * from './models/organization-member-join.model';
 export * from './models/organization-member.model';
 export * from './models/organization.model';
+export * from './models/pinned-report.model';
 export * from './models/relation.model';
 export * from './models/relations.model';
 export * from './models/report.model';
