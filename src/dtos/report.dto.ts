@@ -13,7 +13,6 @@ export class ReportDTO extends BaseModel {
   public number_of_comments: number;
   public tag_ids: string[];
   public description: string;
-  public request_private: boolean;
   public user_id: string;
   public comment_ids: string[];
   public team_id: string;
@@ -34,7 +33,6 @@ export class ReportDTO extends BaseModel {
     number_of_comments: number,
     tag_ids: string[],
     description: string,
-    request_private: boolean,
     user_id: string,
     comment_ids: string[],
     team_id: string
@@ -51,7 +49,6 @@ export class ReportDTO extends BaseModel {
     this.number_of_comments = number_of_comments;
     this.tag_ids = tag_ids;
     this.description = description;
-    this.request_private = request_private;
     this.user_id = user_id;
     this.comment_ids = comment_ids;
     this.team_id = team_id;
