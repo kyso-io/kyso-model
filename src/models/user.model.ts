@@ -59,7 +59,7 @@ export class User extends BaseUser {
   static fromCreateUserRequest(request: CreateUserRequestDTO): User {
     const newUser = new User(
       request.email,
-      request.username,
+      request.name,
       request.nickname,
       request.provider,
       request.bio,
