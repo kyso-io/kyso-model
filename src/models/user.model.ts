@@ -1,5 +1,5 @@
-import { Exclude, Type } from 'class-transformer';
-import { IsAlphanumeric, IsArray, IsOptional, ValidateNested } from 'class-validator';
+import { Exclude } from 'class-transformer';
+import { IsAlphanumeric, IsArray, IsOptional } from 'class-validator';
 import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
@@ -27,6 +27,7 @@ export class User extends BaseUser {
   constructor(
     email: string,
     username: string,
+    name: string,
     nickname: string,
     provider: LoginProviderEnum,
     bio: string,
@@ -39,7 +40,7 @@ export class User extends BaseUser {
     _id?: string,
     _email_verify_token?: string
   ) {
-    super(email, username, nickname, provider, bio, plan, avatarUrl, emailVerified, global_permissions, _id);
+    super(email, username, name, nickname, provider, bio, plan, avatarUrl, emailVerified, global_permissions, _id);
 
     this.hashed_password = hashed_password;
     this.accessToken = access_token;
@@ -51,14 +52,13 @@ export class User extends BaseUser {
   }
 
   static fromGithubUser(userData: any, emailData: any): User {
-    const newUser = new User(emailData.email, userData.login, userData.name, LoginProviderEnum.GITHUB, '', 'free', userData.avatar_url, true, [], '', '');
-
-    return newUser;
+    return new User(emailData.email, userData.login, userData.name, userData.login, LoginProviderEnum.GITHUB, '', 'free', userData.avatar_url, true, [], '', '');
   }
 
   static fromCreateUserRequest(request: CreateUserRequestDTO): User {
     const newUser = new User(
       request.email,
+      request.username,
       request.name,
       request.nickname,
       request.provider,

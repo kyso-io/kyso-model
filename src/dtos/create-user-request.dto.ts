@@ -10,6 +10,7 @@ export class CreateUserRequestDTO extends BaseUser {
   constructor(
     email: string,
     username: string,
+    name: string,
     nickname: string,
     provider: LoginProviderEnum,
     bio: string,
@@ -19,7 +20,7 @@ export class CreateUserRequestDTO extends BaseUser {
     global_permissions: GlobalPermissionsEnum[],
     password: string
   ) {
-    super(email, username, nickname, provider, bio, plan, avatar_url, email_verified, global_permissions);
+    super(email, username, name, nickname, provider, bio, plan, avatar_url, email_verified, global_permissions);
     this.password = password;
   }
 }

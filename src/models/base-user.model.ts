@@ -9,6 +9,9 @@ export class BaseUser extends BaseModel {
   public email: string;
 
   @IsNotEmpty()
+  public username: string;
+
+  @IsNotEmpty()
   public name: string;
 
   @IsNotEmpty()
@@ -37,6 +40,7 @@ export class BaseUser extends BaseModel {
 
   constructor(
     email: string,
+    username: string,
     name: string,
     nickname: string,
     provider: LoginProviderEnum,
@@ -49,6 +53,7 @@ export class BaseUser extends BaseModel {
   ) {
     super();
     this.email = email;
+    this.username = username;
     this.name = name;
     this.nickname = nickname;
     this.provider = provider;
