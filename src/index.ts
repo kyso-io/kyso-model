@@ -33,6 +33,7 @@ export * from './models/api-error.model';
 export * from './models/base-role.model';
 export * from './models/base-user.model';
 export * from './models/base.model';
+export * from './models/github-email.model';
 export * from './models/comment.model';
 export * from './models/constants';
 export * from './models/discussion.model';
