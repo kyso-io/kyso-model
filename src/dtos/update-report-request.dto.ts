@@ -1,18 +1,15 @@
-import { IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class UpdateReportRequestDTO {
   @IsString()
-  location: string;
+  @IsNotEmpty()
+  public title: string;
 
   @IsString()
-  link: string;
+  public description: string;
 
-  @IsString()
-  bio: string;
-
-  constructor(location: string, link: string, bio: string) {
-    this.location = location;
-    this.link = link;
-    this.bio = bio;
+  constructor(title: string, description: string) {
+    this.title = title;
+    this.description = description;
   }
 }
