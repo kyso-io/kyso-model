@@ -3,6 +3,8 @@ import { BaseModel } from './base.model';
 
 export class Report extends BaseModel {
   public name: string;
+  public provider_id: string | null;
+  public hook_id: string | null;
   public provider: RepositoryProvider;
   public username_provider: string;
   public default_branch: string;
@@ -27,6 +29,8 @@ export class Report extends BaseModel {
 
   constructor(
     name: string,
+    provider_id: string | null,
+    hook_id: string | null,
     provider: RepositoryProvider,
     username_provider: string,
     default_branch: string,
@@ -37,10 +41,12 @@ export class Report extends BaseModel {
     user_id: string,
     team_id: string,
     title: string,
-    author_ids: string[],
+    author_ids: string[]
   ) {
     super();
     this.name = name;
+    this.provider_id = provider_id;
+    this.hook_id = hook_id;
     this.provider = provider;
     this.username_provider = username_provider;
     this.default_branch = default_branch;
