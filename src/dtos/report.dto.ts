@@ -17,7 +17,7 @@ export class ReportDTO extends BaseModel {
   public comment_ids: string[];
   public team_id: string;
   public title: string;
-  public authors: string[];
+  public author_ids: string[];
 
   constructor(
     id: string,
@@ -39,7 +39,7 @@ export class ReportDTO extends BaseModel {
     comment_ids: string[],
     team_id: string,
     title: string,
-    authors: string[]
+    author_ids: string[]
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -57,6 +57,6 @@ export class ReportDTO extends BaseModel {
     this.comment_ids = comment_ids;
     this.team_id = team_id;
     this.title = title;
-    this.authors = authors;
+    this.author_ids = author_ids;
   }
 }
