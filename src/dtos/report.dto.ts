@@ -59,4 +59,13 @@ export class ReportDTO extends BaseModel {
     this.title = title;
     this.author_ids = author_ids;
   }
+
+  public buildHatoes(relations?: any) {
+    const user = relations.user[this.user_id];
+
+    this.links = {
+      self_api: `/${user.nickname}/${this.name}`,
+      self_ui: `/${user.nickname}/${this.name}`,
+    };
+  }
 }
