@@ -14,6 +14,7 @@ export class Report extends BaseModel {
   public user_id: string;
   public team_id: string;
   public title: string;
+  public authors: string[];
 
   public buildHatoes(relations?: any) {
     const user = relations.user[this.user_id];
@@ -35,7 +36,8 @@ export class Report extends BaseModel {
     description: string,
     user_id: string,
     team_id: string,
-    title: string
+    title: string,
+    authors: string[],
   ) {
     super();
     this.name = name;
@@ -50,5 +52,6 @@ export class Report extends BaseModel {
     this.user_id = user_id;
     this.team_id = team_id;
     this.title = title;
+    this.authors = authors;
   }
 }
