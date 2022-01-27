@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumberString, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
 export class CreateKysoReportDTO {
   @IsString()
@@ -15,7 +15,7 @@ export class CreateKysoReportDTO {
   @IsString()
   public description: string;
 
-  @IsNumberString({ each: true })
+  @IsArray()
   public original_sizes: string[];
 
   @IsString({ each: true })
