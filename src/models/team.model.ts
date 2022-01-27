@@ -1,11 +1,16 @@
-import { IsArray, IsBoolean, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsDataURI, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString, Matches } from 'class-validator';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 
 export class Team extends BaseModel {
   @IsNotEmpty()
+  // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
   public name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  public nickname: string;
 
   @IsOptional()
   @IsString()
@@ -35,7 +40,7 @@ export class Team extends BaseModel {
   public organization_id: string;
 
   constructor(
-    name: string,
+    nickname: string,
     avatar_url: string,
     bio: string,
     link: string,
@@ -47,7 +52,8 @@ export class Team extends BaseModel {
   ) {
     super();
 
-    this.name = name;
+    this.nickname = nickname
+    this.name = encodeURIComponent(nickname.replace(' ', '-'))
     this.avatar_url = avatar_url;
     this.bio = bio;
     this.link = link;

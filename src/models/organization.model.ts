@@ -4,7 +4,12 @@ import { KysoRole } from './kyso-role.model';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
+  // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
   public name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  public nickname: string;
 
   @IsNotEmpty()
   public legal_name: string;
@@ -36,11 +41,12 @@ export class Organization extends BaseModel {
   @IsBoolean()
   public allowGoogleLogin: boolean;
 
-  constructor(name: string, legal_name: string, roles: KysoRole[], allowed_access_domains: string[],
+  constructor(nickname: string, legal_name: string, roles: KysoRole[], allowed_access_domains: string[],
     billingEmail: string, stripe_subscription_id: string, tax_identifier: string, allowGoogleLogin: boolean, id?: string) {
     super();
 
-    this.name = name;
+    this.nickname = nickname;
+    this.name = encodeURIComponent(nickname.replace(' ', '-'))
     this.legal_name = legal_name;
     this.roles = roles;
     this.allowed_access_domains = allowed_access_domains;
