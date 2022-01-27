@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsNotEmptyObject } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNotEmptyObject, IsOptional } from 'class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 
 export class UserAccount {
@@ -8,6 +8,9 @@ export class UserAccount {
   @IsNotEmpty()
   public accountId: string | null;
 
+  @IsOptional()
+  public accessToken: string | null;
+
   @IsNotEmptyObject()
   public payload: any;
 
@@ -15,5 +18,6 @@ export class UserAccount {
     this.type = LoginProviderEnum.KYSO;
     this.accountId = null;
     this.payload = null;
+    this.accessToken = null;
   }
 }

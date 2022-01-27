@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
@@ -34,17 +34,7 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(
-    name: string,
-    avatar_url: string,
-    bio: string,
-    link: string,
-    location: string,
-    roles: KysoRole[],
-    organization_id: string,
-    visibility: TeamVisibilityEnum,
-    id?: string
-  ) {
+  constructor(name: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string) {
     super();
 
     this.name = name;
