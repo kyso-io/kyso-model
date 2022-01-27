@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsNumberString, IsOptional, IsString } from 'class-validator';
 
 export class CreateKysoReportDTO {
   @IsString()
@@ -15,13 +15,13 @@ export class CreateKysoReportDTO {
   @IsString()
   public description: string;
 
-  @IsInt({ each: true })
-  public original_sizes: number[];
+  @IsNumberString({ each: true })
+  public original_sizes: string[];
 
   @IsString({ each: true })
   public original_names: string[];
 
-  constructor(title: string, organization: string, team: string, description: string, original_sizes: number[], original_names: string[]) {
+  constructor(title: string, organization: string, team: string, description: string, original_sizes: string[], original_names: string[]) {
     this.title = title;
     this.organization = organization;
     this.team = team;
