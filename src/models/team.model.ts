@@ -1,5 +1,6 @@
 import { IsArray, IsBoolean, IsDataURI, IsEnum, IsMongoId, IsNotEmpty, IsObject, IsOptional, IsString, Matches } from 'class-validator';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
+import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 
@@ -53,7 +54,7 @@ export class Team extends BaseModel {
     super();
 
     this.nickname = nickname
-    this.name = encodeURIComponent(nickname.replace(' ', '-'))
+    this.name = slugify(nickname)
     this.avatar_url = avatar_url;
     this.bio = bio;
     this.link = link;

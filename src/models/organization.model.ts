@@ -1,6 +1,7 @@
 import { IsArray, IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
+import slugify from '../helpers/slugify';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
@@ -46,7 +47,7 @@ export class Organization extends BaseModel {
     super();
 
     this.nickname = nickname;
-    this.name = encodeURIComponent(nickname.replace(' ', '-'))
+    this.name = slugify(nickname)
     this.legal_name = legal_name;
     this.roles = roles;
     this.allowed_access_domains = allowed_access_domains;
