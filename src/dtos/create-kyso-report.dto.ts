@@ -18,11 +18,15 @@ export class CreateKysoReportDTO {
   @IsInt({ each: true })
   public original_sizes: number[];
 
-  constructor(title: string, organization: string, team: string, description: string, original_sizes: number[]) {
+  @IsString({ each: true })
+  public original_names: string[];
+
+  constructor(title: string, organization: string, team: string, description: string, original_sizes: number[], original_names: string[]) {
     this.title = title;
     this.organization = organization;
     this.team = team;
     this.description = description;
     this.original_sizes = original_sizes;
+    this.original_names = original_names;
   }
 }
