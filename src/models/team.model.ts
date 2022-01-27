@@ -1,11 +1,17 @@
 import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
+import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 
 export class Team extends BaseModel {
   @IsNotEmpty()
+  // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
   public name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  public nickname: string;
 
   @IsOptional()
   @IsString()
@@ -34,10 +40,11 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(name: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string) {
+  constructor(nickname: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string) {
     super();
 
-    this.name = name;
+    this.nickname = nickname;
+    this.name = slugify(nickname);
     this.avatar_url = avatar_url;
     this.bio = bio;
     this.link = link;
