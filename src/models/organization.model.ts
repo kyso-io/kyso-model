@@ -43,11 +43,17 @@ export class Organization extends BaseModel {
   public allowGoogleLogin: boolean;
 
   constructor(nickname: string, legal_name: string, roles: KysoRole[], allowed_access_domains: string[],
-    billingEmail: string, stripe_subscription_id: string, tax_identifier: string, allowGoogleLogin: boolean, id?: string) {
+    billingEmail: string, stripe_subscription_id: string, tax_identifier: string, allowGoogleLogin: boolean, id?: string, name?: string) {
     super();
 
     this.nickname = nickname;
-    this.name = slugify(nickname)
+    
+    if(name) {
+      this.name = name
+    } else {
+      this.name = slugify(nickname)
+    }
+    
     this.legal_name = legal_name;
     this.roles = roles;
     this.allowed_access_domains = allowed_access_domains;

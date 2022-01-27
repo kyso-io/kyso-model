@@ -40,11 +40,17 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(nickname: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string) {
+  constructor(nickname: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string, name?: string) {
     super();
 
     this.nickname = nickname;
-    this.name = slugify(nickname);
+    
+    if(name) {
+      this.name = name;
+    } else {
+      this.name = slugify(nickname);
+    }
+    
     this.avatar_url = avatar_url;
     this.bio = bio;
     this.link = link;
