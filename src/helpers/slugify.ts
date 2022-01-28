@@ -1,4 +1,5 @@
 
+import { randomUUID } from 'crypto'
 import slugify from 'slugify'
 
 export default function slug(url: string) {
@@ -10,6 +11,7 @@ export default function slug(url: string) {
       trim: true  
     })
   } else {
-    return undefined
+    // Set a random UUID if nothing comes. This is unlikely, but...
+    return randomUUID()
   }  
 }

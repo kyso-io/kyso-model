@@ -1,4 +1,5 @@
 import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { randomUUID } from 'crypto';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
@@ -48,7 +49,12 @@ export class Team extends BaseModel {
     if(name) {
       this.name = name;
     } else {
-      this.name = slugify(nickname);
+      if(nickname) {
+        this.name = slugify(nickname);
+      } else {
+        this.name = randomUUID()
+      }
+      
     }
     
     this.avatar_url = avatar_url;
