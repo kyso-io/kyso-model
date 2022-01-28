@@ -8,6 +8,9 @@ export class UserAccount {
   @IsNotEmpty()
   public accountId: string | null;
 
+  @IsNotEmpty()
+  public username: string | null;
+
   @IsOptional()
   public accessToken: string | null;
 
@@ -16,6 +19,7 @@ export class UserAccount {
 
   constructor() {
     this.type = LoginProviderEnum.KYSO;
+    this.username = null;
     this.accountId = null;
     this.payload = null;
     this.accessToken = null;
