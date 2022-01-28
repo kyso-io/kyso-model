@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class KysoConfigFile {
   @IsString()
@@ -19,13 +19,18 @@ export class KysoConfigFile {
   @IsString()
   public importPath: string;
 
-  constructor(main: string, title: string, description: string, organization: string, team: string, importPath: string) {
+  @IsOptional()
+  @IsString({ each: true })
+  public tags: string[];
+
+  constructor(main: string, title: string, description: string, organization: string, team: string, importPath: string, tags: string[]) {
     this.main = main;
     this.title = title;
     this.description = description;
     this.organization = organization;
     this.team = team;
     this.importPath = importPath;
+    this.tags = tags || [];
   }
 
   static isValid(data: any): boolean {
