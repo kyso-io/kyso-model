@@ -54,7 +54,6 @@ export class Team extends BaseModel {
       } else {
         this.name = randomUUID()
       }
-      
     }
     
     this.avatar_url = avatar_url;

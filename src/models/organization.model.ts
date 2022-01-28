@@ -2,6 +2,7 @@ import { IsArray, IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validat
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 import slugify from '../helpers/slugify';
+import { randomUUID } from 'crypto';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
@@ -49,9 +50,13 @@ export class Organization extends BaseModel {
     this.nickname = nickname;
     
     if(name) {
-      this.name = name
+      this.name = name;
     } else {
-      this.name = slugify(nickname)
+      if(nickname) {
+        this.name = slugify(nickname);
+      } else {
+        this.name = randomUUID()
+      }
     }
     
     this.legal_name = legal_name;
