@@ -27,4 +27,21 @@ export class KysoConfigFile {
     this.team = team;
     this.importPath = importPath;
   }
+
+  static isValid(data: any): boolean {
+    return (
+      data?.main &&
+      data.main.length > 0 &&
+      data?.title &&
+      data.title.length > 0 &&
+      data?.description &&
+      data.description.length > 0 &&
+      data?.organization &&
+      data.organization.length > 0 &&
+      data?.team &&
+      data.team.length > 0 &&
+      data?.importPath &&
+      data.importPath.length > 0
+    );
+  }
 }
