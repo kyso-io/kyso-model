@@ -16,11 +16,15 @@ export class KysoConfigFile {
   @IsString()
   public team: string;
 
-  constructor(main: string, title: string, description: string, organization: string, team: string) {
+  @IsString()
+  public importPath: string;
+
+  constructor(main: string, title: string, description: string, organization: string, team: string, importPath: string) {
     this.main = main;
     this.title = title;
     this.description = description;
     this.organization = organization;
     this.team = team;
+    this.importPath = importPath;
   }
 }
