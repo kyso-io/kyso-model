@@ -1,3 +1,4 @@
+import { ReportStatus } from '../enums/report-status.enum';
 import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
 import { Hateoas } from '../models/hateoas.model';
@@ -19,6 +20,7 @@ export class ReportDTO extends BaseModel {
   public team_id: string;
   public title: string;
   public author_ids: string[];
+  public status: ReportStatus;
 
   constructor(
     id: string,
@@ -40,7 +42,8 @@ export class ReportDTO extends BaseModel {
     comments: Comment[],
     team_id: string,
     title: string,
-    author_ids: string[]
+    author_ids: string[],
+    status: ReportStatus,
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -59,6 +62,7 @@ export class ReportDTO extends BaseModel {
     this.team_id = team_id;
     this.title = title;
     this.author_ids = author_ids;
+    this.status = status;
   }
 
   public buildHatoes(relations?: any) {
