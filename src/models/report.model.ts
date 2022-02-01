@@ -1,3 +1,4 @@
+import { ReportStatus } from '../enums/report-status.enum';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { BaseModel } from './base.model';
 
@@ -17,6 +18,7 @@ export class Report extends BaseModel {
   public team_id: string;
   public title: string;
   public author_ids: string[];
+  public status: ReportStatus;
 
   constructor(
     name: string,
@@ -50,5 +52,6 @@ export class Report extends BaseModel {
     this.team_id = team_id;
     this.title = title;
     this.author_ids = author_ids;
+    this.status = ReportStatus.Processing;
   }
 }
