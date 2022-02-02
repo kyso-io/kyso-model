@@ -16,6 +16,7 @@ export * from './dtos/update-report-request.dto';
 export * from './dtos/update-team-members.dto';
 export * from './dtos/update-user-request.dto';
 export * from './dtos/user-role.dto';
+export * from './dtos/user.dto';
 // ENUMS
 export * from './enums/comment-permissions.enum';
 export * from './enums/discussion-permissions.enum';
