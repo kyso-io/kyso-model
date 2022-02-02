@@ -7,6 +7,10 @@ export class Token {
 
   @IsNotEmpty()
   @IsAlphanumeric()
+  public name: string;
+
+  @IsNotEmpty()
+  @IsAlphanumeric()
   public username: string;
 
   @IsAlphanumeric()
@@ -29,8 +33,9 @@ export class Token {
   @IsNotEmpty()
   public avatar_url: string;
 
-  constructor(id: string, username: string, nickname: string, email: string, plan: string, permissions: TokenPermissions, avatar_url: string) {
+  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, permissions: TokenPermissions, avatar_url: string) {
     this.id = id;
+    this.name = name;
     this.nickname = nickname;
     this.username = username;
     this.email = email;
