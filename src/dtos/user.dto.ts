@@ -44,7 +44,7 @@ export class UserDTO {
     this.avatar_url = avatar_url
   }
 
-  public static fromUser(user: User) {
+  public static fromUser(user: User): UserDTO {
     return new UserDTO(
       user.id ? user.id : "null",
       user.email,
@@ -55,5 +55,9 @@ export class UserDTO {
       user.plan,
       user.avatar_url
     )
+  }
+
+  public static fromUserArray(user: User[]): UserDTO[] {
+    return user.map(x => UserDTO.fromUser(x))
   }
 }
