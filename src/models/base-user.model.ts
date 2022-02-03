@@ -1,4 +1,4 @@
-import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsUrl, Length } from 'class-validator';
+import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsString, IsUrl, Length } from 'class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseModel } from './base.model';
@@ -23,6 +23,12 @@ export class BaseUser extends BaseModel {
   @Length(0, 500)
   public bio: string;
 
+  @IsString()
+  public location: string;
+
+  @IsString()
+  public link: string;
+
   @IsAlphanumeric()
   @IsNotEmpty()
   public plan: string;
@@ -45,6 +51,8 @@ export class BaseUser extends BaseModel {
     nickname: string,
     provider: LoginProviderEnum,
     bio: string,
+    location: string,
+    link: string,
     plan: string,
     avatarUrl: string,
     emailVerified: boolean,
@@ -58,6 +66,8 @@ export class BaseUser extends BaseModel {
     this.nickname = nickname;
     this.provider = provider;
     this.bio = bio;
+    this.location = location;
+    this.link = link;
     this.plan = plan;
     this.avatar_url = avatarUrl;
     this.email_verified = emailVerified;

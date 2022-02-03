@@ -1,8 +1,8 @@
-import { IsArray, IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { randomUUID } from 'crypto';
+import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
-import slugify from '../helpers/slugify';
-import { randomUUID } from 'crypto';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
@@ -23,9 +23,9 @@ export class Organization extends BaseModel {
 
   @IsArray()
   /**
-   * means the list of access domain a company set so only the users with that access domain can access to kyso. 
+   * means the list of access domain a company set so only the users with that access domain can access to kyso.
    * like [yahoo.com, kyso.io]
-   * 
+   *
    * If empty, allowed all domains
    */
   public allowed_access_domains: string[];
@@ -36,29 +36,55 @@ export class Organization extends BaseModel {
 
   @IsString()
   public stripe_subscription_id: string;
-  
+
   @IsString()
   public tax_identifier: string;
 
   @IsBoolean()
   public allowGoogleLogin: boolean;
 
-  constructor(nickname: string, legal_name: string, roles: KysoRole[], allowed_access_domains: string[],
-    billingEmail: string, stripe_subscription_id: string, tax_identifier: string, allowGoogleLogin: boolean, id?: string, name?: string) {
+  @IsOptional()
+  public location: string;
+
+  @IsOptional()
+  public link: string;
+
+  @IsOptional()
+  public bio: string;
+  
+  @IsOptional()
+  public avatar_url: string;
+
+  constructor(
+    nickname: string,
+    legal_name: string,
+    roles: KysoRole[],
+    allowed_access_domains: string[],
+    billingEmail: string,
+    stripe_subscription_id: string,
+    tax_identifier: string,
+    allowGoogleLogin: boolean,
+    location: string,
+    link: string,
+    bio: string,
+    avatar_url: string,
+    id?: string,
+    name?: string
+  ) {
     super();
 
     this.nickname = nickname;
-    
-    if(name) {
+
+    if (name) {
       this.name = name;
     } else {
-      if(nickname) {
+      if (nickname) {
         this.name = slugify(nickname);
       } else {
-        this.name = randomUUID()
+        this.name = randomUUID();
       }
     }
-    
+
     this.legal_name = legal_name;
     this.roles = roles;
     this.allowed_access_domains = allowed_access_domains;
@@ -66,6 +92,10 @@ export class Organization extends BaseModel {
     this.stripe_subscription_id = stripe_subscription_id;
     this.allowGoogleLogin = allowGoogleLogin;
     this.tax_identifier = tax_identifier;
+    this.location = location;
+    this.link = link;
+    this.bio = bio;
+    this.avatar_url = avatar_url;
 
     if (id) {
       this.id = id;

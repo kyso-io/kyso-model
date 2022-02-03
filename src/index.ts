@@ -12,6 +12,7 @@ export * from './dtos/report.dto';
 export * from './dtos/tag-request.dto';
 export * from './dtos/update-discussion-request.dto';
 export * from './dtos/update-organization-members.dto';
+export * from './dtos/update-organization.dto';
 export * from './dtos/update-report-request.dto';
 export * from './dtos/update-team-members.dto';
 export * from './dtos/update-user-request.dto';
