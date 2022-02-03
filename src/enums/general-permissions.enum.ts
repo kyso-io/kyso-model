@@ -1,3 +1,4 @@
+import { DiscussionPermissionsEnum } from '..';
 import { CommentPermissionsEnum, commentPermissionsEnumsList } from './comment-permissions.enum';
 import { GithubRepoPermissionsEnum } from './github-repos-permissions.enum';
 import { OrganizationPermissionsEnum, organizationPermissionsEnumList } from './organization-permissions.enum';
@@ -18,7 +19,8 @@ export type KysoPermissions =
   | ReportPermissionsEnum
   | TeamPermissionsEnum
   | UserPermissionsEnum
-  | GithubRepoPermissionsEnum;
+  | GithubRepoPermissionsEnum
+  | DiscussionPermissionsEnum;
 
 export const kysoPermissionsList: KysoPermissions[] = [
   ...globalPermissionsEnumList,
