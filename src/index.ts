@@ -24,6 +24,7 @@ export * from './enums/comment-permissions.enum';
 export * from './enums/discussion-permissions.enum';
 export * from './enums/general-permissions.enum';
 export * from './enums/github-repos-permissions.enum';
+export * from './enums/invitation-status.enum';
 export * from './enums/invitation-type.enum';
 export * from './enums/login-provider.enum';
 export * from './enums/organization-permissions.enum';
