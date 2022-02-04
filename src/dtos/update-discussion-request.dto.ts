@@ -1,4 +1,5 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
+import { Discussion } from '..';
 
 export class UpdateDiscussionRequestDTO {
   @IsBoolean()
@@ -65,5 +66,11 @@ export class UpdateDiscussionRequestDTO {
     this.team_id = team_id;
     this.title = title;
     this.url_name = url_name;
+  }
+
+  static fromDiscussion(discussion: Discussion): UpdateDiscussionRequestDTO {
+    return new UpdateDiscussionRequestDTO(discussion.answered, discussion.assignees, discussion.closed,
+      discussion.description, discussion.discussion_number, discussion.edited, discussion.main, discussion.participants,
+      discussion.private, discussion.team_id, discussion.title, discussion.url_name)
   }
 }
