@@ -1,6 +1,6 @@
 {
   "name": "@kyso-io/kyso-model",
-  "version": "0.0.4",
+  "version": "0.0.71",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
