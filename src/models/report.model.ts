@@ -19,6 +19,7 @@ export class Report extends BaseModel {
   public title: string;
   public author_ids: string[];
   public status: ReportStatus;
+  public preview_picture: string;
 
   constructor(
     name: string,
@@ -34,7 +35,8 @@ export class Report extends BaseModel {
     user_id: string,
     team_id: string,
     title: string,
-    author_ids: string[]
+    author_ids: string[],
+    preview_picture: string,
   ) {
     super();
     this.name = name;
@@ -53,5 +55,6 @@ export class Report extends BaseModel {
     this.title = title;
     this.author_ids = author_ids;
     this.status = ReportStatus.Processing;
+    this.preview_picture = preview_picture;
   }
 }
