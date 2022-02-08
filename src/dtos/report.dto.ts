@@ -21,6 +21,7 @@ export class ReportDTO extends BaseModel {
   public title: string;
   public author_ids: string[];
   public status: ReportStatus;
+  public preview_picture: string;
 
   constructor(
     id: string,
@@ -44,6 +45,7 @@ export class ReportDTO extends BaseModel {
     title: string,
     author_ids: string[],
     status: ReportStatus,
+    preview_picture: string,
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -63,6 +65,7 @@ export class ReportDTO extends BaseModel {
     this.title = title;
     this.author_ids = author_ids;
     this.status = status;
+    this.preview_picture = preview_picture;
   }
 
   public buildHatoes(relations?: any) {
