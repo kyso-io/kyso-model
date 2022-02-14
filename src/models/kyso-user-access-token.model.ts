@@ -1,12 +1,8 @@
 import { Exclude } from 'class-transformer';
-import { IsAlphanumeric, IsArray, IsDate, IsEnum, IsMongoId, IsNumber, IsOptional, IsString } from 'class-validator';
-import { BaseModel, User } from '..';
-import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
-import { GlobalPermissionsEnum, KysoPermissions } from '../enums/general-permissions.enum';
+import { IsArray, IsDate, IsEnum, IsMongoId, IsNumber, IsString } from 'class-validator';
+import { KysoPermissions } from '../enums/general-permissions.enum';
 import { KysoUserAccessTokenStatus } from '../enums/kyso-user-access-token-status.enum';
-import { LoginProviderEnum } from '../enums/login-provider.enum';
-import { BaseUser } from './base-user.model';
-import { UserAccount } from './user-account.model';
+import { BaseModel } from './base.model';
 
 export class KysoUserAccessToken extends BaseModel {
   @IsMongoId()
