@@ -1,4 +1,4 @@
-import { IsArray, IsDate, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsArray, IsDate, IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { KysoPermissions } from '..';
 
 export class CreateKysoAccessTokenDto {
@@ -13,7 +13,7 @@ export class CreateKysoAccessTokenDto {
   public scope: KysoPermissions[];
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   public expiration_date?: Date
 
   constructor(user_id: string, name: string, scope: KysoPermissions[], expiration_date?: Date) {
