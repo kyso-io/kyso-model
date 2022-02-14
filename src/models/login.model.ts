@@ -1,9 +1,9 @@
-import { IsEnum, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsObject, IsOptional, ValidateIf } from 'class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 
 export class Login {
   @IsNotEmpty()
-  public username?: string;
+  public username: string;
 
   @IsOptional()
   @IsNotEmpty()
@@ -12,6 +12,8 @@ export class Login {
   @IsEnum(LoginProviderEnum)
   public provider: LoginProviderEnum;
 
+  @ValidateIf((o: Login) => o?.payload && o.payload !== null)
+  @IsObject()
   public payload: any;
 
   constructor(password: string, provider: LoginProviderEnum, username: string, payload: any) {
