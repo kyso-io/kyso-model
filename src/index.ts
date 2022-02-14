@@ -2,6 +2,7 @@
 export * from './dtos/base-filter.dto';
 export * from './dtos/batch-report-creation-response.dto';
 export * from './dtos/create-discussion-request.dto';
+export * from './dtos/create-kyso-access-token-request.dto';
 export * from './dtos/create-invitation.dto';
 export * from './dtos/create-kyso-report.dto';
 export * from './dtos/create-report-request.dto';
