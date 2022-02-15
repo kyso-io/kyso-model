@@ -38,6 +38,7 @@ export * from './enums/team-permissions.enum';
 export * from './enums/team-visibility.enum';
 export * from './enums/user-permissions.enum';
 // MODELS
+export * from './models/auth-provider/pingid-saml-spec.model';
 export * from './models/action-with-payload.model';
 export * from './models/api-error.model';
 export * from './models/auth-provider-spec.model';
