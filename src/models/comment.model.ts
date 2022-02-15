@@ -29,6 +29,8 @@ export class Comment extends BaseModel {
   @IsMongoId()
   public discussion_id?: string;
 
+  public mark_delete_at: Date | null;
+
   constructor(text: string, user_id: string, report_id: string, discussion_id: string, comment_id: string) {
     super();
     this.text = text;
@@ -38,5 +40,6 @@ export class Comment extends BaseModel {
     this.comment_id = comment_id;
     this.marked = false;
     this.edited = false;
+    this.mark_delete_at = null;
   }
 }
