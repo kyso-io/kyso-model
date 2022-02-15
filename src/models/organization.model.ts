@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto';
 import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
+import { OrganizationOptions } from './organization-options.model';
 
 export class Organization extends BaseModel {
   @IsNotEmpty()
@@ -55,6 +56,9 @@ export class Organization extends BaseModel {
   @IsOptional()
   public avatar_url: string;
 
+  @IsOptional()
+  public options: OrganizationOptions
+
   constructor(
     nickname: string,
     legal_name: string,
@@ -69,7 +73,8 @@ export class Organization extends BaseModel {
     bio: string,
     avatar_url: string,
     id?: string,
-    name?: string
+    name?: string,
+    options?: OrganizationOptions
   ) {
     super();
 
@@ -96,6 +101,10 @@ export class Organization extends BaseModel {
     this.link = link;
     this.bio = bio;
     this.avatar_url = avatar_url;
+    
+    if(options) {
+      this.options = options
+    }
 
     if (id) {
       this.id = id;

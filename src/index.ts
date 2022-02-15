@@ -40,6 +40,7 @@ export * from './enums/user-permissions.enum';
 // MODELS
 export * from './models/action-with-payload.model';
 export * from './models/api-error.model';
+export * from './models/auth-provider-spec.model';
 export * from './models/base-role.model';
 export * from './models/base-user.model';
 export * from './models/base.model';
@@ -60,8 +61,10 @@ export * from './models/kyso-config-file.model';
 export * from './models/kyso-role.model';
 export * from './models/kyso-user-access-token.model';
 export * from './models/login.model';
+export * from './models/organization-auth-options.model';
 export * from './models/organization-member-join.model';
 export * from './models/organization-member.model';
+export * from './models/organization-options.model';
 export * from './models/organization.model';
 export * from './models/pinned-report.model';
 export * from './models/relation.model';
