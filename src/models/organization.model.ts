@@ -57,7 +57,7 @@ export class Organization extends BaseModel {
   public avatar_url: string;
 
   @IsOptional()
-  public options: OrganizationOptions
+  public options?: OrganizationOptions
 
   constructor(
     nickname: string,
