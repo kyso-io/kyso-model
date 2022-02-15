@@ -56,8 +56,8 @@ export class Organization extends BaseModel {
   @IsOptional()
   public avatar_url: string;
 
-  @IsOptional()
-  public options?: OrganizationOptions
+  
+  public options: OrganizationOptions
 
   constructor(
     nickname: string,
@@ -104,6 +104,8 @@ export class Organization extends BaseModel {
     
     if(options) {
       this.options = options
+    } else {
+      this.options = { }
     }
 
     if (id) {
