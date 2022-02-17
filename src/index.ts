@@ -58,6 +58,7 @@ export * from './models/github-file-hash.model';
 export * from './models/github-repository.model';
 export * from './models/hateoas.model';
 export * from './models/invitation.model';
+export * from './models/kyso-data-model-version.model';
 export * from './models/kyso-config-file.model';
 export * from './models/kyso-role.model';
 export * from './models/kyso-user-access-token.model';
