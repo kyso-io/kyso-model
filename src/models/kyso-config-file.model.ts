@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
 
 export class KysoConfigFile {
   @IsString()
@@ -22,6 +22,14 @@ export class KysoConfigFile {
   @IsOptional()
   @IsString({ each: true })
   public tags: string[];
+
+  @IsOptional()
+  @IsBoolean()
+  public hideRoot?: boolean;
+
+  @IsArray()
+  @IsString({ each: true })
+  public reports?: string[];
 
   constructor(main: string, title: string, description: string, organization: string, team: string, importPath: string, tags: string[]) {
     this.main = main;
