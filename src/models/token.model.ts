@@ -1,4 +1,5 @@
 import { IsAlphanumeric, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
+import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { TokenPermissions } from './token-permissions.model';
 
 export class Token {
@@ -60,5 +61,13 @@ export class Token {
     this.location = location;
     this.link = link;
     this.bio = bio;
+  }
+
+  isGlobalAdmin(): boolean {
+    if(this.permissions && this.permissions.global && this.permissions.global.findIndex(x => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
+      return true
+    } else {
+      return false
+    }
   }
 }
