@@ -25,6 +25,10 @@ export class Token {
   @IsAlphanumeric()
   public plan: string;
 
+  @IsOptional()
+  @IsObject()
+  public permissions?: TokenPermissions;
+
   @IsUrl()
   @IsNotEmpty()
   public avatar_url: string;
@@ -38,13 +42,20 @@ export class Token {
   @IsOptional()
   public bio: string;
 
-  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, avatar_url: string, location: string, link: string, bio: string) {
+  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, avatar_url: string, location: string, link: string, bio: string, permissions?: TokenPermissions) {
     this.id = id;
     this.name = name;
     this.nickname = nickname;
     this.username = username;
     this.email = email;
     this.plan = plan;
+    
+    if(permissions) {
+      this.permissions = permissions;
+    } else {
+      this.permissions = {}
+    }
+    
     this.avatar_url = avatar_url;
     this.location = location;
     this.link = link;
