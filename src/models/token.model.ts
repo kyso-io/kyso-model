@@ -63,7 +63,7 @@ export class Token {
     this.bio = bio;
   }
 
-  isGlobalAdmin(): boolean {
+  public isGlobalAdmin(): boolean {
     if(this.permissions && this.permissions.global && this.permissions.global.findIndex(x => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
       return true
     } else {
