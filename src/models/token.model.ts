@@ -38,14 +38,13 @@ export class Token {
   @IsOptional()
   public bio: string;
 
-  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, permissions: TokenPermissions, avatar_url: string, location: string, link: string, bio: string) {
+  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, avatar_url: string, location: string, link: string, bio: string) {
     this.id = id;
     this.name = name;
     this.nickname = nickname;
     this.username = username;
     this.email = email;
     this.plan = plan;
-    this.permissions = permissions;
     this.avatar_url = avatar_url;
     this.location = location;
     this.link = link;
