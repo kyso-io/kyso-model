@@ -25,10 +25,6 @@ export class Token {
   @IsAlphanumeric()
   public plan: string;
 
-  @IsNotEmpty()
-  @IsObject()
-  public permissions: TokenPermissions;
-
   @IsUrl()
   @IsNotEmpty()
   public avatar_url: string;
