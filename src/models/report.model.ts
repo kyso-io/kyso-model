@@ -7,6 +7,7 @@ export class Report extends BaseModel {
   public provider_id: string | null;
   public hook_id: string | null;
   public provider: RepositoryProvider;
+  public name_provider: string;
   public username_provider: string;
   public default_branch: string;
   public path: string;
@@ -26,6 +27,7 @@ export class Report extends BaseModel {
     provider_id: string | null,
     hook_id: string | null,
     provider: RepositoryProvider,
+    name_provider: string,
     username_provider: string,
     default_branch: string,
     path: string,
@@ -43,6 +45,7 @@ export class Report extends BaseModel {
     this.provider_id = provider_id;
     this.hook_id = hook_id;
     this.provider = provider;
+    this.name_provider = name_provider;
     this.username_provider = username_provider;
     this.default_branch = default_branch;
     this.path = path;
