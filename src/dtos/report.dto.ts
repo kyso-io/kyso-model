@@ -1,3 +1,4 @@
+import { RepositoryProvider } from '..';
 import { ReportStatus } from '../enums/report-status.enum';
 import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
@@ -7,7 +8,8 @@ export class ReportDTO extends BaseModel {
   public name: string;
   public report_type: string;
   public views: number;
-  public provider: any;
+  public provider: RepositoryProvider;
+  public name_provider: string;
   public pin: boolean;
   public user_pin: boolean;
   public stars: number;
@@ -32,6 +34,7 @@ export class ReportDTO extends BaseModel {
     report_type: string,
     views: number,
     provider: any,
+    name_provider: string,
     pin: boolean,
     user_pin: boolean,
     stars: number,
@@ -52,6 +55,7 @@ export class ReportDTO extends BaseModel {
     this.report_type = report_type;
     this.views = views;
     this.provider = provider;
+    this.name_provider = name_provider;
     this.pin = pin;
     this.user_pin = user_pin;
     this.stars = stars;
