@@ -1,4 +1,5 @@
 import { IsAlphanumeric, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
+import { LoginProviderEnum } from '..';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { TokenPermissions } from './token-permissions.model';
 
@@ -43,31 +44,55 @@ export class Token {
   @IsOptional()
   public bio: string;
 
-  constructor(id: string, name: string, username: string, nickname: string, email: string, plan: string, avatar_url: string, location: string, link: string, bio: string, permissions?: TokenPermissions) {
+  public accounts: {
+    type: LoginProviderEnum;
+    accountId: string;
+    username: string;
+  }[];
+
+  constructor(
+    id: string,
+    name: string,
+    username: string,
+    nickname: string,
+    email: string,
+    plan: string,
+    avatar_url: string,
+    location: string,
+    link: string,
+    bio: string,
+    accounts: {
+      type: LoginProviderEnum;
+      accountId: string;
+      username: string;
+    }[],
+    permissions?: TokenPermissions
+  ) {
     this.id = id;
     this.name = name;
     this.nickname = nickname;
     this.username = username;
     this.email = email;
     this.plan = plan;
-    
-    if(permissions) {
+
+    if (permissions) {
       this.permissions = permissions;
     } else {
-      this.permissions = {}
+      this.permissions = {};
     }
-    
+
     this.avatar_url = avatar_url;
     this.location = location;
     this.link = link;
     this.bio = bio;
+    this.accounts = accounts;
   }
 
   public isGlobalAdmin(): boolean {
-    if(this.permissions && this.permissions.global && this.permissions.global.findIndex(x => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
-      return true
+    if (this.permissions && this.permissions.global && this.permissions.global.findIndex(x => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
+      return true;
     } else {
-      return false
+      return false;
     }
   }
 }
