@@ -28,7 +28,7 @@ export class User extends BaseUser {
     email: string,
     username: string,
     name: string,
-    nickname: string,
+    display_name: string,
     provider: LoginProviderEnum,
     bio: string,
     location: string,
@@ -42,7 +42,7 @@ export class User extends BaseUser {
     _id?: string,
     _email_verify_token?: string
   ) {
-    super(email, username, name, nickname, provider, bio, location, link, plan, avatarUrl, emailVerified, global_permissions, _id);
+    super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, emailVerified, global_permissions, _id);
 
     this.hashed_password = hashed_password;
     this.accessToken = access_token;
@@ -62,7 +62,7 @@ export class User extends BaseUser {
       request.email,
       request.username,
       request.name,
-      request.nickname,
+      request.display_name,
       request.provider,
       request.bio,
       request.location,

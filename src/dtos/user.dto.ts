@@ -20,7 +20,7 @@ export class UserDTO {
 
   @IsString()
   @IsNotEmpty()
-  public nickname: string;
+  public display_name: string;
 
   @IsString()
   public bio: string;
@@ -42,12 +42,12 @@ export class UserDTO {
   @IsDate()
   public created_at: Date;
 
-  constructor(id: string, email: string, username: string, name: string, nickname: string, bio: string, location: string, link: string, plan: string, avatar_url: string, created_at: Date) {
+  constructor(id: string, email: string, username: string, name: string, display_name: string, bio: string, location: string, link: string, plan: string, avatar_url: string, created_at: Date) {
     this.id = id;
     this.email = email;
     this.username = username;
     this.name = name;
-    this.nickname = nickname;
+    this.display_name = display_name;
     this.bio = bio;
     this.location = location;
     this.link = link;
@@ -57,7 +57,7 @@ export class UserDTO {
   }
 
   public static fromUser(user: User): UserDTO {
-    return new UserDTO(user.id ? user.id : 'null', user.email, user.username, user.name, user.nickname, user.bio, user.location, user.link, user.plan, user.avatar_url, user.created_at!);
+    return new UserDTO(user.id ? user.id : 'null', user.email, user.username, user.name, user.display_name, user.bio, user.location, user.link, user.plan, user.avatar_url, user.created_at!);
   }
 
   public static fromUserArray(user: User[]): UserDTO[] {
