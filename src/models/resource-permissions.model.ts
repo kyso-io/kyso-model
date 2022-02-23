@@ -3,7 +3,7 @@ import { KysoPermissions, kysoPermissionsList } from '../enums/general-permissio
 export class ResourcePermissions {
   public name: string;
 
-  public nickname: string;
+  public display_name: string;
 
   public id: string;
 
@@ -13,9 +13,9 @@ export class ResourcePermissions {
 
   public organization_id?: string;
 
-  constructor(name: string, nickname: string, permissions: KysoPermissions[], id: string, organization_inherited: boolean, organization_id: string) {
+  constructor(name: string, display_name: string, permissions: KysoPermissions[], id: string, organization_inherited: boolean, organization_id: string) {
     this.name = name;
-    this.nickname = nickname;
+    this.display_name = display_name;
     this.permissions = permissions;
     this.id = id;
     this.organization_inherited = organization_inherited;
