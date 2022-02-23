@@ -15,7 +15,7 @@ export class BaseUser extends BaseModel {
   public name: string;
 
   @IsNotEmpty()
-  public nickname: string;
+  public display_name: string;
 
   @IsNotEmpty()
   public provider: LoginProviderEnum;
@@ -48,7 +48,7 @@ export class BaseUser extends BaseModel {
     email: string,
     username: string,
     name: string,
-    nickname: string,
+    display_name: string,
     provider: LoginProviderEnum,
     bio: string,
     location: string,
@@ -63,7 +63,7 @@ export class BaseUser extends BaseModel {
     this.email = email;
     this.username = username;
     this.name = name;
-    this.nickname = nickname;
+    this.display_name = display_name;
     this.provider = provider;
     this.bio = bio;
     this.location = location;

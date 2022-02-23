@@ -8,11 +8,11 @@ import { OrganizationOptions } from './organization-options.model';
 export class Organization extends BaseModel {
   @IsNotEmpty()
   // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
-  public name: string;
+  public sluglified_name: string;
 
   @IsNotEmpty()
   @IsString()
-  public nickname: string;
+  public display_name: string;
 
   @IsNotEmpty()
   public legal_name: string;
@@ -60,7 +60,7 @@ export class Organization extends BaseModel {
   public options: OrganizationOptions
 
   constructor(
-    nickname: string,
+    display_name: string,
     legal_name: string,
     roles: KysoRole[],
     allowed_access_domains: string[],
@@ -73,20 +73,20 @@ export class Organization extends BaseModel {
     bio: string,
     avatar_url: string,
     id?: string,
-    name?: string,
+    sluglified_name?: string,
     options?: OrganizationOptions
   ) {
     super();
 
-    this.nickname = nickname;
+    this.display_name = display_name;
 
-    if (name) {
-      this.name = name;
+    if (sluglified_name) {
+      this.sluglified_name = sluglified_name;
     } else {
-      if (nickname) {
-        this.name = slugify(nickname);
+      if (display_name) {
+        this.sluglified_name = slugify(display_name);
       } else {
-        this.name = randomUUID();
+        this.sluglified_name = randomUUID();
       }
     }
 

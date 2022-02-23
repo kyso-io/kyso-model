@@ -3,7 +3,7 @@ import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { BaseModel } from './base.model';
 
 export class Report extends BaseModel {
-  public name: string;
+  public sluglified_name: string;
   public provider_id: string | null;
   public hook_id: string | null;
   public provider: RepositoryProvider;
@@ -23,7 +23,7 @@ export class Report extends BaseModel {
   public preview_picture: string;
 
   constructor(
-    name: string,
+    sluglified_name: string,
     provider_id: string | null,
     hook_id: string | null,
     provider: RepositoryProvider,
@@ -41,7 +41,7 @@ export class Report extends BaseModel {
     preview_picture: string,
   ) {
     super();
-    this.name = name;
+    this.sluglified_name = sluglified_name;
     this.provider_id = provider_id;
     this.hook_id = hook_id;
     this.provider = provider;

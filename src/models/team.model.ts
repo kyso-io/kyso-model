@@ -8,11 +8,11 @@ import { KysoRole } from './kyso-role.model';
 export class Team extends BaseModel {
   @IsNotEmpty()
   // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
-  public name: string;
+  public sluglified_name: string;
 
   @IsNotEmpty()
   @IsString()
-  public nickname: string;
+  public display_name: string;
 
   @IsOptional()
   @IsString()
@@ -41,18 +41,18 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(nickname: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string, name?: string) {
+  constructor(display_name: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string, sluglified_name?: string) {
     super();
 
-    this.nickname = nickname;
+    this.display_name = display_name;
     
-    if(name) {
-      this.name = name;
+    if(sluglified_name) {
+      this.sluglified_name = sluglified_name;
     } else {
-      if(nickname) {
-        this.name = slugify(nickname);
+      if(display_name) {
+        this.sluglified_name = slugify(display_name);
       } else {
-        this.name = randomUUID()
+        this.sluglified_name = randomUUID()
       }
     }
     
