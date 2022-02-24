@@ -21,6 +21,8 @@ export class Report extends BaseModel {
   public author_ids: string[];
   public status: ReportStatus;
   public preview_picture: string;
+  public show_code: boolean;
+  public show_output: boolean;
 
   constructor(
     sluglified_name: string,
@@ -39,6 +41,8 @@ export class Report extends BaseModel {
     title: string,
     author_ids: string[],
     preview_picture: string,
+    show_code: boolean,
+    show_output: boolean,
   ) {
     super();
     this.sluglified_name = sluglified_name;
@@ -59,5 +63,7 @@ export class Report extends BaseModel {
     this.author_ids = author_ids;
     this.status = ReportStatus.Processing;
     this.preview_picture = preview_picture;
+    this.show_code = show_code;
+    this.show_output = show_output;
   }
 }
