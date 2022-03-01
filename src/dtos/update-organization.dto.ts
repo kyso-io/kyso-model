@@ -1,4 +1,6 @@
-import { IsArray, IsOptional, IsString } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { OrganizationOptions } from '../models/organization-options.model';
 
 export class UpdateOrganizationDTO {
   @IsOptional()
@@ -16,4 +18,9 @@ export class UpdateOrganizationDTO {
   @IsOptional()
   @IsArray()
   public allowed_access_domains!: string[];
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => OrganizationOptions)
+  public options!: OrganizationOptions;
 }

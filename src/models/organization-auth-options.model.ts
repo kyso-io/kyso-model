@@ -1,4 +1,5 @@
-import { IsArray, IsBoolean, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsArray, IsBoolean, IsOptional, ValidateNested } from 'class-validator';
 import { AuthProviderSpec } from './auth-provider-spec.model';
 
 export class OrganizationAuthOptions {
@@ -13,10 +14,12 @@ export class OrganizationAuthOptions {
   @IsBoolean()
   @IsOptional()
   public allow_login_with_github?: boolean;
-  
+
   @IsArray()
   @IsOptional()
+  // @ValidateNested({ each: true })
+  // @Type(() => AuthProviderSpec)
   public otherProviders?: AuthProviderSpec[];
-  
-  constructor() { }
+
+  constructor() {}
 }

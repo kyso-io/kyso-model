@@ -52,12 +52,12 @@ export class Organization extends BaseModel {
 
   @IsOptional()
   public bio: string;
-  
+
   @IsOptional()
   public avatar_url: string;
-
   
-  public options: OrganizationOptions
+  @IsOptional()
+  public options: OrganizationOptions;
 
   constructor(
     display_name: string,
@@ -101,11 +101,11 @@ export class Organization extends BaseModel {
     this.link = link;
     this.bio = bio;
     this.avatar_url = avatar_url;
-    
-    if(options) {
-      this.options = options
+
+    if (options) {
+      this.options = options;
     } else {
-      this.options = { }
+      this.options = {};
     }
 
     if (id) {
