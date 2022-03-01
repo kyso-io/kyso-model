@@ -63,6 +63,7 @@ export * from './models/invitation.model';
 export * from './models/kyso-config-file.model';
 export * from './models/kyso-data-model-version.model';
 export * from './models/kyso-role.model';
+export * from './models/kyso-setting.model';
 export * from './models/kyso-user-access-token.model';
 export * from './models/login.model';
 export * from './models/organization-auth-options.model';
