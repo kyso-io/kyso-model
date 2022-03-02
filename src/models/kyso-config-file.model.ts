@@ -16,9 +16,6 @@ export class KysoConfigFile {
   @IsString()
   public team: string;
 
-  @IsString()
-  public importPath: string;
-
   @IsOptional()
   @IsString({ each: true })
   public tags: string[];
@@ -31,13 +28,12 @@ export class KysoConfigFile {
   @IsString({ each: true })
   public reports?: string[];
 
-  constructor(main: string, title: string, description: string, organization: string, team: string, importPath: string, tags: string[]) {
+  constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[]) {
     this.main = main;
     this.title = title;
     this.description = description;
     this.organization = organization;
     this.team = team;
-    this.importPath = importPath;
     this.tags = tags || [];
   }
 
@@ -52,9 +48,7 @@ export class KysoConfigFile {
       data?.organization &&
       data.organization.length > 0 &&
       data?.team &&
-      data.team.length > 0 &&
-      data?.importPath &&
-      data.importPath.length > 0
+      data.team.length > 0
     );
   }
 }

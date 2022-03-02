@@ -1,4 +1,4 @@
-import { IsEnum, IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
 
 export class CreateReportDTO {
@@ -31,7 +31,12 @@ export class CreateReportDTO {
   @IsString()
   public description: string;
 
-  constructor(name: string, username_provider: string, provider: RepositoryProvider, default_branch: string, path: string, team_id: string, title: string, description: string) {
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  public main_file: string;
+
+  constructor(name: string, username_provider: string, provider: RepositoryProvider, default_branch: string, path: string, team_id: string, title: string, description: string, main_file: string) {
     this.name = name;
     this.username_provider = username_provider;
     this.provider = provider;
@@ -40,5 +45,6 @@ export class CreateReportDTO {
     this.team_id = team_id;
     this.title = title;
     this.description = description;
+    this.main_file = main_file;
   }
 }

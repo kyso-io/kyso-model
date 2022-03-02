@@ -23,6 +23,7 @@ export class Report extends BaseModel {
   public preview_picture: string;
   public show_code: boolean;
   public show_output: boolean;
+  public main_file: string;
 
   constructor(
     sluglified_name: string,
@@ -43,6 +44,7 @@ export class Report extends BaseModel {
     preview_picture: string,
     show_code: boolean,
     show_output: boolean,
+    main_file: string,
   ) {
     super();
     this.sluglified_name = sluglified_name;
@@ -65,5 +67,6 @@ export class Report extends BaseModel {
     this.preview_picture = preview_picture;
     this.show_code = show_code;
     this.show_output = show_output;
+    this.main_file = main_file;
   }
 }

@@ -28,7 +28,12 @@ export class CreateKysoReportDTO {
   @IsString({ each: true })
   public original_shas: string[];
 
-  constructor(title: string, organization: string, team: string, description: string, tags: string[], original_sizes: string[], original_names: string[], original_shas: string[]) {
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  public main_file: string;
+
+  constructor(title: string, organization: string, team: string, description: string, tags: string[], original_sizes: string[], original_names: string[], original_shas: string[], main_file: string) {
     this.title = title;
     this.organization = organization;
     this.team = team;
@@ -37,5 +42,6 @@ export class CreateKysoReportDTO {
     this.original_sizes = original_sizes;
     this.original_names = original_names;
     this.original_shas = original_shas;
+    this.main_file = main_file;
   }
 }
