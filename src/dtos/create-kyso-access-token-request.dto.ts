@@ -1,25 +1,15 @@
-import { IsArray, IsDate, IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
-import { KysoPermissions } from '..';
+import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateKysoAccessTokenDto {
   @IsNotEmpty()
-  public user_id: string;
-
-  @IsNotEmpty()
   public name: string;
-
-  @IsNotEmpty()
-  @IsArray()
-  public scope: KysoPermissions[];
 
   @IsOptional()
   @IsDateString()
-  public expiration_date?: Date
+  public expiration_date?: Date;
 
-  constructor(user_id: string, name: string, scope: KysoPermissions[], expiration_date?: Date) {
-    this.user_id = user_id
-    this.name = name
-    this.scope = scope
-    this.expiration_date = expiration_date
+  constructor(name: string, expiration_date?: Date) {
+    this.name = name;
+    this.expiration_date = expiration_date;
   }
 }
