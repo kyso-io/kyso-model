@@ -1,8 +1,8 @@
-import { IsEnum, IsNotEmpty, IsObject, IsOptional, ValidateIf } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsObject, IsOptional, IsString, ValidateIf } from 'class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 
 export class Login {
-  @IsNotEmpty()
+  @IsString()
   public username: string;
 
   @IsOptional()
