@@ -59,6 +59,9 @@ export class Organization extends BaseModel {
   @IsOptional()
   public options: OrganizationOptions;
 
+  @IsString()
+  public invitation_code: string;
+
   constructor(
     display_name: string,
     legal_name: string,
@@ -72,9 +75,10 @@ export class Organization extends BaseModel {
     link: string,
     bio: string,
     avatar_url: string,
+    invitation_code: string,
     id?: string,
     sluglified_name?: string,
-    options?: OrganizationOptions
+    options?: OrganizationOptions,
   ) {
     super();
 
@@ -101,6 +105,7 @@ export class Organization extends BaseModel {
     this.link = link;
     this.bio = bio;
     this.avatar_url = avatar_url;
+    this.invitation_code = invitation_code;
 
     if (options) {
       this.options = options;
