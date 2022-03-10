@@ -12,10 +12,10 @@ export class UserAccount {
   public username: string | null;
 
   @IsOptional()
-  public accessToken: string | null;
+  public accessToken?: string | null;
 
   @IsNotEmptyObject()
-  public payload: any;
+  public payload?: any;
 
   constructor() {
     this.type = LoginProviderEnum.KYSO;

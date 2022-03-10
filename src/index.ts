@@ -1,4 +1,5 @@
 // DTOS
+export * from './dtos/add-user-account.dto';
 export * from './dtos/add-user-organization.dto';
 export * from './dtos/base-filter.dto';
 export * from './dtos/batch-report-creation-response.dto';
