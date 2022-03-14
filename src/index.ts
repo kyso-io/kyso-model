@@ -36,6 +36,7 @@ export * from './enums/login-provider.enum';
 export * from './enums/organization-permissions.enum';
 export * from './enums/report-permissions.enum';
 export * from './enums/report-status.enum';
+export * from './enums/report-type.enum';
 export * from './enums/repository-provider.enum';
 export * from './enums/team-permissions.enum';
 export * from './enums/team-visibility.enum';

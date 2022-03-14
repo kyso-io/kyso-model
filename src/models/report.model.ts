@@ -1,4 +1,5 @@
 import { ReportStatus } from '../enums/report-status.enum';
+import { ReportType } from '../enums/report-type.enum';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { BaseModel } from './base.model';
 
@@ -11,7 +12,7 @@ export class Report extends BaseModel {
   public username_provider: string;
   public default_branch: string;
   public path: string;
-  public report_type: string;
+  public report_type: ReportType | null;
   public views: number;
   public pin: boolean;
   public description: string;
@@ -44,7 +45,7 @@ export class Report extends BaseModel {
     preview_picture: string,
     show_code: boolean,
     show_output: boolean,
-    main_file: string,
+    main_file: string
   ) {
     super();
     this.sluglified_name = sluglified_name;
@@ -55,7 +56,7 @@ export class Report extends BaseModel {
     this.username_provider = username_provider;
     this.default_branch = default_branch;
     this.path = path;
-    this.report_type = 'report';
+    this.report_type = null;
     this.views = views;
     this.pin = pin;
     this.description = description;

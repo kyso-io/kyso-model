@@ -54,7 +54,7 @@ export class ReportDTO extends BaseModel {
     preview_picture: string,
     show_code: boolean,
     show_output: boolean,
-    main_file: string,
+    main_file: string
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;

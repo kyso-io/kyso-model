@@ -36,7 +36,22 @@ export class CreateReportDTO {
   @IsNotEmpty()
   public main_file: string;
 
-  constructor(name: string, username_provider: string, provider: RepositoryProvider, default_branch: string, path: string, team_id: string, title: string, description: string, main_file: string) {
+  @IsOptional()
+  @IsString()
+  public type: string;
+
+  constructor(
+    name: string,
+    username_provider: string,
+    provider: RepositoryProvider,
+    default_branch: string,
+    path: string,
+    team_id: string,
+    title: string,
+    description: string,
+    main_file: string,
+    type: string
+  ) {
     this.name = name;
     this.username_provider = username_provider;
     this.provider = provider;
@@ -46,5 +61,6 @@ export class CreateReportDTO {
     this.title = title;
     this.description = description;
     this.main_file = main_file;
+    this.type = type;
   }
 }
