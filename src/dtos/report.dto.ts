@@ -1,4 +1,3 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { RepositoryProvider } from '..';
 import { ReportStatus } from '../enums/report-status.enum';
 import { BaseModel } from '../models/base.model';
@@ -6,7 +5,6 @@ import { Comment } from '../models/comment.model';
 import { Hateoas } from '../models/hateoas.model';
 
 export class ReportDTO extends BaseModel {
-  @ApiProperty()
   public name: string;
   public report_type: string;
   public views: number;
