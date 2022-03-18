@@ -11,6 +11,7 @@ export * from './dtos/create-report-request.dto';
 export * from './dtos/create-report.dto';
 export * from './dtos/create-ui-report.dto';
 export * from './dtos/create-user-request.dto';
+export * from './dtos/full-text-search.dto';
 export * from './dtos/normalized-response.dto';
 export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
