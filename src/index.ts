@@ -72,6 +72,7 @@ export * from './models/login.model';
 export * from './models/organization-auth-options.model';
 export * from './models/organization-member-join.model';
 export * from './models/organization-member.model';
+export * from './models/organization-notifications.model';
 export * from './models/organization-options.model';
 export * from './models/organization.model';
 export * from './models/pinned-report.model';
