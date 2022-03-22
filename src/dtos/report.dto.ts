@@ -29,6 +29,7 @@ export class ReportDTO extends BaseModel {
   public main_file: string;
   public main_file_hash: string;
   public main_file_version: number;
+  public last_version: number;
 
   constructor(
     id: string,
@@ -58,7 +59,8 @@ export class ReportDTO extends BaseModel {
     show_output: boolean,
     main_file: string,
     main_file_hash: string,
-    main_file_version: number
+    main_file_version: number,
+    last_version: number
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -85,6 +87,7 @@ export class ReportDTO extends BaseModel {
     this.main_file = main_file;
     this.main_file_hash = main_file_hash;
     this.main_file_version = main_file_version;
+    this.last_version = last_version;
   }
 
   public buildHatoes(relations?: any) {
