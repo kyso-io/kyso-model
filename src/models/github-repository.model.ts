@@ -5,7 +5,7 @@ export class GithubRepository {
   public fullName: string;
   public defaultBranch: string;
   public description: string;
-  public isPrivate: false;
+  public isPrivate: boolean;
   public language: null;
   public pushedAt: Date;
   constructor(id: number, owner: string, name: string, fullName: string, defaultBranch: string, description: string, isPrivate: false, language: null, pushedAt: Date) {

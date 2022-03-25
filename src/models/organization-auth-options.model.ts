@@ -14,6 +14,14 @@ export class OrganizationAuthOptions {
   @IsBoolean()
   @IsOptional()
   public allow_login_with_github?: boolean;
+  
+  @IsBoolean()
+  @IsOptional()
+  public allow_login_with_bitbucket?: boolean;
+  
+  @IsBoolean()
+  @IsOptional()
+  public allow_login_with_gitlab?: boolean;
 
   @IsArray()
   @IsOptional()
