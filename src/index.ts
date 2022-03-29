@@ -1,3 +1,5 @@
+// DECORATORS
+export * from './decorators/is-type';
 // DTOS
 export * from './dtos/add-user-account.dto';
 export * from './dtos/add-user-organization.dto';
