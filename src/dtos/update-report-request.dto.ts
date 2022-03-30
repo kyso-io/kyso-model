@@ -16,16 +16,21 @@ export class UpdateReportRequestDTO {
   @IsOptional()
   @IsBoolean()
   public show_output: boolean;
-  
+
   @IsOptional()
   @IsString()
   public main_file: string;
 
-  constructor(title: string, description: string, show_code: boolean, show_output: boolean, main_file: string) {
+  @IsOptional()
+  @IsString({ each: true })
+  public tags: string[];
+
+  constructor(title: string, description: string, show_code: boolean, show_output: boolean, main_file: string, tags: string[]) {
     this.title = title;
     this.description = description;
     this.show_code = show_code;
     this.show_output = show_output;
     this.main_file = main_file;
+    this.tags = tags || [];
   }
 }
