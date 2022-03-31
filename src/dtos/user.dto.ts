@@ -1,4 +1,4 @@
-import { IsDate, IsEmail, IsNotEmpty, IsString, IsUrl } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 import { User, UserAccount } from '..';
 
 export class UserDTO {
@@ -44,6 +44,12 @@ export class UserDTO {
 
   public accounts: UserAccount[];
 
+  @IsBoolean()
+  public email_verified: boolean;
+
+  @IsBoolean()
+  public show_captcha: boolean;
+
   constructor(
     id: string,
     email: string,
@@ -56,7 +62,9 @@ export class UserDTO {
     plan: string,
     avatar_url: string,
     created_at: Date,
-    accounts: UserAccount[]
+    accounts: UserAccount[],
+    email_verified: boolean,
+    show_captcha: boolean
   ) {
     this.id = id;
     this.email = email;
@@ -70,6 +78,8 @@ export class UserDTO {
     this.avatar_url = avatar_url;
     this.created_at = created_at;
     this.accounts = accounts;
+    this.email_verified = email_verified;
+    this.show_captcha = show_captcha;
   }
 
   public static fromUser(user: User): UserDTO {
@@ -85,7 +95,9 @@ export class UserDTO {
       user.plan,
       user.avatar_url,
       user.created_at!,
-      user.accounts
+      user.accounts,
+      user.email_verified,
+      user.show_captcha
     );
   }
 

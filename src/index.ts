@@ -26,6 +26,7 @@ export * from './dtos/update-team-members.dto';
 export * from './dtos/update-user-request.dto';
 export * from './dtos/user-role.dto';
 export * from './dtos/user.dto';
+export * from './dtos/verify-email-request.dto';
 // ENUMS
 export * from './enums/bitbucket-repos-permissions.enum';
 export * from './enums/comment-permissions.enum';
@@ -94,4 +95,5 @@ export * from './models/token-permissions.model';
 export * from './models/token.model';
 export * from './models/update-team-request.model';
 export * from './models/user-account.model';
+export * from './models/user-verification.model';
 export * from './models/user.model';

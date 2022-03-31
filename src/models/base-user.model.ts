@@ -39,6 +39,9 @@ export class BaseUser extends BaseModel {
 
   @IsBoolean()
   public email_verified: boolean;
+  
+  @IsBoolean()
+  public show_captcha: boolean;
 
   @IsArray()
   @IsEnum(GlobalPermissionsEnum, { each: true })
@@ -72,5 +75,6 @@ export class BaseUser extends BaseModel {
     this.avatar_url = avatarUrl;
     this.email_verified = emailVerified;
     this.global_permissions = global_permissions;
+    this.show_captcha = true;
   }
 }

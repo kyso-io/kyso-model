@@ -1,4 +1,4 @@
-import { IsAlphanumeric, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
+import { IsAlphanumeric, IsBoolean, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
 import { LoginProviderEnum } from '..';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { TokenPermissions } from './token-permissions.model';
@@ -44,6 +44,9 @@ export class Token {
   @IsOptional()
   public bio: string;
 
+  @IsBoolean()
+  public email_verified: boolean;
+
   public accounts: {
     type: LoginProviderEnum;
     accountId: string;
@@ -61,6 +64,7 @@ export class Token {
     location: string,
     link: string,
     bio: string,
+    email_verified: boolean,
     accounts: {
       type: LoginProviderEnum;
       accountId: string;
@@ -85,6 +89,7 @@ export class Token {
     this.location = location;
     this.link = link;
     this.bio = bio;
+    this.email_verified = email_verified;
     this.accounts = accounts;
   }
 

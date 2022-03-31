@@ -69,7 +69,7 @@ export class User extends BaseUser {
       request.link,
       request.plan,
       request.avatar_url,
-      request.email_verified,
+      false,
       request.global_permissions,
       '',
       ''
