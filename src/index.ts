@@ -26,6 +26,7 @@ export * from './dtos/update-team-members.dto';
 export * from './dtos/update-user-request.dto';
 export * from './dtos/user-role.dto';
 export * from './dtos/user.dto';
+export * from './dtos/verify-captcha-request.dto';
 export * from './dtos/verify-email-request.dto';
 // ENUMS
 export * from './enums/bitbucket-repos-permissions.enum';

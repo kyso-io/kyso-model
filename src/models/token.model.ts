@@ -46,6 +46,9 @@ export class Token {
 
   @IsBoolean()
   public email_verified: boolean;
+  
+  @IsBoolean()
+  public show_captcha: boolean;
 
   public accounts: {
     type: LoginProviderEnum;
@@ -65,6 +68,7 @@ export class Token {
     link: string,
     bio: string,
     email_verified: boolean,
+    show_captcha: boolean,
     accounts: {
       type: LoginProviderEnum;
       accountId: string;
@@ -90,6 +94,7 @@ export class Token {
     this.link = link;
     this.bio = bio;
     this.email_verified = email_verified;
+    this.show_captcha = show_captcha;
     this.accounts = accounts;
   }
 
