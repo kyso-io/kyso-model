@@ -32,6 +32,10 @@ export class KysoConfigFile {
   @IsString({ each: true })
   public reports?: string[];
 
+  @IsOptional()
+  @IsString()
+  public preview?: string;
+
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type: ReportType | null) {
     this.main = main;
     this.title = title;
