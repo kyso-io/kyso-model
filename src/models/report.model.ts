@@ -6,7 +6,6 @@ import { BaseModel } from './base.model';
 export class Report extends BaseModel {
   public sluglified_name: string;
   public provider_id: string | null;
-  public hook_id: string | null;
   public provider: RepositoryProvider;
   public name_provider: string;
   public username_provider: string;
@@ -29,7 +28,6 @@ export class Report extends BaseModel {
   constructor(
     sluglified_name: string,
     provider_id: string | null,
-    hook_id: string | null,
     provider: RepositoryProvider,
     name_provider: string,
     username_provider: string,
@@ -50,7 +48,6 @@ export class Report extends BaseModel {
     super();
     this.sluglified_name = sluglified_name;
     this.provider_id = provider_id;
-    this.hook_id = hook_id;
     this.provider = provider;
     this.name_provider = name_provider;
     this.username_provider = username_provider;

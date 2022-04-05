@@ -27,7 +27,7 @@ export class ReportDTO extends BaseModel {
   public show_code: boolean;
   public show_output: boolean;
   public main_file: string;
-  public main_file_hash: string;
+  public main_file_id: string;
   public main_file_path_scs: string;
   public main_file_version: number;
   public last_version: number;
@@ -59,7 +59,7 @@ export class ReportDTO extends BaseModel {
     show_code: boolean,
     show_output: boolean,
     main_file: string,
-    main_file_hash: string,
+    main_file_id: string,
     main_file_path_scs: string,
     main_file_version: number,
     last_version: number
@@ -87,7 +87,7 @@ export class ReportDTO extends BaseModel {
     this.show_code = show_code;
     this.show_output = show_output;
     this.main_file = main_file;
-    this.main_file_hash = main_file_hash;
+    this.main_file_id = main_file_id;
     this.main_file_path_scs = main_file_path_scs;
     this.main_file_version = main_file_version;
     this.last_version = last_version;
