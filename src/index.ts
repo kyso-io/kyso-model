@@ -36,6 +36,7 @@ export * from './enums/general-permissions.enum';
 export * from './enums/github-repos-permissions.enum';
 export * from './enums/gitlab-repos-permissions.enum';
 export * from './enums/invitation-status.enum';
+export * from './enums/kyso-settings.enum';
 export * from './enums/invitation-type.enum';
 export * from './enums/kyso-user-access-token-status.enum';
 export * from './enums/login-provider.enum';
