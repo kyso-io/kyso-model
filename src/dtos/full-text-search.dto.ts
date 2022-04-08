@@ -7,9 +7,13 @@ export class FullTextSearchResult {
   public team: string;
   public organization: string;
   public tags: string[];
+  public entityId: string;
+  public version: number;
+  public filePath: string;
   public score: number;
 
-  constructor(title: string, summary: string, link: string, type: string, people: string[], team: string, organization: string, tags: string[], score: number) {
+  constructor(title: string, summary: string, link: string, type: string, people: string[], team: string, organization: string, tags: string[], 
+    entityId: string, version: number, filePath: string, score: number) {
     this.title = title;
     this.summary = summary;
     this.link = link;
@@ -18,6 +22,9 @@ export class FullTextSearchResult {
     this.team = team;
     this.organization = organization;
     this.tags = tags;
+    this.entityId = entityId;
+    this.version = version;
+    this.filePath = filePath
     this.score = score;
   }
 }
