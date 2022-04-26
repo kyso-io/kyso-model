@@ -19,6 +19,7 @@ export * from './dtos/feedback.dto';
 export * from './dtos/full-text-search.dto';
 export * from './dtos/inline-comment.dto';
 export * from './dtos/normalized-response.dto';
+export * from './dtos/num-members-and-reports-org.dto';
 export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
 export * from './dtos/tag-request.dto';
