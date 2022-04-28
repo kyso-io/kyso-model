@@ -44,6 +44,7 @@ export enum KysoSettingsEnum {
     STATIC_CONTENT_PREFIX = 'STATIC_CONTENT_PREFIX',
     // Reports path
     REPORT_PATH = 'REPORT_PATH',
+    TMP_FOLDER_PATH = 'TMP_FOLDER_PATH',
     // Internal elasticsearch url
     ELASTICSEARCH_URL = 'ELASTICSEARCH_URL',
     // FRONTEND_URL
