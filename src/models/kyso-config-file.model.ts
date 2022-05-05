@@ -46,18 +46,28 @@ export class KysoConfigFile {
     this.type = type;
   }
 
-  static isValid(data: any): boolean {
-    return (
-      data?.main &&
-      data.main.length > 0 &&
-      data?.title &&
-      data.title.length > 0 &&
-      data?.description &&
-      data.description.length > 0 &&
-      data?.organization &&
-      data.organization.length > 0 &&
-      data?.team &&
-      data.team.length > 0
-    );
+  static isValid(data: any): { valid: boolean; message: string } {
+    if (!data?.main || data.main.length === 0) {
+      return { valid: false, message: 'Property main is required' };
+    }
+
+    if (!data?.title || data.title.length === 0) {
+      return { valid: false, message: 'Property title is required' };
+    }
+
+    if (!data?.organization || data.organization.length === 0) {
+      return { valid: false, message: 'Property organization is required' };
+    }
+
+    if (!data?.team || data.team.length === 0) {
+      return { valid: false, message: 'Property team is required' };
+    }
+
+    const types = Object.values(ReportType);
+    if (!data?.type || data.type.length === 0 || !types.includes(data.type)) {
+      return { valid: false, message: `Property type is required. Valid values: ${types.join(', ')}` };
+    }
+
+    return { valid: true, message: '' };
   }
 }
