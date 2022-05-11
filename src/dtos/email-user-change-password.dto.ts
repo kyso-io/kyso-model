@@ -5,7 +5,7 @@ export class EmailUserChangePasswordDTO {
   public email: string;
 
   @IsString()
-  @IsNotEmpty()
+  // @IsNotEmpty() Could be empty if ENABLE_RECAPTCHA2 is false
   public captchaToken: string;
 
   constructor(email: string, captchaToken: string) {
