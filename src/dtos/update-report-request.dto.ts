@@ -31,6 +31,6 @@ export class UpdateReportRequestDTO {
     this.show_code = show_code;
     this.show_output = show_output;
     this.main_file = main_file;
-    this.tags = tags || [];
+    this.tags = tags;
   }
 }
