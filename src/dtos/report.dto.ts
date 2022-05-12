@@ -94,11 +94,12 @@ export class ReportDTO extends BaseModel {
   }
 
   public buildHatoes(relations?: any) {
-    const user = relations.user[this.user_id];
-
-    this.links = {
-      self_api: `/${user.nickname}/${this.name}`,
-      self_ui: `/${user.nickname}/${this.name}`,
-    };
+    if (relations && relations?.user && this.user_id && this.user_id.length > 0 && relations.user.hasOwnProperty(this.user_id)) {
+      const user = relations.user[this.user_id];
+      this.links = {
+        self_api: `/${user.nickname}/${this.name}`,
+        self_ui: `/${user.nickname}/${this.name}`,
+      };
+    }
   }
 }
