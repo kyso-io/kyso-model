@@ -28,6 +28,7 @@ export class KysoConfigFile {
   @IsBoolean()
   public hideRoot?: boolean;
 
+  @IsOptional()
   @IsArray()
   @IsString({ each: true })
   public reports?: string[];
@@ -35,7 +36,7 @@ export class KysoConfigFile {
   @IsOptional()
   @IsString()
   public preview?: string;
-
+  
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type: ReportType | null) {
     this.main = main;
     this.title = title;
@@ -47,6 +48,25 @@ export class KysoConfigFile {
   }
 
   static isValid(data: any): { valid: boolean; message: string } {
+    const types = Object.values(ReportType);
+    if (!data?.type || data.type.length === 0 || !types.includes(data.type)) {
+      return { valid: false, message: `Property type is required. Valid values: ${types.join(', ')}` };
+    }
+
+    if (data.type === ReportType.Meta) {
+      if (!data.hasOwnProperty('reports')) {
+        return { valid: false, message: 'Property reports is required' };
+      } else if (data.reports === null) {
+        return { valid: false, message: 'Property reports must be an array' };
+      } else if (!Array.isArray(data.reports)) {
+        return { valid: false, message: 'Property reports must be an array' };
+      } else if (data.reports.length === 0) {
+        return { valid: false, message: 'Property reports must have at least one element' };
+      } else {
+        return { valid: true, message: '' };
+      }
+    }
+
     if (!data?.main || data.main.length === 0) {
       return { valid: false, message: 'Property main is required' };
     }
@@ -61,11 +81,6 @@ export class KysoConfigFile {
 
     if (!data?.team || data.team.length === 0) {
       return { valid: false, message: 'Property team is required' };
-    }
-
-    const types = Object.values(ReportType);
-    if (!data?.type || data.type.length === 0 || !types.includes(data.type)) {
-      return { valid: false, message: `Property type is required. Valid values: ${types.join(', ')}` };
     }
 
     return { valid: true, message: '' };
