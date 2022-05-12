@@ -1,3 +1,5 @@
+import { TeamMembershipOriginEnum } from "../enums/team-membership-origin.enum";
+
 export class TeamMember {
   public id: string;
 
@@ -13,7 +15,9 @@ export class TeamMember {
 
   public email: string;
 
-  constructor(id: string, nickname: string, username: string, team_roles: string[], bio: string, avatar_url: string, email: string) {
+  public membership_origin: TeamMembershipOriginEnum;
+
+  constructor(id: string, nickname: string, username: string, team_roles: string[], bio: string, avatar_url: string, email: string, membership_origin: TeamMembershipOriginEnum) {
     this.id = id;
     this.nickname = nickname;
     this.username = username;
@@ -21,5 +25,6 @@ export class TeamMember {
     this.bio = bio;
     this.avatar_url = avatar_url;
     this.email = email;
+    this.membership_origin = membership_origin;
   }
 }
