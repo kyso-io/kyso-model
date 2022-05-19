@@ -5,4 +5,5 @@ export class OrganizationInfoDto {
   public discussions!: number;
   public comments!: number;
   public lastChange!: Date;
+  public avatar_url!: string;
 }
