@@ -21,7 +21,7 @@ export class Login {
   @IsType(['string', 'object'])
   public payload!: any;
 
-  constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl: any) {
+  constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl: any = null) {
     this.password = password;
     this.provider = provider;
     this.email = email;
