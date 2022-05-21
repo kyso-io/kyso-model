@@ -10,6 +10,10 @@ export class Login {
   @IsNotEmpty()
   public password!: string;
 
+  @IsOptional()
+  @IsNotEmpty()
+  public kysoInstallUrl!: string;
+
   @IsEnum(LoginProviderEnum)
   public provider!: LoginProviderEnum;
 
@@ -17,10 +21,11 @@ export class Login {
   @IsType(['string', 'object'])
   public payload!: any;
 
-  constructor(password: string, provider: LoginProviderEnum, email: string, payload: any) {
+  constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl: any) {
     this.password = password;
     this.provider = provider;
     this.email = email;
     this.payload = payload;
+    this.kysoInstallUrl = kysoInstallUrl;
   }
 }
