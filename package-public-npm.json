@@ -1,0 +1,40 @@
+{
+  "name": "@kyso-io/kyso-model",
+  "version": "1.0.47",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "tscBuild": "tsc --build",
+    "build": "npm run clean && npm run tscBuild",
+    "prepare": "npm run build",
+    "dev": "tsc --watch",
+    "start": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.kyso.io/kyso-io/libs/kyso-model.git"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "es6-shim": "^0.35.6",
+    "reflect-metadata": "^0.1.13",
+    "slugify": "^1.6.5"
+  }
+}
