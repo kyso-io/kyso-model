@@ -22,6 +22,7 @@ export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
 export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
+export * from './dtos/sign-up.dto';
 export * from './dtos/tag-request.dto';
 export * from './dtos/update-discussion-request.dto';
 export * from './dtos/update-inline-comment.dto';
