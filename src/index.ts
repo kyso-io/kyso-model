@@ -24,6 +24,7 @@ export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
 export * from './dtos/sign-up.dto';
 export * from './dtos/tag-request.dto';
+export * from './dtos/team-info.dto';
 export * from './dtos/update-discussion-request.dto';
 export * from './dtos/update-inline-comment.dto';
 export * from './dtos/update-organization-members.dto';
