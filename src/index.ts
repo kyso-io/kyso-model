@@ -10,6 +10,7 @@ export * from './dtos/create-inline-comment.dto';
 export * from './dtos/create-invitation.dto';
 export * from './dtos/create-kyso-access-token-request.dto';
 export * from './dtos/create-kyso-report.dto';
+export * from './dtos/create-organization.dto';
 export * from './dtos/create-report-request.dto';
 export * from './dtos/create-report.dto';
 export * from './dtos/create-ui-report.dto';
