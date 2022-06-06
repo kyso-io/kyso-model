@@ -1,10 +1,20 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString, ValidateIf } from 'class-validator';
+import { IsEnum, IsLowercase, IsNotEmpty, IsOptional, IsString, ValidateIf } from 'class-validator';
 import { IsType } from '../decorators/is-type';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 
 export class Login {
   @IsString()
-  public email!: string;
+  @IsLowercase()
+  private _email!: string;
+
+  public get email() {
+    return this._email.toLowerCase()
+  }
+
+  public set email(theEmail: string) {
+    this._email = theEmail.toLowerCase()
+  }
+
 
   @IsOptional()
   @IsNotEmpty()
@@ -24,7 +34,7 @@ export class Login {
   constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl?: any) {
     this.password = password;
     this.provider = provider;
-    this.email = email;
+    this._email = email.toLowerCase();
     this.payload = payload;
     this.kysoInstallUrl = kysoInstallUrl;
   }
