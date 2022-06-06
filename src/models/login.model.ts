@@ -8,7 +8,11 @@ export class Login {
   private _email!: string;
 
   public get email() {
-    return this._email.toLowerCase()
+    if(this._email) {
+      return this._email.toLowerCase()
+    } else {
+      return ""
+    }
   }
 
   public set email(theEmail: string) {
@@ -34,7 +38,7 @@ export class Login {
   constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl?: any) {
     this.password = password;
     this.provider = provider;
-    this._email = email.toLowerCase();
+    this._email = email ? email.toLowerCase() : email;
     this.payload = payload;
     this.kysoInstallUrl = kysoInstallUrl;
   }
