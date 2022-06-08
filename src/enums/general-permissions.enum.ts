@@ -1,9 +1,12 @@
-import { BitbucketRepoPermissionsEnum, DiscussionPermissionsEnum, GitlabRepoPermissionsEnum } from '..';
+import { BitbucketRepoPermissionsEnum } from './bitbucket-repos-permissions.enum';
 import { CommentPermissionsEnum, commentPermissionsEnumsList } from './comment-permissions.enum';
+import { DiscussionPermissionsEnum } from './discussion-permissions.enum';
 import { GithubRepoPermissionsEnum } from './github-repos-permissions.enum';
+import { GitlabRepoPermissionsEnum } from './gitlab-repos-permissions.enum';
 import { InlineCommentPermissionsEnum, inlineCommentPermissionsEnumsList } from './inline-comment-permissions.enum';
 import { OrganizationPermissionsEnum, organizationPermissionsEnumList } from './organization-permissions.enum';
 import { ReportPermissionsEnum, reportPermissionsEnumList } from './report-permissions.enum';
+import { StoragePermissionsEnum, storagePermissionsEnumsList } from './storage-permissions.enum';
 import { organizationAdminRoleContribution, TeamPermissionsEnum } from './team-permissions.enum';
 import { UserPermissionsEnum, userPermissionsEnumList } from './user-permissions.enum';
 
@@ -15,6 +18,7 @@ export const globalPermissionsEnumList: GlobalPermissionsEnum[] = [GlobalPermiss
 
 export type KysoPermissions =
   | GlobalPermissionsEnum
+  | StoragePermissionsEnum
   | CommentPermissionsEnum
   | OrganizationPermissionsEnum
   | ReportPermissionsEnum
@@ -28,6 +32,7 @@ export type KysoPermissions =
 
 export const kysoPermissionsList: KysoPermissions[] = [
   ...globalPermissionsEnumList,
+  ...storagePermissionsEnumsList,
   ...commentPermissionsEnumsList,
   ...organizationPermissionsEnumList,
   ...reportPermissionsEnumList,
