@@ -1,12 +1,12 @@
 export class StorageDto {
   public name: string;
-  public consumed_space_kb: number;
-  public consumed_space_mb: number;
-  public consumed_space_gb: number;
+  public consumedSpaceKb: number;
+  public consumedSpaceMb: number;
+  public consumedSpaceGb: number;
   constructor() {
     this.name = '';
-    this.consumed_space_kb = 0;
-    this.consumed_space_mb = 0;
-    this.consumed_space_gb = 0;
+    this.consumedSpaceKb = 0;
+    this.consumedSpaceMb = 0;
+    this.consumedSpaceGb = 0;
   }
 }
