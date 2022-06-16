@@ -50,6 +50,7 @@ export * from './enums/gitlab-repos-permissions.enum';
 export * from './enums/inline-comment-permissions.enum';
 export * from './enums/invitation-status.enum';
 export * from './enums/invitation-type.enum';
+export * from './enums/kyso-event.enum';
 export * from './enums/kyso-settings.enum';
 export * from './enums/kyso-user-access-token-status.enum';
 export * from './enums/login-provider.enum';
@@ -63,6 +64,9 @@ export * from './enums/team-membership-origin.enum';
 export * from './enums/team-permissions.enum';
 export * from './enums/team-visibility.enum';
 export * from './enums/user-permissions.enum';
+// EVENTS
+export * from './events/kyso-reports-create.event';
+export * from './events/kyso-reports-new-version.event';
 // MODELS
 export * from './models/action-with-payload.model';
 export * from './models/api-error.model';
