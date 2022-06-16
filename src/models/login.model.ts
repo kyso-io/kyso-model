@@ -5,20 +5,19 @@ import { LoginProviderEnum } from '../enums/login-provider.enum';
 export class Login {
   @IsString()
   @IsLowercase()
-  private _email!: string;
+  protected _email!: string;
 
   public get email() {
-    if(this._email) {
-      return this._email.toLowerCase()
+    if (this._email) {
+      return this._email.toLowerCase();
     } else {
-      return ""
+      return '';
     }
   }
 
   public set email(theEmail: string) {
-    this._email = theEmail.toLowerCase()
+    this._email = theEmail.toLowerCase();
   }
-
 
   @IsOptional()
   @IsNotEmpty()
