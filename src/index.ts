@@ -76,6 +76,8 @@ export * from './events/kyso-discussions-new-mention.event';
 export * from './events/kyso-discussions-update.event';
 export * from './events/kyso-feedback-create.event';
 export * from './events/kyso-invitations-team-create.event';
+export * from './events/kyso-organizations-add-member.event';
+export * from './events/kyso-organizations-remove-member.event';
 export * from './events/kyso-reports-create-no-permissions.event';
 export * from './events/kyso-reports-create.event';
 export * from './events/kyso-reports-delete.event';
