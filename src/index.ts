@@ -65,8 +65,21 @@ export * from './enums/team-permissions.enum';
 export * from './enums/team-visibility.enum';
 export * from './enums/user-permissions.enum';
 // EVENTS
+export * from './events/kyso-comments-create.event';
+export * from './events/kyso-comments-delete.event';
+export * from './events/kyso-comments-update.event';
+export * from './events/kyso-discussions-create.event';
+export * from './events/kyso-discussions-delete.event';
+export * from './events/kyso-discussions-update.event';
+export * from './events/kyso-discussions-assignee.event';
 export * from './events/kyso-reports-create.event';
+export * from './events/kyso-reports-create-no-permissions.event';
+export * from './events/kyso-reports-delete.event';
 export * from './events/kyso-reports-new-version.event';
+export * from './events/kyso-reports-update.event';
+export * from './events/kyso-users-create.event';
+export * from './events/kyso-users-delete.event';
+export * from './events/kyso-users-update.event';
 // MODELS
 export * from './models/action-with-payload.model';
 export * from './models/api-error.model';
