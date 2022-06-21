@@ -19,7 +19,10 @@ export enum KysoEvent {
   INVITATIONS_TEAM_CREATE = 'kyso.invitations.team-create',
   // ORGANIZATION
   ORGANIZATIONS_ADD_MEMBER = 'kyso.organizations.add-member',
+  ORGANIZATIONS_CREATE = 'kyso.organizations.create',
+  ORGANIZATIONS_DELETE = 'kyso.organizations.delete',
   ORGANIZATIONS_REMOVE_MEMBER = 'kyso.organizations.remove-member',
+  ORGANIZATIONS_UPDATE = 'kyso.organizations.update',
   // REPORTS
   REPORTS_CREATE = 'kyso.reports.create',
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',
@@ -28,7 +31,10 @@ export enum KysoEvent {
   REPORTS_UPDATE = 'kyso.reports.update',
   // TEAMS
   TEAMS_ADD_MEMBER = 'kyso.teams.add-member',
+  TEAMS_CREATE = 'kyso.teams.create',
+  TEAMS_DELETE = 'kyso.teams.delete',
   TEAMS_REMOVE_MEMBER = 'kyso.teams.remove-member',
+  TEAMS_UPDATE = 'kyso.teams.update',
   // USERS
   USERS_CREATE = 'kyso.users.create',
   USERS_DELETE = 'kyso.users.delete',
