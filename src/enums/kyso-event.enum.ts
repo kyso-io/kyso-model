@@ -26,6 +26,9 @@ export enum KysoEvent {
   REPORTS_DELETE = 'kyso.reports.delete',
   REPORTS_NEW_VERSION = 'kyso.reports.new-version',
   REPORTS_UPDATE = 'kyso.reports.update',
+  // TEAMS
+  TEAMS_ADD_MEMBER = 'kyso.teams.add-member',
+  TEAMS_REMOVE_MEMBER = 'kyso.teams.remove-member',
   // USERS
   USERS_CREATE = 'kyso.users.create',
   USERS_DELETE = 'kyso.users.delete',

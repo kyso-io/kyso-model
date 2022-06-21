@@ -83,6 +83,8 @@ export * from './events/kyso-reports-create.event';
 export * from './events/kyso-reports-delete.event';
 export * from './events/kyso-reports-new-version.event';
 export * from './events/kyso-reports-update.event';
+export * from './events/kyso-teams-add-member.event';
+export * from './events/kyso-teams-remove-member.event';
 export * from './events/kyso-users-create.event';
 export * from './events/kyso-users-delete.event';
 export * from './events/kyso-users-recovery-password.event';
