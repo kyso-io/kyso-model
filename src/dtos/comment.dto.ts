@@ -1,14 +1,11 @@
 import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
-import { BaseModel } from './base.model';
 
-export class Comment extends BaseModel {
+export class CommentDto {
   @IsNotEmpty()
   public text: string;
   
   @IsNotEmpty()
   public plain_text: string;
-
-  public user_id: string;
 
   @IsOptional()
   @IsMongoId()
@@ -18,36 +15,25 @@ export class Comment extends BaseModel {
   @IsMongoId()
   public comment_id: string;
 
+  @IsOptional()
+  @IsMongoId()
+  public discussion_id?: string;
+  
+  @IsOptional()
   @IsBoolean()
   public marked: boolean;
 
   @IsOptional()
-  @IsMongoId()
-  public marked_by?: string;
-
-  @IsBoolean()
-  public edited: boolean;
-
-  @IsOptional()
-  @IsMongoId()
-  public discussion_id?: string;
-
-  public mark_delete_at: Date | null;
-
   @IsMongoId({ each: true })
   public user_ids: string[];
 
-  constructor(text: string, plain_text: string, user_id: string, report_id: string, discussion_id: string, comment_id: string, user_ids: string[]) {
-    super();
+  constructor(text: string, plain_text: string, report_id: string, discussion_id: string, comment_id: string, marked: boolean, user_ids: string[]) {
     this.text = text;
     this.plain_text = plain_text;
-    this.user_id = user_id;
     this.report_id = report_id;
     this.discussion_id = discussion_id;
     this.comment_id = comment_id;
-    this.marked = false;
-    this.edited = false;
-    this.mark_delete_at = null;
+    this.marked = marked;
     this.user_ids = user_ids;
   }
 }
