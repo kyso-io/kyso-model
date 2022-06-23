@@ -5,6 +5,7 @@ export * from './dtos/add-user-account.dto';
 export * from './dtos/add-user-organization.dto';
 export * from './dtos/base-filter.dto';
 export * from './dtos/batch-report-creation-response.dto';
+export * from './dtos/comment.dto';
 export * from './dtos/create-discussion-request.dto';
 export * from './dtos/create-inline-comment.dto';
 export * from './dtos/create-invitation.dto';
