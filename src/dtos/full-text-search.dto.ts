@@ -1,30 +1,37 @@
-export class FullTextSearchResult {
-  public title: string;
-  public summary: string;
-  public link: string;
-  public type: string;
-  public people: string[];
-  public team: string;
-  public organization: string;
-  public tags: string[];
-  public entityId: string;
-  public version: number;
-  public filePath: string;
+import { ElasticSearchIndex } from '../enums/elastic-search-index.enum';
+import { KysoIndex } from '../models/kyso-index.model';
+
+export class FullTextSearchResult extends KysoIndex {
   public score: number;
 
-  constructor(title: string, summary: string, link: string, type: string, people: string[], team: string, organization: string, tags: string[], 
-    entityId: string, version: number, filePath: string, score: number) {
+  constructor(
+    title: string,
+    type: ElasticSearchIndex,
+    entityId: string,
+    link: string,
+    organizationSlug: string,
+    teamSlug: string,
+    people: string,
+    tags: string,
+    content: string,
+    version: number,
+    filePath: string,
+    isPublic: boolean,
+    score: number,
+  ) {
+    super();
     this.title = title;
-    this.summary = summary;
-    this.link = link;
     this.type = type;
-    this.people = people;
-    this.team = team;
-    this.organization = organization;
-    this.tags = tags;
     this.entityId = entityId;
+    this.link = link;
+    this.organizationSlug = organizationSlug;
+    this.teamSlug = teamSlug;
+    this.people = people;
+    this.tags = tags;
+    this.content = content;
     this.version = version;
-    this.filePath = filePath
+    this.filePath = filePath;
+    this.isPublic = isPublic;
     this.score = score;
   }
 }
@@ -34,7 +41,7 @@ export class FullTextSearchMetadata {
   public pages: number;
   public perPage: number;
   public total: number;
-  
+
   constructor(page: number, pages: number, perPage: number, total: number) {
     this.page = page;
     this.pages = pages;

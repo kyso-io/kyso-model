@@ -12,6 +12,7 @@ export class KysoIndex {
   public content: string;
   public version: number;
   public filePath: string;
+  public isPublic: boolean;
 
   constructor() {
     this.title = '';
@@ -25,5 +26,6 @@ export class KysoIndex {
     this.content = '';
     this.version = 1;
     this.filePath = '';
+    this.isPublic = false;
   }
 }
