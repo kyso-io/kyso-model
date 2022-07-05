@@ -86,5 +86,5 @@ export enum KysoSettingsEnum {
      *      "lightside,darkside" --> --> Adds new users (sign-up) to "lightside" and darkside
      * 
      */
-    ADD_NEW_USERS_AUTOMATICALLY_TO_ORG = "",
+    ADD_NEW_USERS_AUTOMATICALLY_TO_ORG = "ADD_NEW_USERS_AUTOMATICALLY_TO_ORG",
 }
