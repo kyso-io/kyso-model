@@ -1,6 +1,6 @@
 import { BitbucketRepoPermissionsEnum } from './bitbucket-repos-permissions.enum';
 import { CommentPermissionsEnum, commentPermissionsEnumsList } from './comment-permissions.enum';
-import { DiscussionPermissionsEnum } from './discussion-permissions.enum';
+import { DiscussionPermissionsEnum, discussionPermissionsEnumsList } from './discussion-permissions.enum';
 import { GithubRepoPermissionsEnum } from './github-repos-permissions.enum';
 import { GitlabRepoPermissionsEnum } from './gitlab-repos-permissions.enum';
 import { InlineCommentPermissionsEnum, inlineCommentPermissionsEnumsList } from './inline-comment-permissions.enum';
@@ -34,6 +34,7 @@ export const kysoPermissionsList: KysoPermissions[] = [
   ...globalPermissionsEnumList,
   ...storagePermissionsEnumsList,
   ...commentPermissionsEnumsList,
+  ...discussionPermissionsEnumsList,
   ...organizationPermissionsEnumList,
   ...reportPermissionsEnumList,
   ...organizationAdminRoleContribution,
