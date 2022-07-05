@@ -75,4 +75,15 @@ export enum KysoSettingsEnum {
     CUSTOMIZE_LOGIN_BUTTON_CSS_STYLES = 'CUSTOMIZE_LOGIN_BUTTON_CSS_STYLES',
     // NATS
     KYSO_NATS_URL = 'KYSO_NATS_URL',
+    /**
+     * If empty, has no effect. If has a value, adds any new user in the platform to the 
+     * organizations set in this property (comma separated) with TEAM_READER role
+     * 
+     * examples: 
+     *      "" --> Don't add to any organization
+     *      "lightside" --> Adds new users (sign-up) to the "lightside" organization
+     *      "lightside,darkside" --> --> Adds new users (sign-up) to "lightside" and darkside
+     * 
+     */
+    ADD_NEW_USERS_AUTOMATICALLY_TO_ORG = "",
 }
