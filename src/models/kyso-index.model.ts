@@ -7,8 +7,8 @@ export class KysoIndex {
   public link: string;
   public organizationSlug: string;
   public teamSlug: string;
-  public people: string;
-  public tags: string;
+  public people: string[];
+  public tags: string[];
   public content: string;
   public version: number;
   public filePath: string;
@@ -21,8 +21,8 @@ export class KysoIndex {
     this.link = '';
     this.organizationSlug = '';
     this.teamSlug = '';
-    this.people = '';
-    this.tags = '';
+    this.people = [];
+    this.tags = [];
     this.content = '';
     this.version = 1;
     this.filePath = '';
