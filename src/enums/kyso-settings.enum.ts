@@ -52,6 +52,7 @@ export enum KysoSettingsEnum {
     ELASTICSEARCH_URL = 'ELASTICSEARCH_URL',
     // FRONTEND_URL
     // Verification email duration
+    DURATION_HOURS_JWT_TOKEN = 'DURATION_HOURS_JWT_TOKEN',
     DURATION_HOURS_TOKEN_EMAIL_VERIFICATION = 'DURATION_HOURS_TOKEN_EMAIL_VERIFICATION',
     DURATION_MINUTES_TOKEN_RECOVERY_PASSWORD = 'DURATION_MINUTES_TOKEN_RECOVERY_PASSWORD',
     HCAPTCHA_ENABLED = 'HCAPTCHA_ENABLED',
@@ -75,4 +76,15 @@ export enum KysoSettingsEnum {
     CUSTOMIZE_LOGIN_BUTTON_CSS_STYLES = 'CUSTOMIZE_LOGIN_BUTTON_CSS_STYLES',
     // NATS
     KYSO_NATS_URL = 'KYSO_NATS_URL',
+    /**
+     * If empty, has no effect. If has a value, adds any new user in the platform to the 
+     * organizations set in this property (comma separated) with TEAM_READER role
+     * 
+     * examples: 
+     *      "" --> Don't add to any organization
+     *      "lightside" --> Adds new users (sign-up) to the "lightside" organization
+     *      "lightside,darkside" --> --> Adds new users (sign-up) to "lightside" and darkside
+     * 
+     */
+    ADD_NEW_USERS_AUTOMATICALLY_TO_ORG = "ADD_NEW_USERS_AUTOMATICALLY_TO_ORG",
 }
