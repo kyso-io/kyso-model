@@ -28,6 +28,12 @@ export enum KysoEvent {
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',
   REPORTS_DELETE = 'kyso.reports.delete',
   REPORTS_NEW_VERSION = 'kyso.reports.new-version',
+  REPORTS_PIN = 'kyso.reports.pin',
+  REPORTS_PIN_GLOBAL = 'kyso.reports.pin-global',
+  REPORTS_STAR = 'kyso.reports.star',
+  REPORTS_UNPIN = 'kyso.reports.unpin',
+  REPORTS_UNPIN_GLOBAL = 'kyso.reports.unpin-global',
+  REPORTS_UNSTAR = 'kyso.reports.unstar',
   REPORTS_UPDATE = 'kyso.reports.update',
   // TEAMS
   TEAMS_ADD_MEMBER = 'kyso.teams.add-member',

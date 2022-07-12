@@ -4,7 +4,7 @@ import { Team } from '../models/team.model';
 import { User } from '../models/user.model';
 
 export interface KysoDiscussionsNewMentionEvent {
-  to: string;
+  user: User;
   creator: User;
   organization: Organization;
   team: Team;
