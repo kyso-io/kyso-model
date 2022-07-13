@@ -41,21 +41,33 @@ export class Team extends BaseModel {
   @IsMongoId()
   public organization_id: string;
 
-  constructor(display_name: string, avatar_url: string, bio: string, link: string, location: string, roles: KysoRole[], organization_id: string, visibility: TeamVisibilityEnum, id?: string, sluglified_name?: string) {
-    super();
+  @IsOptional()
+  @IsString()
+  public slackChannel: string | null;
 
+  constructor(
+    display_name: string,
+    avatar_url: string,
+    bio: string,
+    link: string,
+    location: string,
+    roles: KysoRole[],
+    organization_id: string,
+    visibility: TeamVisibilityEnum,
+    id?: string,
+    sluglified_name?: string
+  ) {
+    super();
     this.display_name = display_name;
-    
-    if(sluglified_name) {
+    if (sluglified_name) {
       this.sluglified_name = sluglified_name;
     } else {
-      if(display_name) {
+      if (display_name) {
         this.sluglified_name = slugify(display_name);
       } else {
-        this.sluglified_name = randomUUID()
+        this.sluglified_name = randomUUID();
       }
     }
-    
     this.avatar_url = avatar_url;
     this.bio = bio;
     this.link = link;
@@ -63,7 +75,7 @@ export class Team extends BaseModel {
     this.roles = roles;
     this.organization_id = organization_id;
     this.visibility = visibility;
-
+    this.slackChannel = null;
     if (id) {
       this.id = id;
     }

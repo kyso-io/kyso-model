@@ -13,5 +13,8 @@ export class OrganizationOptions {
   // @Type(() => OrganizationAuthOptions)
   public notifications?: OrganizationNotifications;
 
-  constructor() {}
+  constructor() {
+    this.auth = new OrganizationAuthOptions();
+    this.notifications = new OrganizationNotifications();
+  }
 }

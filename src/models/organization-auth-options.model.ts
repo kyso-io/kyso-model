@@ -29,5 +29,12 @@ export class OrganizationAuthOptions {
   // @Type(() => AuthProviderSpec)
   public otherProviders?: AuthProviderSpec[];
 
-  constructor() {}
+  constructor() {
+    this.allow_login_with_kyso = true;
+    this.allow_login_with_google = true;
+    this.allow_login_with_github = true;
+    this.allow_login_with_bitbucket = true;
+    this.allow_login_with_gitlab = true;
+    this.otherProviders = [];
+  }
 }

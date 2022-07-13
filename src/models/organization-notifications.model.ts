@@ -1,4 +1,4 @@
-import { IsBoolean, IsEmail } from 'class-validator';
+import { IsBoolean, IsEmail, IsOptional, IsString } from 'class-validator';
 
 export class OrganizationNotifications {
   @IsBoolean()
@@ -6,4 +6,19 @@ export class OrganizationNotifications {
 
   @IsEmail({ each: true })
   public emails!: string[];
+
+  @IsOptional()
+  @IsString()
+  public slackToken!: string | null;
+  
+  @IsOptional()
+  @IsString()
+  public slackChannel!: string | null;
+
+  constructor() {
+    this.centralized = false;
+    this.emails = [];
+    this.slackToken = null;
+    this.slackChannel = null;
+  }
 }
