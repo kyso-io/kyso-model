@@ -12,4 +12,5 @@ export interface KysoCommentsDeleteEvent {
   comment: Comment;
   discussion?: Discussion;
   report?: Report;
+  frontendUrl: string;
 }

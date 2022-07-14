@@ -12,4 +12,5 @@ export interface KysoCommentsCreateEvent {
   comment: Comment;
   discussion?: Discussion;
   report?: Report;
+  frontendUrl: string;
 }
