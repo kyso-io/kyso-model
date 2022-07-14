@@ -85,6 +85,7 @@ export * from './events/kyso-organizations-add-member.event';
 export * from './events/kyso-organizations-create.event';
 export * from './events/kyso-organizations-delete.event';
 export * from './events/kyso-organizations-remove-member.event';
+export * from './events/kyso-organizations-update-member-role.event';
 export * from './events/kyso-organizations-update.event';
 export * from './events/kyso-reports-create-no-permissions.event';
 export * from './events/kyso-reports-create.event';

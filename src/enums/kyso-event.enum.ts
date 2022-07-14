@@ -24,6 +24,7 @@ export enum KysoEvent {
   ORGANIZATIONS_DELETE = 'kyso.organizations.delete',
   ORGANIZATIONS_REMOVE_MEMBER = 'kyso.organizations.remove-member',
   ORGANIZATIONS_UPDATE = 'kyso.organizations.update',
+  ORGANIZATIONS_UPDATE_MEMBER_ROLE = 'kyso.organizations.update-member-role',
   // REPORTS
   REPORTS_CREATE = 'kyso.reports.create',
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',

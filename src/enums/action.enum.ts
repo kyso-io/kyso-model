@@ -16,5 +16,6 @@ export enum ActionEnum {
   UNPIN_GLOBAL = 'unpin_global',
   UNSTAR = 'unstar',
   UPDATE = 'update',
+  UPDATE_MEMBER_ROLE = 'update_member_role',
   VERIFICATION_EMAIL = 'verification_email',
 }
