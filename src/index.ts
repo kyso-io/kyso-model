@@ -98,6 +98,7 @@ export * from './events/kyso-teams-add-member.event';
 export * from './events/kyso-teams-create.event';
 export * from './events/kyso-teams-delete.event';
 export * from './events/kyso-teams-remove-member.event';
+export * from './events/kyso-teams-update-member-roles.event';
 export * from './events/kyso-teams-update.event';
 export * from './events/kyso-users-create.event';
 export * from './events/kyso-users-delete.event';
