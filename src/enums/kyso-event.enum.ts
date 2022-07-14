@@ -43,6 +43,7 @@ export enum KysoEvent {
   TEAMS_DELETE = 'kyso.teams.delete',
   TEAMS_REMOVE_MEMBER = 'kyso.teams.remove-member',
   TEAMS_UPDATE = 'kyso.teams.update',
+  TEAMS_UPDATE_MEMBER_ROLES = 'kyso.teams.update-member-roles',
   // USERS
   USERS_CREATE = 'kyso.users.create',
   USERS_DELETE = 'kyso.users.delete',
