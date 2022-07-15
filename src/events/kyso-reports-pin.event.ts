@@ -8,4 +8,5 @@ export interface KysoReportsPinEvent {
   organization: Organization;
   team: Team;
   report: Report;
+  frontendUrl: string;
 }

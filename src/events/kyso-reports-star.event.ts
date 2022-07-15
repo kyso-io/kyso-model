@@ -8,4 +8,5 @@ export interface KysoReportsStarEvent {
   organization: Organization;
   team: Team;
   report: Report;
+  frontendUrl: string;
 }
