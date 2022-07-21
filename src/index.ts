@@ -23,6 +23,7 @@ export * from './dtos/inline-comment.dto';
 export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
 export * from './dtos/organization-storage.dto';
+export * from './dtos/paginated-response.dto';
 export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
 export * from './dtos/sign-up.dto';
