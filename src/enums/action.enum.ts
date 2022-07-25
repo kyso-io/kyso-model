@@ -1,4 +1,5 @@
 export enum ActionEnum {
+  ADD_AUTHOR = 'add_author',
   ADD_MEMBER = 'add_member',
   CREATE = 'create',
   DELETE = 'delete',
