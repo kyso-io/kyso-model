@@ -60,7 +60,10 @@ export class KysoConfigFile {
       this.channel = team;
     } else if (this.channel) {
       this.team = this.channel
-    } 
+    } else {
+      this.team = "";
+      this.channel = "";
+    }
     
     this.tags = tags || [];
     this.type = type;
