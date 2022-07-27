@@ -54,8 +54,14 @@ export class KysoConfigFile {
     this.title = title;
     this.description = description;
     this.organization = organization;
-    this.team = team;
-    this.channel = team;
+    
+    if(team) {
+      this.team = team;
+      this.channel = team;
+    } else if (this.channel) {
+      this.team = this.channel
+    } 
+    
     this.tags = tags || [];
     this.type = type;
   }
