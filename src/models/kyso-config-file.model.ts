@@ -15,7 +15,7 @@ export class KysoConfigFile {
   public organization: string;
 
   @IsString()
-  public team: string;
+  private _team: string;
 
   @IsOptional()
   @IsString({ each: true })
@@ -41,6 +41,21 @@ export class KysoConfigFile {
   @IsArray()
   public authors?: string[];
   
+  public get team(): string {
+    if(this._team) {
+      return this._team;
+    } else if(this.channel) {
+      return this.channel;
+    } else {
+      return "";
+    }
+  }
+
+  public set team(team: string) {
+    this._team = team;
+    this.channel = team;
+  }
+
   public get channel(): string {
     return this.team;
   }
