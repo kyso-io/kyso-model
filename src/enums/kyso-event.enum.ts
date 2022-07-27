@@ -26,6 +26,7 @@ export enum KysoEvent {
   ORGANIZATIONS_UPDATE = 'kyso.organizations.update',
   ORGANIZATIONS_UPDATE_MEMBER_ROLE = 'kyso.organizations.update-member-role',
   // REPORTS
+  REPORTS_ADD_AUTHOR = 'kyso.reports.add-author',
   REPORTS_CREATE = 'kyso.reports.create',
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',
   REPORTS_DELETE = 'kyso.reports.delete',
@@ -37,6 +38,10 @@ export enum KysoEvent {
   REPORTS_UNPIN_GLOBAL = 'kyso.reports.unpin-global',
   REPORTS_UNSTAR = 'kyso.reports.unstar',
   REPORTS_UPDATE = 'kyso.reports.update',
+  // TAGS
+  TAGS_CREATE = 'kyso.tags.create',
+  TAGS_DELETE = 'kyso.tags.delete',
+  TAGS_UPDATE = 'kyso.tags.update',
   // TEAMS
   TEAMS_ADD_MEMBER = 'kyso.teams.add-member',
   TEAMS_CREATE = 'kyso.teams.create',
