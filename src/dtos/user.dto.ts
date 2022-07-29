@@ -95,13 +95,13 @@ export class UserDTO {
       user.plan,
       user.avatar_url,
       user.created_at!,
-      user.accounts,
+      user.accounts.map((ua: UserAccount) => ({ type: ua.type, accountId: ua.accountId, username: ua.username })),
       user.email_verified,
       user.show_captcha
     );
   }
 
   public static fromUserArray(user: User[]): UserDTO[] {
-    return user.map(x => UserDTO.fromUser(x));
+    return user.map((x: User) => UserDTO.fromUser(x));
   }
 }
