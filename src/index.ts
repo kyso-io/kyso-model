@@ -20,6 +20,7 @@ export * from './dtos/email-user-change-password.dto';
 export * from './dtos/feedback.dto';
 export * from './dtos/full-text-search.dto';
 export * from './dtos/inline-comment.dto';
+export * from './dtos/invite-user.dto';
 export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
 export * from './dtos/organization-storage.dto';
