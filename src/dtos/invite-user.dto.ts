@@ -17,7 +17,7 @@ export class InviteUserDto {
   @IsNotEmpty()
   public teamSlug?: string | null;
 
-  @ValidateIf((inviteUserDto: InviteUserDto) => inviteUserDto.hasOwnProperty('teamSlug') && inviteUserDto?.teamSlug)
+  @ValidateIf((inviteUserDto: InviteUserDto) => inviteUserDto.hasOwnProperty('teamSlug') && inviteUserDto.teamSlug != null && inviteUserDto.teamSlug.length > 0)
   @IsString()
   @IsNotEmpty()
   public teamRole?: string | null;
