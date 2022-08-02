@@ -15,10 +15,10 @@ export class InviteUserDto {
   @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public teamSlug!: string;
+  public teamSlug?: string | null;
 
-  @ValidateIf((inviteUserDto: InviteUserDto) => inviteUserDto.teamSlug !== null && inviteUserDto.teamRole.length > 0)
+  @ValidateIf((inviteUserDto: InviteUserDto) => inviteUserDto.hasOwnProperty('teamSlug') && inviteUserDto?.teamSlug)
   @IsString()
   @IsNotEmpty()
-  public teamRole!: string;
+  public teamRole?: string | null;
 }
