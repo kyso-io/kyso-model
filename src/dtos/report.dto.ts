@@ -1,4 +1,4 @@
-import { RepositoryProvider } from '..';
+import { RepositoryProvider, UserDTO } from '..';
 import { ReportStatus } from '../enums/report-status.enum';
 import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
@@ -31,6 +31,7 @@ export class ReportDTO extends BaseModel {
   public main_file_path_scs: string;
   public main_file_version: number;
   public last_version: number;
+  public authors?: UserDTO[];
 
   constructor(
     id: string,
