@@ -95,7 +95,7 @@ export class UserDTO {
       user.plan,
       user.avatar_url,
       user.created_at!,
-      user.accounts.map((ua: UserAccount) => ({ type: ua.type, accountId: ua.accountId, username: ua.username })),
+      user.accounts ? user.accounts.map((ua: UserAccount) => ({ type: ua.type, accountId: ua.accountId, username: ua.username })) : [],
       user.email_verified,
       user.show_captcha
     );
