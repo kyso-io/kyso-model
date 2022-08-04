@@ -31,6 +31,8 @@ export class ReportDTO extends BaseModel {
   public main_file_path_scs: string;
   public main_file_version: number;
   public last_version: number;
+  public organization_sluglified_name: string;
+  public team_sluglified_name: string;
   public authors?: UserDTO[];
 
   constructor(
@@ -63,7 +65,9 @@ export class ReportDTO extends BaseModel {
     main_file_id: string,
     main_file_path_scs: string,
     main_file_version: number,
-    last_version: number
+    last_version: number,
+    organization_sluglified_name: string,
+    team_sluglified_name: string,
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -92,6 +96,8 @@ export class ReportDTO extends BaseModel {
     this.main_file_path_scs = main_file_path_scs;
     this.main_file_version = main_file_version;
     this.last_version = last_version;
+    this.organization_sluglified_name = organization_sluglified_name;
+    this.team_sluglified_name = team_sluglified_name;
   }
 
   public buildHatoes(relations?: any) {
