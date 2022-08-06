@@ -89,7 +89,9 @@ export class KysoConfigFile {
     }
 
     if (!data?.team || data.team.length === 0) {
-      return { valid: false, message: 'Property team is required' };
+      if (!data?.channel || data.channel.length === 0) {
+        return { valid: false, message: 'Property team or channel is required' };
+      }
     }
 
     return { valid: true, message: '' };
