@@ -1,4 +1,4 @@
-import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateInlineCommentDto {
   @IsMongoId()
@@ -11,4 +11,9 @@ export class CreateInlineCommentDto {
   @IsString()
   @IsNotEmpty()
   public text!: string;
+
+  @IsOptional()
+  @IsMongoId({ each: true })
+  public mentions!: string[];
+
 }
