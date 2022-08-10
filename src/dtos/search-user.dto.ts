@@ -13,4 +13,6 @@ export class SearchUserDto {
   @IsString()
   @IsNotEmpty()
   public query!: string | null;
+
+  public payload!: any;
 }
