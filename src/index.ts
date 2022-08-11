@@ -73,6 +73,7 @@ export * from './enums/team-visibility.enum';
 export * from './enums/token-status.enum';
 export * from './enums/user-permissions.enum';
 // EVENTS
+export * from './events/kyso-event';
 export * from './events/kyso-comments-create.event';
 export * from './events/kyso-comments-delete.event';
 export * from './events/kyso-comments-update.event';
