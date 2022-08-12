@@ -1,18 +1,18 @@
-import { IsDate, IsOptional, IsUUID } from 'class-validator';
+import { IsDate, IsDateString, IsMongoId, IsOptional, IsString, IsUUID } from 'class-validator';
 import { Hateoas } from './hateoas.model';
 
 export class BaseModel {
   public type?: string;
 
-  @IsUUID()
+  @IsMongoId()
   @IsOptional()
   public id?: string;
 
-  @IsDate()
+  @IsDateString()
   @IsOptional()
   public created_at?: Date;
 
-  @IsDate()
+  @IsDateString()+
   @IsOptional()
   public updated_at?: Date;
 
