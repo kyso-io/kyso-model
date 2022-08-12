@@ -1,15 +1,32 @@
+import { IsArray, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { CreateReportFileSystemItemDTO } from '../dtos/create-report-file-system-item.dto';
-import { ReportStatus } from '../enums/report-status.enum';
-import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { BaseModel } from './base.model';
 
 export class DraftReport extends BaseModel {
+  @IsNotEmpty()
   public title: string;
+  
+  @IsNotEmpty()
   public description: string;
+  
+  @IsNotEmpty()
+  @IsMongoId()
   public creator_user_id: string;
+  
+  @IsNotEmpty()
+  @IsMongoId()
   public team_id: string;
+  
+  @IsNotEmpty()
+  @IsMongoId()
   public organization_id: string;
+  
+  @IsNotEmpty()
+  @IsArray()
   public author_ids: string[];
+
+  @IsOptional()
+  @IsString()
   public preview_picture: string;
 
   /**

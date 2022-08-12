@@ -1,4 +1,4 @@
-import { IsDate, IsDateString, IsMongoId, IsOptional, IsString, IsUUID } from 'class-validator';
+import { IsDate, IsMongoId, IsObject, IsOptional, IsUUID } from 'class-validator';
 import { Hateoas } from './hateoas.model';
 
 export class BaseModel {
@@ -8,37 +8,23 @@ export class BaseModel {
   @IsOptional()
   public id?: string;
 
-  @IsDateString()
+  @IsDate()
   @IsOptional()
   public created_at?: Date;
 
-  @IsDateString()
+  @IsDate()
   @IsOptional()
   public updated_at?: Date;
 
+  @IsObject()
   public links: Hateoas | {};
 
   public buildHatoes(relations?: any) {}
 
   constructor(id?: string, created_at?: Date, updated_at?: Date, links?: Hateoas) {
-    if(!id) {
-      this.id = ""
-    } else {
-      this.id = id;
-    }
-
-    if(!created_at) {
-      this.created_at = new Date();
-    } else {
-      this.created_at = created_at;
-    }
-
-    if(!updated_at) {
-      this.updated_at = new Date();
-    } else {
-      this.updated_at = updated_at;
-    }
-    
+    this.id = id;
+    this.created_at = created_at;
+    this.updated_at = updated_at;
     if (links) {
       this.links = links;
     } else {
