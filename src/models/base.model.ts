@@ -21,9 +21,24 @@ export class BaseModel {
   public buildHatoes(relations?: any) {}
 
   constructor(id?: string, created_at?: Date, updated_at?: Date, links?: Hateoas) {
-    this.id = id;
-    this.created_at = created_at;
-    this.updated_at = updated_at;
+    if(!id) {
+      this.id = ""
+    } else {
+      this.id = id;
+    }
+
+    if(!created_at) {
+      this.created_at = new Date();
+    } else {
+      this.created_at = created_at;
+    }
+
+    if(!updated_at) {
+      this.updated_at = new Date();
+    } else {
+      this.updated_at = updated_at;
+    }
+    
     if (links) {
       this.links = links;
     } else {
