@@ -12,7 +12,7 @@ export class BaseModel {
   @IsOptional()
   public created_at?: Date;
 
-  @IsDateString()+
+  @IsDateString()
   @IsOptional()
   public updated_at?: Date;
 
