@@ -1,4 +1,4 @@
-export enum KysoEvent {
+export enum KysoEventEnum {
   // COMMENTS
   COMMENTS_CREATE = 'kyso.comments.create',
   COMMENTS_DELETE = 'kyso.comments.delete',
