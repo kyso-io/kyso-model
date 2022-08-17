@@ -2,6 +2,7 @@ export enum KysoEventEnum {
   // COMMENTS
   COMMENTS_CREATE = 'kyso.comments.create',
   COMMENTS_DELETE = 'kyso.comments.delete',
+  COMMENTS_MENTIONS = 'kyso.comments.mentions',
   COMMENTS_REPLY = 'kyso.comments.reply',
   COMMENTS_UPDATE = 'kyso.comments.update',
   // DISCUSSIONS
