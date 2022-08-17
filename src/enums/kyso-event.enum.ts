@@ -2,7 +2,6 @@ export enum KysoEventEnum {
   // COMMENTS
   COMMENTS_CREATE = 'kyso.comments.create',
   COMMENTS_DELETE = 'kyso.comments.delete',
-  COMMENTS_MENTIONS = 'kyso.comments.mentions',
   COMMENTS_REPLY = 'kyso.comments.reply',
   COMMENTS_UPDATE = 'kyso.comments.update',
   // DISCUSSIONS
@@ -31,6 +30,7 @@ export enum KysoEventEnum {
   REPORTS_CREATE = 'kyso.reports.create',
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',
   REPORTS_DELETE = 'kyso.reports.delete',
+  REPORTS_MENTIONS = 'kyso.reports.mentions',
   REPORTS_NEW_VERSION = 'kyso.reports.new-version',
   REPORTS_PIN = 'kyso.reports.pin',
   REPORTS_PIN_GLOBAL = 'kyso.reports.pin-global',

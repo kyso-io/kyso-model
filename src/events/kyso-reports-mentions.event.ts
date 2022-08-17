@@ -4,7 +4,7 @@ import { Team } from '../models/team.model';
 import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
-export interface KysoReporsMentionsEvent extends KysoEvent {
+export interface KysoReportsMentionsEvent extends KysoEvent {
   to: string;
   creator: User;
   users: User[];
