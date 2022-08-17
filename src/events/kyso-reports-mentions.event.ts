@@ -5,7 +5,7 @@ import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
 export interface KysoReportsMentionsEvent extends KysoEvent {
-  to: string;
+  to: string | string[];
   creator: User;
   users: User[];
   organization: Organization;
