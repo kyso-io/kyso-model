@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsString, IsUrl } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
 import { User, UserAccount } from '..';
 
 export class UserDTO {
@@ -29,9 +29,13 @@ export class UserDTO {
   @IsNotEmpty()
   public plan: string;
 
-  @IsString()
+  @IsOptional()
   @IsUrl()
   public avatar_url: string;
+
+  @IsOptional()
+  @IsUrl()
+  public background_image_url: string;
 
   @IsString()
   public location: string;
@@ -61,6 +65,7 @@ export class UserDTO {
     link: string,
     plan: string,
     avatar_url: string,
+    background_image_url: string,
     created_at: Date,
     accounts: UserAccount[],
     email_verified: boolean,
@@ -76,6 +81,7 @@ export class UserDTO {
     this.link = link;
     this.plan = plan;
     this.avatar_url = avatar_url;
+    this.background_image_url = background_image_url;
     this.created_at = created_at;
     this.accounts = accounts;
     this.email_verified = email_verified;
@@ -94,6 +100,7 @@ export class UserDTO {
       user.link,
       user.plan,
       user.avatar_url,
+      user.background_image_url,
       user.created_at!,
       user.accounts ? user.accounts.map((ua: UserAccount) => ({ type: ua.type, accountId: ua.accountId, username: ua.username })) : [],
       user.email_verified,
