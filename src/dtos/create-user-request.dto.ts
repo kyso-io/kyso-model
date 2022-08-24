@@ -18,11 +18,12 @@ export class CreateUserRequestDTO extends BaseUser {
     link: string,
     plan: string,
     avatar_url: string,
+    background_image_url: string,
     email_verified: boolean,
     global_permissions: GlobalPermissionsEnum[],
     password: string
   ) {
-    super(email, username, name, nickname, provider, bio, location, link, plan, avatar_url, email_verified, global_permissions);
+    super(email, username, name, nickname, provider, bio, location, link, plan, avatar_url, background_image_url, email_verified, global_permissions);
     this.password = password;
   }
 }

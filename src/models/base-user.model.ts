@@ -1,4 +1,4 @@
-import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsString, IsUrl, Length } from 'class-validator';
+import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, IsUrl, Length } from 'class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { BaseModel } from './base.model';
@@ -34,12 +34,16 @@ export class BaseUser extends BaseModel {
   public plan: string;
 
   @IsUrl()
-  @IsNotEmpty()
+  @IsOptional()
   public avatar_url: string;
+
+  @IsUrl()
+  @IsOptional()
+  public background_image_url: string;
 
   @IsBoolean()
   public email_verified: boolean;
-  
+
   @IsBoolean()
   public show_captcha: boolean;
 
@@ -58,6 +62,7 @@ export class BaseUser extends BaseModel {
     link: string,
     plan: string,
     avatarUrl: string,
+    background_image_url: string,
     emailVerified: boolean,
     global_permissions: GlobalPermissionsEnum[],
     _id?: string
@@ -73,6 +78,7 @@ export class BaseUser extends BaseModel {
     this.link = link;
     this.plan = plan;
     this.avatar_url = avatarUrl;
+    this.background_image_url = background_image_url;
     this.email_verified = emailVerified;
     this.global_permissions = global_permissions;
     this.show_captcha = true;
