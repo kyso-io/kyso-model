@@ -87,4 +87,5 @@ export enum KysoSettingsEnum {
      * 
      */
     ADD_NEW_USERS_AUTOMATICALLY_TO_ORG = "ADD_NEW_USERS_AUTOMATICALLY_TO_ORG",
+    MAX_FILE_SIZE = "MAX_FILE_SIZE",
 }
