@@ -35,6 +35,7 @@ export class User extends BaseUser {
     link: string,
     plan: string,
     avatarUrl: string,
+    background_image_url: string,
     emailVerified: boolean,
     global_permissions: GlobalPermissionsEnum[],
     hashed_password: string,
@@ -42,7 +43,7 @@ export class User extends BaseUser {
     _id?: string,
     _email_verify_token?: string
   ) {
-    super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, emailVerified, global_permissions, _id);
+    super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, background_image_url, emailVerified, global_permissions, _id);
 
     this.hashed_password = hashed_password;
     this.accessToken = access_token;
@@ -54,11 +55,11 @@ export class User extends BaseUser {
   }
 
   static fromGithubUser(userData: any, emailData: any): User {
-    return new User(emailData.email, userData.login, userData.name, userData.login, LoginProviderEnum.GITHUB, '', '', '', 'free', userData.avatar_url, true, [], '', '');
+    return new User(emailData.email, userData.login, userData.name, userData.login, LoginProviderEnum.GITHUB, '', '', '', 'free', userData.avatar_url, userData.background_image_url, true, [], '', '');
   }
 
   static fromCreateUserRequest(request: CreateUserRequestDTO): User {
-    const newUser = new User(
+    return new User(
       request.email,
       request.username,
       request.name,
@@ -69,12 +70,11 @@ export class User extends BaseUser {
       request.link,
       request.plan,
       request.avatar_url,
+      request.background_image_url,
       false,
       request.global_permissions,
       '',
       ''
     );
-
-    return newUser;
   }
 }

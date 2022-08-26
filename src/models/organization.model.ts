@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsEmail, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { randomUUID } from 'crypto';
 import slugify from '../helpers/slugify';
 import { BaseModel } from './base.model';
@@ -55,12 +55,15 @@ export class Organization extends BaseModel {
 
   @IsOptional()
   public avatar_url: string;
-  
+
   @IsOptional()
   public options: OrganizationOptions;
 
   @IsString()
   public invitation_code: string;
+
+  @IsMongoId()
+  public user_id: string;
 
   constructor(
     display_name: string,
@@ -76,9 +79,10 @@ export class Organization extends BaseModel {
     bio: string,
     avatar_url: string,
     invitation_code: string,
+    user_id: string,
     id?: string,
     sluglified_name?: string,
-    options?: OrganizationOptions,
+    options?: OrganizationOptions
   ) {
     super();
 
@@ -106,6 +110,7 @@ export class Organization extends BaseModel {
     this.bio = bio;
     this.avatar_url = avatar_url;
     this.invitation_code = invitation_code;
+    this.user_id = user_id;
 
     if (options) {
       this.options = options;

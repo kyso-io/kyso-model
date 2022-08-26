@@ -30,6 +30,8 @@ export enum KysoEventEnum {
   REPORTS_CREATE = 'kyso.reports.create',
   REPORTS_CREATE_NO_PERMISSIONS = 'kyso.reports.create-no-permissions',
   REPORTS_DELETE = 'kyso.reports.delete',
+  REPORTS_MENTIONS = 'kyso.reports.mentions',
+  REPORTS_NEW_MENTION = 'kyso.reports.new-mention',
   REPORTS_NEW_VERSION = 'kyso.reports.new-version',
   REPORTS_PIN = 'kyso.reports.pin',
   REPORTS_PIN_GLOBAL = 'kyso.reports.pin-global',

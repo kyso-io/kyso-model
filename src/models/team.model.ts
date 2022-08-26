@@ -45,6 +45,9 @@ export class Team extends BaseModel {
   @IsString()
   public slackChannel: string | null;
 
+  @IsMongoId()
+  public user_id: string;
+
   constructor(
     display_name: string,
     avatar_url: string,
@@ -54,6 +57,7 @@ export class Team extends BaseModel {
     roles: KysoRole[],
     organization_id: string,
     visibility: TeamVisibilityEnum,
+    user_id: string,
     id?: string,
     sluglified_name?: string
   ) {
@@ -75,6 +79,7 @@ export class Team extends BaseModel {
     this.roles = roles;
     this.organization_id = organization_id;
     this.visibility = visibility;
+    this.user_id = user_id;
     this.slackChannel = null;
     if (id) {
       this.id = id;

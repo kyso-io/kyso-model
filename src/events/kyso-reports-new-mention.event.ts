@@ -1,15 +1,14 @@
-import { Discussion } from '../models/discussion.model';
 import { Organization } from '../models/organization.model';
+import { Report } from '../models/report.model';
 import { Team } from '../models/team.model';
 import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
-export interface KysoDiscussionsMentionsEvent extends KysoEvent {
-  to: string | string[];
+export interface KysoReportsNewMentionEvent extends KysoEvent {
+  user: User;
   creator: User;
-  users: User[];
   organization: Organization;
   team: Team;
-  discussion: Discussion;
+  report: Report;
   frontendUrl: string;
 }
