@@ -23,7 +23,8 @@ export class KysoConfigFile {
   public tags: string[];
 
   @IsString()
-  public type: ReportType | null;
+  @IsOptional()
+  public type?: ReportType | null;
 
   @IsOptional()
   @IsBoolean()
@@ -46,7 +47,7 @@ export class KysoConfigFile {
   @IsString()
   public channel?: string;
   
-  constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type: ReportType | null) {
+  constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type?: ReportType | null) {
     this.main = main;
     this.title = title;
     this.description = description;
@@ -68,7 +69,7 @@ export class KysoConfigFile {
           object.organization,
           object.channel ? object.channel : object.team,
           object.tags, 
-          object.type
+          object.type ? object.type : ReportType.Other
         );
 
         // Now check and set the optional variables (less channel, which is already setted)
@@ -111,11 +112,6 @@ export class KysoConfigFile {
   }
 
   static isValid(data: any): { valid: boolean; message: string } {
-    const types = Object.values(ReportType);
-    if (!data?.type || data.type.length === 0 || !types.includes(data.type)) {
-      return { valid: false, message: `Property type is required. Valid values: ${types.join(', ')}` };
-    }
-
     if (data.type === ReportType.Meta) {
       if (!data.hasOwnProperty('reports')) {
         return { valid: false, message: 'Property reports is required' };
