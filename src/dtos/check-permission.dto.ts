@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { KysoPermissions } from '../enums/general-permissions.enum';
 
 export class CheckPermissionDto {
   @IsString()
@@ -12,5 +13,5 @@ export class CheckPermissionDto {
 
   @IsString()
   @IsNotEmpty()
-  public permission!: string;
+  public permission!: KysoPermissions;
 }
