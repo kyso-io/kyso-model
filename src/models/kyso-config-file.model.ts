@@ -1,6 +1,6 @@
 import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
+import * as jsYaml from 'js-yaml';
 import { ReportType } from '../enums/report-type.enum';
-import * as jsYaml from 'js-yaml'
 
 export class KysoConfigFile {
   @IsString()
@@ -46,7 +46,7 @@ export class KysoConfigFile {
   @IsOptional()
   @IsString()
   public channel?: string;
-  
+
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type?: ReportType | null) {
     this.main = main;
     this.title = title;
@@ -58,57 +58,58 @@ export class KysoConfigFile {
     this.type = type;
   }
 
-  static fromObject(object: any): KysoConfigFile | null {
-    try {
-      const validationResult = KysoConfigFile.isValid(object);
-      if(validationResult.valid) {
-        const kysoFile: KysoConfigFile = new KysoConfigFile(
-          object.main, 
-          object.title,
-          object.description,
-          object.organization,
-          object.channel ? object.channel : object.team,
-          object.tags, 
-          object.type ? object.type : ReportType.Other
-        );
+  static fromObject(object: any): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
+    const validationResult: { valid: boolean; message: string } = KysoConfigFile.isValid(object);
+    if (validationResult.valid) {
+      const kysoFile: KysoConfigFile = new KysoConfigFile(
+        object.main,
+        object.title,
+        object.description,
+        object.organization,
+        object.channel ? object.channel : object.team,
+        object.tags,
+        object.type ? object.type : ReportType.Other
+      );
 
-        // Now check and set the optional variables (less channel, which is already setted)
-        if(object.hasOwnProperty("hideRoot")) {
-          kysoFile.hideRoot = object.hideRoot;
-        }
-
-        if(object.hasOwnProperty("reports")) {
-          kysoFile.reports = object.reports;
-        }
-
-        if(object.hasOwnProperty("preview")) {
-          kysoFile.preview = object.preview;
-        }
-
-        if(object.hasOwnProperty("authors")) {
-          kysoFile.authors = object.authors;
-        }
-
-        return kysoFile;
-      } else {
-        console.log(`Provided yaml file has an invalid format: ${validationResult.message}`);
-        return null;
+      // Now check and set the optional variables (less channel, which is already setted)
+      if (object.hasOwnProperty('hideRoot')) {
+        kysoFile.hideRoot = object.hideRoot;
       }
-    } catch(ex) {
-      console.log(`Unexpected error parsing kyso.yaml file`);
-      return null;
+
+      if (object.hasOwnProperty('reports')) {
+        kysoFile.reports = object.reports;
+      }
+
+      if (object.hasOwnProperty('preview')) {
+        kysoFile.preview = object.preview;
+      }
+
+      if (object.hasOwnProperty('authors')) {
+        kysoFile.authors = object.authors;
+      }
+
+      return {
+        valid: true,
+        message: null,
+        kysoConfigFile: kysoFile,
+      };
+    } else {
+      return {
+        valid: validationResult.valid,
+        message: validationResult.message,
+        kysoConfigFile: null,
+      };
     }
   }
 
-  static fromYaml(yaml: string): KysoConfigFile | null {
+  static fromYaml(yaml: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
     const object: any = jsYaml.load(yaml);
-    return this.fromObject(object)
+    return this.fromObject(object);
   }
 
-  static fromJSON(json: string): KysoConfigFile | null {
+  static fromJSON(json: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
     const object: any = JSON.parse(json);
-
-    return this.fromObject(object)
+    return this.fromObject(object);
   }
 
   static isValid(data: any): { valid: boolean; message: string } {
