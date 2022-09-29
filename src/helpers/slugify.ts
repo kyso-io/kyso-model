@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import slugify from 'slugify';
 
 export default function slug(url: string) {
@@ -10,6 +9,7 @@ export default function slug(url: string) {
       trim: true,
     });
   } else {
-    return nanoid();
+    // Generate random string
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
   }
 }
