@@ -1,17 +1,15 @@
-
-import { randomUUID } from 'crypto'
-import slugify from 'slugify'
+import { nanoid } from 'nanoid';
+import slugify from 'slugify';
 
 export default function slug(url: string) {
-  if(url) {
+  if (url) {
     return slugify(url, {
       replacement: '-',
       lower: true,
       strict: true,
-      trim: true  
-    })
+      trim: true,
+    });
   } else {
-    // Set a random UUID if nothing comes. This is unlikely, but...
-    return randomUUID()
-  }  
+    return nanoid();
+  }
 }
