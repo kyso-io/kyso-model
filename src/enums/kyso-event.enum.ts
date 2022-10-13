@@ -25,6 +25,7 @@ export enum KysoEventEnum {
   ORGANIZATIONS_REMOVE_MEMBER = 'kyso.organizations.remove-member',
   ORGANIZATIONS_UPDATE = 'kyso.organizations.update',
   ORGANIZATIONS_UPDATE_MEMBER_ROLE = 'kyso.organizations.update-member-role',
+  ORGANIZATIONS_UPDATE_CENTRALIZED_COMMUNICATIONS = 'kyso.organizations.update-centralized-communications',
   ORGANIZATIONS_UPDATE_OPTIONS = 'kyso.organizations.update-options',
   // REPORTS
   REPORTS_ADD_AUTHOR = 'kyso.reports.add-author',
