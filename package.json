@@ -41,6 +41,7 @@
   "dependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "husky": "^8.0.0",
     "es6-shim": "^0.35.6",
     "js-yaml": "^4.1.0",
     "reflect-metadata": "^0.1.13",
