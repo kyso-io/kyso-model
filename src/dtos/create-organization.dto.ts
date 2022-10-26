@@ -8,4 +8,12 @@ export class CreateOrganizationDto {
   @IsOptional()
   @IsString()
   public bio!: string;
+
+  @IsOptional()
+  @IsString()
+  public location!: string;
+
+  @IsOptional()
+  @IsString()
+  public link!: string;
 }
