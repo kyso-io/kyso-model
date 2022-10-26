@@ -1,7 +1,8 @@
 import { IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
+import { BaseDTO } from './base-dto.dto';
 
-export class CreateReportDTO {
+export class CreateReportDTO extends BaseDTO {
   @IsString()
   @IsNotEmpty()
   public name: string;
@@ -50,8 +51,11 @@ export class CreateReportDTO {
     title: string,
     description: string,
     main_file: string,
-    type: string
+    type: string, 
+    id?: string
   ) {
+    super(id);
+    
     this.name = name;
     this.username_provider = username_provider;
     this.provider = provider;
