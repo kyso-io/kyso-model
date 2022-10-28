@@ -1,4 +1,4 @@
-import { Comment } from '../models/comment.model';
+import { BaseComment } from '../models/base-comment.model';
 import { Discussion } from '../models/discussion.model';
 import { Organization } from '../models/organization.model';
 import { Report } from '../models/report.model';
@@ -10,7 +10,7 @@ export interface KysoCommentsDeleteEvent extends KysoEvent {
   user: User;
   organization: Organization;
   team: Team;
-  comment: Comment;
+  comment: BaseComment;
   discussion?: Discussion;
   report?: Report;
   frontendUrl: string;

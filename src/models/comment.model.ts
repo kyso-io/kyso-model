@@ -1,7 +1,7 @@
 import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
-import { BaseModel } from './base.model';
+import { BaseComment } from './base-comment.model';
 
-export class Comment extends BaseModel {
+export class Comment extends BaseComment {
   @IsNotEmpty()
   public text: string;
   
@@ -36,6 +36,24 @@ export class Comment extends BaseModel {
 
   @IsMongoId({ each: true })
   public user_ids: string[];
+
+
+  // Alias to make it compatible with BaseComment object
+  get author_id(): string {
+    return this.user_id;
+  }
+
+  set author_id(user_id: string) {
+    this.user_id = user_id;
+  }
+
+  get mentions(): string[] {
+    return this.user_ids;
+  }
+
+  set mentions(user_ids: string[]) {
+    this.user_ids = user_ids;
+  }
 
   constructor(text: string, plain_text: string, user_id: string, report_id: string, discussion_id: string, comment_id: string, user_ids: string[]) {
     super();
