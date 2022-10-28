@@ -34,6 +34,12 @@ export class InlineComment extends BaseComment {
     this.user_id = user_id;
   }
 
+  // The inline comments can't have replys, for that reason this parameter is always null for InlineComments
+  get comment_id(): string | undefined {
+    return undefined;
+  }
+
+
   constructor(report_id: string, cell_id: string, user_id: string, text: string, edited: boolean, markedAsDelete: boolean, mentions: string[]) {
     super();
     this.report_id = report_id;

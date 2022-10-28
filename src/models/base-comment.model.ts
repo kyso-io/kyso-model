@@ -2,6 +2,7 @@ import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
 import { BaseModel } from './base.model';
 
 export abstract class BaseComment extends BaseModel {
+  public abstract comment_id?: string;
   public abstract user_ids: string[];
   public abstract mentions: string[];
   public abstract user_id: string;
