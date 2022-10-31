@@ -13,7 +13,7 @@
     "tscBuild": "tsc --build",
     "build": "npm run clean && npm run tscBuild",
     "check-types": "tsc --noEmit --pretty",
-    "prepare": "husky install && npm run build",
+    "prepare": "is-ci || husky install && npm run build",
     "dev": "tsc --watch",
     "start": "tsc"
   },
@@ -34,6 +34,7 @@
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^8.0.0",
+    "is-ci": "^3.0.1",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.4"
@@ -41,8 +42,8 @@
   "dependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
-    "husky": "^8.0.0",
     "es6-shim": "^0.35.6",
+    "husky": "^8.0.0",
     "js-yaml": "^4.1.0",
     "reflect-metadata": "^0.1.13",
     "slugify": "^1.6.5"
