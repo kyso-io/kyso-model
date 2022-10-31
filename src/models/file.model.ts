@@ -7,8 +7,9 @@ export class File extends BaseModel {
   public size: number;
   public sha: string;
   public version: number;
+  public message: string;
 
-  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number) {
+  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string) {
     super();
     this.report_id = report_id;
     this.name = name;
@@ -16,5 +17,6 @@ export class File extends BaseModel {
     this.size = size;
     this.sha = sha;
     this.version = version;
+    this.message = message;
   }
 }
