@@ -9,9 +9,9 @@ export class File extends BaseModel {
   public sha: string;
   public version: number;
   public message: string;
-  public git_metadata: GitMetadata[];
+  public git_metadata: GitMetadata;
 
-  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string, git_metadata: GitMetadata[]) {
+  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string, git_metadata: GitMetadata) {
     super();
     this.report_id = report_id;
     this.name = name;
