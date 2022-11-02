@@ -1,8 +1,9 @@
-import { RepositoryProvider, UserDTO } from '..';
 import { ReportStatus } from '../enums/report-status.enum';
+import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
 import { Hateoas } from '../models/hateoas.model';
+import { UserDTO } from './user.dto';
 
 export class ReportDTO extends BaseModel {
   public name: string;
@@ -108,5 +109,45 @@ export class ReportDTO extends BaseModel {
         self_ui: `/${user.nickname}/${this.name}`,
       };
     }
+  }
+
+  /**
+   * @returns an empty ReportDTO
+   */
+  public static createEmpty(): ReportDTO {
+    return new ReportDTO(
+      '', //id
+      new Date(), // created_at
+      new Date(), // updated_at
+      new Hateoas('', ''), // links,
+      '', // name
+      '', // report_type
+      0, // views
+      '', // provider
+      '', // name_provider
+      false, // pin
+      false, //user_pin
+      0, // stars,
+      false, // mark_as_star_by_user
+      0, // number_of_comments,
+      [], // tags
+      '', // description
+      '', // user_id
+      [], // comments,
+      '', // team_id
+      '', // title
+      [], // authors_id,
+      ReportStatus.Processing, // status
+      '', // preview_picture
+      false, // show_code
+      false, // show_output
+      '', // main_file
+      '', // main_file_id
+      '', //main_file_path_scs
+      0, // main_file_version
+      0, // last_version
+      '', // organization_sluglified_name
+      '', // team_sluglified_name
+    );
   }
 }
