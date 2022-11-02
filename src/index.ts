@@ -116,6 +116,9 @@ export * from './events/kyso-users-delete.event';
 export * from './events/kyso-users-recovery-password.event';
 export * from './events/kyso-users-update.event';
 export * from './events/kyso-users-verification-email.event';
+// INTERFACES
+export * from './interfaces/git-commit';
+export * from './interfaces/git-metadata';
 // MODELS
 export * from './models/action-with-payload.model';
 export * from './models/activity-feed.model';
