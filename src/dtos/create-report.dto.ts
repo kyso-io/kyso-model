@@ -1,8 +1,10 @@
 import { IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
-import { BaseDTO } from './base-dto.dto';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { StaticImplements } from '../types/static-implements';
 
-export class CreateReportDTO extends BaseDTO {
+export class CreateReportDTO extends BaseModel implements StaticImplements<ApiMethods<CreateReportDTO>, typeof CreateReportDTO> {
   @IsString()
   @IsNotEmpty()
   public name: string;
@@ -51,11 +53,10 @@ export class CreateReportDTO extends BaseDTO {
     title: string,
     description: string,
     main_file: string,
-    type: string, 
-    id?: string
+    type: string,
+    id?: string,
   ) {
     super(id);
-    
     this.name = name;
     this.username_provider = username_provider;
     this.provider = provider;
@@ -66,5 +67,21 @@ export class CreateReportDTO extends BaseDTO {
     this.description = description;
     this.main_file = main_file;
     this.type = type;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): CreateReportDTO {
+    return new CreateReportDTO('', '', RepositoryProvider.GITHUB, '', '', '', '', '', '', '');
+  }
+
+  static examples(): { [key: string]: { value: CreateReportDTO } } {
+    return {
+      CreateReportDTO: {
+        value: CreateReportDTO.createEmpty(),
+      },
+    };
   }
 }

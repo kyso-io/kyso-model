@@ -1,11 +1,13 @@
 import { IsArray, IsBoolean, IsEmail, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { randomUUID } from 'crypto';
 import slugify from '../helpers/slugify';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 import { OrganizationOptions } from './organization-options.model';
 
-export class Organization extends BaseModel {
+export class Organization extends BaseModel implements StaticImplements<ApiMethods<Organization>, typeof Organization> {
   @IsNotEmpty()
   // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
   public sluglified_name: string;
@@ -82,7 +84,7 @@ export class Organization extends BaseModel {
     user_id: string,
     id?: string,
     sluglified_name?: string,
-    options?: OrganizationOptions
+    options?: OrganizationOptions,
   ) {
     super();
 
@@ -115,11 +117,27 @@ export class Organization extends BaseModel {
     if (options) {
       this.options = options;
     } else {
-      this.options = {};
+      this.options = new OrganizationOptions();
     }
 
     if (id) {
       this.id = id;
     }
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Organization {
+    return new Organization('', '', [], [], '', '', '', false, '', '', '', '', '', '');
+  }
+
+  static examples(): { [key: string]: { value: Organization } } {
+    return {
+      Organization: {
+        value: Organization.createEmpty(),
+      },
+    };
   }
 }

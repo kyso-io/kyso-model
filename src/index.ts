@@ -11,10 +11,8 @@ export * from './dtos/create-discussion-request.dto';
 export * from './dtos/create-inline-comment.dto';
 export * from './dtos/create-invitation.dto';
 export * from './dtos/create-kyso-access-token-request.dto';
-export * from './dtos/create-kyso-report.dto';
 export * from './dtos/create-organization.dto';
 export * from './dtos/create-report-file-system-item.dto';
-export * from './dtos/create-report-request.dto';
 export * from './dtos/create-report.dto';
 export * from './dtos/create-ui-report.dto';
 export * from './dtos/create-user-request.dto';
@@ -27,7 +25,6 @@ export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
 export * from './dtos/organization-storage.dto';
 export * from './dtos/paginated-response.dto';
-export * from './dtos/report-filter-query.dto';
 export * from './dtos/report.dto';
 export * from './dtos/search-user.dto';
 export * from './dtos/sign-up.dto';
@@ -117,6 +114,7 @@ export * from './events/kyso-users-recovery-password.event';
 export * from './events/kyso-users-update.event';
 export * from './events/kyso-users-verification-email.event';
 // INTERFACES
+export * from './interfaces/api-methods';
 export * from './interfaces/git-commit';
 export * from './interfaces/git-metadata';
 // MODELS
@@ -176,3 +174,5 @@ export * from './models/user-account.model';
 export * from './models/user-forgot-password.model';
 export * from './models/user-verification.model';
 export * from './models/user.model';
+// TYPES
+export * from './types/static-implements';

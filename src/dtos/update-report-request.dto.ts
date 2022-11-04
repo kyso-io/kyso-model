@@ -1,6 +1,9 @@
 import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { StaticImplements } from '../types/static-implements';
 
-export class UpdateReportRequestDTO {
+export class UpdateReportRequestDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateReportRequestDTO>, typeof UpdateReportRequestDTO> {
   @IsOptional()
   @IsNotEmpty()
   public title: string;
@@ -30,6 +33,7 @@ export class UpdateReportRequestDTO {
   public author_emails: string[];
 
   constructor(title: string, description: string, show_code: boolean, show_output: boolean, main_file: string, tags: string[], author_emails: string[]) {
+    super();
     this.title = title;
     this.description = description;
     this.show_code = show_code;
@@ -37,5 +41,21 @@ export class UpdateReportRequestDTO {
     this.main_file = main_file;
     this.tags = tags;
     this.author_emails = author_emails;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): UpdateReportRequestDTO {
+    return new UpdateReportRequestDTO('', '', false, false, '', [], []);
+  }
+
+  static examples(): { [key: string]: { value: UpdateReportRequestDTO } } {
+    return {
+      UpdateReportRequestDTO: {
+        value: UpdateReportRequestDTO.createEmpty(),
+      },
+    };
   }
 }

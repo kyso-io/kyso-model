@@ -1,6 +1,9 @@
-import { IsMongoId, IsOptional } from "class-validator";
+import { IsMongoId, IsOptional } from 'class-validator';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { StaticImplements } from '../types/static-implements';
 
-export class InlineCommentDto {
+export class InlineCommentDto extends BaseModel implements StaticImplements<ApiMethods<InlineCommentDto>, typeof InlineCommentDto> {
   public id: string;
   public created_at: Date;
   public updated_at: Date;
@@ -12,12 +15,26 @@ export class InlineCommentDto {
   public markedAsDeleted: boolean;
   public user_name: string;
   public user_avatar: string;
-  
+
   @IsOptional()
   @IsMongoId({ each: true })
   public mentions: string[];
 
-  constructor(id: string, created_at: Date, updated_at: Date, report_id: string, cell_id: string, user_id: string, text: string, edited: boolean, markedAsDeleted: boolean, user_name: string, user_avatar: string, mentions: string[]) {
+  constructor(
+    id: string,
+    created_at: Date,
+    updated_at: Date,
+    report_id: string,
+    cell_id: string,
+    user_id: string,
+    text: string,
+    edited: boolean,
+    markedAsDeleted: boolean,
+    user_name: string,
+    user_avatar: string,
+    mentions: string[],
+  ) {
+    super();
     this.id = id;
     this.created_at = created_at;
     this.updated_at = updated_at;
@@ -30,5 +47,21 @@ export class InlineCommentDto {
     this.user_name = user_name;
     this.user_avatar = user_avatar;
     this.mentions = mentions;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): InlineCommentDto {
+    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', false, false, '', '', []);
+  }
+
+  static examples(): { [key: string]: { value: InlineCommentDto } } {
+    return {
+      InlineCommentDto: {
+        value: InlineCommentDto.createEmpty(),
+      },
+    };
   }
 }

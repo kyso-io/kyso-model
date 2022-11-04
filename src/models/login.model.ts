@@ -1,8 +1,11 @@
 import { IsEnum, IsLowercase, IsNotEmpty, IsOptional, IsString, ValidateIf } from 'class-validator';
 import { IsType } from '../decorators/is-type';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 
-export class Login {
+export class Login extends BaseModel implements StaticImplements<ApiMethods<Login>, typeof Login> {
   @IsString()
   @IsLowercase()
   protected _email!: string;
@@ -35,10 +38,27 @@ export class Login {
   public payload!: any;
 
   constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl?: any) {
+    super();
     this.password = password;
     this.provider = provider;
     this._email = email ? email.toLowerCase() : email;
     this.payload = payload;
     this.kysoInstallUrl = kysoInstallUrl;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Login {
+    return new Login('', LoginProviderEnum.KYSO, '', {});
+  }
+
+  static examples(): { [key: string]: { value: Login } } {
+    return {
+      Login: {
+        value: Login.createEmpty(),
+      },
+    };
   }
 }

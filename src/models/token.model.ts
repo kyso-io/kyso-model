@@ -1,12 +1,9 @@
 import { IsAlphanumeric, IsBoolean, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
-import { LoginProviderEnum } from '..';
+import { ApiMethods, BaseModel, LoginProviderEnum, StaticImplements } from '..';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { TokenPermissions } from './token-permissions.model';
 
-export class Token {
-  @IsNotEmpty()
-  public id: string;
-
+export class Token extends BaseModel implements StaticImplements<ApiMethods<Token>, typeof Token> {
   @IsNotEmpty()
   @IsAlphanumeric()
   public name: string;
@@ -46,7 +43,7 @@ export class Token {
 
   @IsBoolean()
   public email_verified: boolean;
-  
+
   @IsBoolean()
   public show_captcha: boolean;
 
@@ -74,9 +71,9 @@ export class Token {
       accountId: string;
       username: string;
     }[],
-    permissions?: TokenPermissions
+    permissions?: TokenPermissions,
   ) {
-    this.id = id;
+    super(id);
     this.name = name;
     this.nickname = nickname;
     this.username = username;
@@ -86,7 +83,7 @@ export class Token {
     if (permissions) {
       this.permissions = permissions;
     } else {
-      this.permissions = {};
+      this.permissions = new TokenPermissions([], [], []);
     }
 
     this.avatar_url = avatar_url;
@@ -99,10 +96,26 @@ export class Token {
   }
 
   public isGlobalAdmin(): boolean {
-    if (this.permissions && this.permissions.global && this.permissions.global.findIndex(x => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
+    if (this.permissions && this.permissions.global && this.permissions.global.findIndex((x) => x === GlobalPermissionsEnum.GLOBAL_ADMIN) !== -1) {
       return true;
     } else {
       return false;
     }
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Token {
+    return new Token('', '', '', '', '', '', '', '', '', '', false, false, []);
+  }
+
+  static examples(): { [key: string]: { value: Token } } {
+    return {
+      Token: {
+        value: Token.createEmpty(),
+      },
+    };
   }
 }

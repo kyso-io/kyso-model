@@ -1,7 +1,7 @@
 import { IsBoolean, IsEnum, IsObject, IsOptional, IsString } from 'class-validator';
-import { TeamVisibilityEnum } from '..';
+import { ApiMethods, BaseModel, StaticImplements, TeamVisibilityEnum } from '..';
 
-export class UpdateTeamRequest {
+export class UpdateTeamRequest extends BaseModel implements StaticImplements<ApiMethods<UpdateTeamRequest>, typeof UpdateTeamRequest> {
   @IsOptional()
   @IsString()
   public location: string;
@@ -29,13 +29,13 @@ export class UpdateTeamRequest {
   @IsOptional()
   @IsObject()
   public company_tax_details: object;
-  
-  
+
   @IsOptional()
   @IsEnum(TeamVisibilityEnum)
   public visibility: TeamVisibilityEnum;
 
   constructor(location: string, link: string, bio: string, access_domain: string, email_access: string, gmail_access_only: boolean, company_tax_details: object, visibility: TeamVisibilityEnum) {
+    super();
     this.location = location;
     this.link = link;
     this.bio = bio;
@@ -44,5 +44,21 @@ export class UpdateTeamRequest {
     this.gmail_access_only = gmail_access_only;
     this.company_tax_details = company_tax_details;
     this.visibility = visibility;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): UpdateTeamRequest {
+    return new UpdateTeamRequest('', '', '', '', '', false, {}, TeamVisibilityEnum.PRIVATE);
+  }
+
+  static examples(): { [key: string]: { value: UpdateTeamRequest } } {
+    return {
+      UpdateTeamRequest: {
+        value: UpdateTeamRequest.createEmpty(),
+      },
+    };
   }
 }

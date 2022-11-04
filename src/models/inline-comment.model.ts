@@ -1,6 +1,8 @@
-import { BaseComment } from './base-comment.model';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 
-export class InlineComment extends BaseComment {
+export class InlineComment extends BaseModel implements StaticImplements<ApiMethods<InlineComment>, typeof InlineComment> {
   public report_id: string;
   public cell_id: string;
   public user_id: string;
@@ -39,7 +41,6 @@ export class InlineComment extends BaseComment {
     return undefined;
   }
 
-
   constructor(report_id: string, cell_id: string, user_id: string, text: string, edited: boolean, markedAsDelete: boolean, mentions: string[]) {
     super();
     this.report_id = report_id;
@@ -49,5 +50,21 @@ export class InlineComment extends BaseComment {
     this.edited = edited;
     this.markedAsDeleted = markedAsDelete;
     this.mentions = mentions;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): InlineComment {
+    return new InlineComment('', '', '', '', false, false, []);
+  }
+
+  static examples(): { [key: string]: { value: InlineComment } } {
+    return {
+      InlineComment: {
+        value: InlineComment.createEmpty(),
+      },
+    };
   }
 }

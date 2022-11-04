@@ -1,8 +1,11 @@
 import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
 import * as jsYaml from 'js-yaml';
 import { ReportType } from '../enums/report-type.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 
-export class KysoConfigFile {
+export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMethods<KysoConfigFile>, typeof KysoConfigFile> {
   @IsString()
   public main: string;
 
@@ -48,6 +51,7 @@ export class KysoConfigFile {
   public channel?: string;
 
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type?: ReportType | null) {
+    super();
     this.main = main;
     this.title = title;
     this.description = description;
@@ -68,7 +72,7 @@ export class KysoConfigFile {
         object.organization,
         object.channel ? object.channel : object.team,
         object.tags,
-        object.type ? object.type : ReportType.Other
+        object.type ? object.type : ReportType.Other,
       );
 
       // Now check and set the optional variables (less channel, which is already setted)
@@ -146,5 +150,21 @@ export class KysoConfigFile {
     }
 
     return { valid: true, message: '' };
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): KysoConfigFile {
+    return new KysoConfigFile('', '', '', '', '', []);
+  }
+
+  static examples(): { [key: string]: { value: KysoConfigFile } } {
+    return {
+      KysoConfigFile: {
+        value: KysoConfigFile.createEmpty(),
+      },
+    };
   }
 }

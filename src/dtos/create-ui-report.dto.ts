@@ -1,6 +1,9 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { StaticImplements } from '../types/static-implements';
 
-export class CreateUIReportDTO {
+export class CreateUIReportDTO extends BaseModel implements StaticImplements<ApiMethods<CreateUIReportDTO>, typeof CreateUIReportDTO> {
   @IsString()
   @IsNotEmpty()
   public title: string;
@@ -23,11 +26,28 @@ export class CreateUIReportDTO {
   public files: any[];
 
   constructor(title: string, organization: string, team: string, description: string, tags: string[], files: any[]) {
+    super();
     this.title = title;
     this.organization = organization;
     this.team = team;
     this.description = description;
     this.tags = tags || [];
     this.files = files || [];
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): CreateUIReportDTO {
+    return new CreateUIReportDTO('', '', '', '', [], []);
+  }
+
+  static examples(): { [key: string]: { value: CreateUIReportDTO } } {
+    return {
+      CreateUIReportDTO: {
+        value: CreateUIReportDTO.createEmpty(),
+      },
+    };
   }
 }
