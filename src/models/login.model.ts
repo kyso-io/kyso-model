@@ -8,7 +8,7 @@ import { BaseModel } from './base.model';
 export class Login extends BaseModel implements StaticImplements<ApiMethods<Login>, typeof Login> {
   @IsString()
   @IsLowercase()
-  protected _email!: string;
+  protected _email: string;
 
   public get email() {
     if (this._email) {
@@ -24,18 +24,18 @@ export class Login extends BaseModel implements StaticImplements<ApiMethods<Logi
 
   @IsOptional()
   @IsNotEmpty()
-  public password!: string;
+  public password: string;
 
   @IsOptional()
   @IsNotEmpty()
-  public kysoInstallUrl!: string;
+  public kysoInstallUrl: string;
 
   @IsEnum(LoginProviderEnum)
-  public provider!: LoginProviderEnum;
+  public provider: LoginProviderEnum;
 
   @ValidateIf((o: Login) => o?.payload && o.payload !== null)
   @IsType(['string', 'object'])
-  public payload!: any;
+  public payload: any;
 
   constructor(password: string, provider: LoginProviderEnum, email: string, payload: any, kysoInstallUrl?: any) {
     super();

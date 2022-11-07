@@ -6,11 +6,11 @@ import { StaticImplements } from '../types/static-implements';
 export class UpdateInlineCommentDto extends BaseModel implements StaticImplements<ApiMethods<UpdateInlineCommentDto>, typeof UpdateInlineCommentDto> {
   @IsString()
   @IsNotEmpty()
-  public text!: string;
+  public text: string;
 
   @IsOptional()
   @IsMongoId({ each: true })
-  public mentions!: string[];
+  public mentions: string[];
 
   constructor(text: string, mentions: string[]) {
     super();

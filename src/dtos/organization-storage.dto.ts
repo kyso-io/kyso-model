@@ -4,7 +4,7 @@ import { StaticImplements } from '../types/static-implements';
 import { StorageDto } from './storage.dto';
 
 export class OrganizationStorageDto extends StorageDto implements StaticImplements<ApiMethods<OrganizationStorageDto>, typeof OrganizationStorageDto> {
-  public teams!: StorageDto[];
+  public teams: StorageDto[];
   constructor(name: string, consumedSpaceKb: number, consumedSpaceMb: number, consumedSpaceGb: number) {
     super(name, consumedSpaceKb, consumedSpaceMb, consumedSpaceGb);
     this.teams = [];

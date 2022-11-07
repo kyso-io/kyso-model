@@ -6,19 +6,19 @@ import { StaticImplements } from '../types/static-implements';
 export class CreateOrganizationDto extends BaseModel implements StaticImplements<ApiMethods<CreateOrganizationDto>, typeof CreateOrganizationDto> {
   @IsNotEmpty()
   @IsString()
-  public display_name!: string;
+  public display_name: string;
 
   @IsOptional()
   @IsString()
-  public bio!: string;
+  public bio: string;
 
   @IsOptional()
   @IsString()
-  public location!: string;
+  public location: string;
 
   @IsOptional()
   @IsString()
-  public link!: string;
+  public link: string;
 
   constructor(display_name: string, bio: string, location: string, link: string) {
     super();

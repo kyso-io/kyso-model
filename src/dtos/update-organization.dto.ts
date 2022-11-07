@@ -8,24 +8,24 @@ import { StaticImplements } from '../types/static-implements';
 export class UpdateOrganizationDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
   @IsString()
-  public location!: string;
+  public location: string;
 
   @IsOptional()
   @IsString()
-  public link!: string;
+  public link: string;
 
   @IsOptional()
   @IsString()
-  public bio!: string;
+  public bio: string;
 
   @IsOptional()
   @IsArray()
-  public allowed_access_domains!: string[];
+  public allowed_access_domains: string[];
 
   @IsOptional()
   @ValidateNested()
   @Type(() => OrganizationOptions)
-  public options!: OrganizationOptions;
+  public options: OrganizationOptions;
 
   constructor(location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions) {
     super();

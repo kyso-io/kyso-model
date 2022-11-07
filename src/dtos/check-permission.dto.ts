@@ -8,16 +8,16 @@ import { StaticImplements } from '../types/static-implements';
 export class CheckPermissionDto extends BaseModel implements StaticImplements<ApiMethods<CheckPermissionDto>, typeof CheckPermissionDto> {
   @IsString()
   @IsNotEmpty()
-  public organization!: string;
+  public organization: string;
 
   @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public team!: string;
+  public team: string;
 
   @IsString()
   @IsNotEmpty()
-  public permission!: KysoPermissions;
+  public permission: KysoPermissions;
 
   constructor(organization: string, team: string, permission: KysoPermissions) {
     super();

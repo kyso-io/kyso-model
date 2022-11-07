@@ -3,13 +3,13 @@ import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
 
 export class OrganizationInfoDto extends BaseModel implements StaticImplements<ApiMethods<OrganizationInfoDto>, typeof OrganizationInfoDto> {
-  public organization_id!: string;
-  public members!: number;
-  public reports!: number;
-  public discussions!: number;
-  public comments!: number;
-  public lastChange!: Date;
-  public avatar_url!: string;
+  public organization_id: string;
+  public members: number;
+  public reports: number;
+  public discussions: number;
+  public comments: number;
+  public lastChange: Date;
+  public avatar_url: string;
 
   constructor(organization_id: string, members: number, reports: number, discussions: number, comments: number, lastChange: Date, avatar_url: string) {
     super();

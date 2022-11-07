@@ -1,5 +1,9 @@
 import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
-import { ApiMethods, BaseModel, StaticImplements, User, UserAccount } from '..';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { UserAccount } from '../models/user-account.model';
+import { User } from '../models/user.model';
+import { StaticImplements } from '../types/static-implements';
 
 export class UserDTO extends BaseModel implements StaticImplements<ApiMethods<UserDTO>, typeof UserDTO> {
   @IsString()

@@ -5,14 +5,14 @@ import { StaticImplements } from '../types/static-implements';
 
 export class AddUserOrganizationDto extends BaseModel implements StaticImplements<ApiMethods<AddUserOrganizationDto>, typeof AddUserOrganizationDto> {
   @IsMongoId()
-  public organizationId!: string;
+  public organizationId: string;
 
   @IsMongoId()
-  public userId!: string;
+  public userId: string;
 
   @IsNotEmpty()
   @IsString()
-  public role!: string;
+  public role: string;
 
   constructor(organizationId: string, userId: string, role: string) {
     super();

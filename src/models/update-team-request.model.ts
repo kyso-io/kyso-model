@@ -1,5 +1,8 @@
 import { IsBoolean, IsEnum, IsObject, IsOptional, IsString } from 'class-validator';
-import { ApiMethods, BaseModel, StaticImplements, TeamVisibilityEnum } from '..';
+import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 
 export class UpdateTeamRequest extends BaseModel implements StaticImplements<ApiMethods<UpdateTeamRequest>, typeof UpdateTeamRequest> {
   @IsOptional()

@@ -1,6 +1,9 @@
 import { IsAlphanumeric, IsBoolean, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
-import { ApiMethods, BaseModel, LoginProviderEnum, StaticImplements } from '..';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
+import { LoginProviderEnum } from '../enums/login-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 import { TokenPermissions } from './token-permissions.model';
 
 export class Token extends BaseModel implements StaticImplements<ApiMethods<Token>, typeof Token> {

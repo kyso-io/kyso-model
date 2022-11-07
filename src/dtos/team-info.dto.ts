@@ -3,12 +3,12 @@ import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
 
 export class TeamInfoDto extends BaseModel implements StaticImplements<ApiMethods<TeamInfoDto>, typeof TeamInfoDto> {
-  public team_id!: string;
-  public members!: number;
-  public reports!: number;
-  public discussions!: number;
-  public comments!: number;
-  public lastChange!: Date;
+  public team_id: string;
+  public members: number;
+  public reports: number;
+  public discussions: number;
+  public comments: number;
+  public lastChange: Date;
 
   constructor(team_id: string, members: number, reports: number, discussions: number, comments: number, lastChange: Date) {
     super();

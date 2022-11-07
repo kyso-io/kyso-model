@@ -6,15 +6,15 @@ import { StaticImplements } from '../types/static-implements';
 export class UpdateUserRequestDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateUserRequestDTO>, typeof UpdateUserRequestDTO> {
   @IsOptional()
   @IsString()
-  public location!: string;
+  public location: string;
 
   @IsOptional()
   @IsString()
-  public link!: string;
+  public link: string;
 
   @IsOptional()
   @IsString()
-  public bio!: string;
+  public bio: string;
 
   constructor(location: string, link: string, bio: string) {
     super();

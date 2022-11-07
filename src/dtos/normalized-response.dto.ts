@@ -24,14 +24,14 @@ export class NormalizedResponseDTO<T> {
       return;
     }
 
-    this.relations = relations!;
+    this.relations = relations;
 
     const keys: string[] = Object.keys(relations);
 
     this.relations = keys.reduce((prev: Relations, key) => {
       if (!relations[key]) return prev;
       const collection: any = relations[key];
-      const ids = Object.keys(collection!);
+      const ids = Object.keys(collection);
 
       prev[key] = ids.reduce((last: any, id: string) => {
         const model = collection[id];

@@ -6,18 +6,18 @@ import { StaticImplements } from '../types/static-implements';
 export class SearchUserDto extends BaseModel implements StaticImplements<ApiMethods<SearchUserDto>, typeof SearchUserDto> {
   @IsString()
   @IsNotEmpty()
-  public organization_id!: string | null;
+  public organization_id: string | null;
 
   @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public team_id!: string | null;
+  public team_id: string | null;
 
   @IsString()
   @IsNotEmpty()
-  public query!: string | null;
+  public query: string | null;
 
-  public payload!: any;
+  public payload: any;
 
   constructor(organization_id: string | null, team_id: string | null, query: string | null, payload: any) {
     super();

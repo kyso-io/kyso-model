@@ -1,5 +1,7 @@
 import { IsString } from 'class-validator';
-import { ApiMethods, BaseModel, StaticImplements } from '..';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
+import { BaseModel } from './base.model';
 
 export class KysoSetting extends BaseModel implements StaticImplements<ApiMethods<KysoSetting>, typeof KysoSetting> {
   @IsString()

@@ -5,15 +5,15 @@ import { StaticImplements } from '../types/static-implements';
 
 export class InviteUserDto extends BaseModel implements StaticImplements<ApiMethods<InviteUserDto>, typeof InviteUserDto> {
   @IsEmail()
-  public email!: string;
+  public email: string;
 
   @IsString()
   @IsNotEmpty()
-  public organizationSlug!: string;
+  public organizationSlug: string;
 
   @IsString()
   @IsNotEmpty()
-  public organizationRole!: string;
+  public organizationRole: string;
 
   @IsOptional()
   @IsString()

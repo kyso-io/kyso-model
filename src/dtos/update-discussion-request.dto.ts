@@ -1,5 +1,8 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
-import { ApiMethods, BaseModel, Discussion, StaticImplements } from '..';
+import { ApiMethods } from '../interfaces/api-methods';
+import { BaseModel } from '../models/base.model';
+import { Discussion } from '../models/discussion.model';
+import { StaticImplements } from '../types/static-implements';
 
 export class UpdateDiscussionRequestDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateDiscussionRequestDTO>, typeof UpdateDiscussionRequestDTO> {
   @IsBoolean()

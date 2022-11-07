@@ -5,16 +5,16 @@ import { StaticImplements } from '../types/static-implements';
 
 export class SignUpDto extends BaseModel implements StaticImplements<ApiMethods<SignUpDto>, typeof SignUpDto> {
   @IsEmail()
-  public email!: string;
+  public email: string;
 
   @IsNotEmpty()
-  public username!: string;
+  public username: string;
 
   @IsNotEmpty()
-  public display_name!: string;
+  public display_name: string;
 
   @IsAlphanumeric()
-  public password!: string;
+  public password: string;
 
   constructor(email: string, username: string, display_name: string, password: string) {
     super();
