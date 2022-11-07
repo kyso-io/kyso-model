@@ -3,10 +3,10 @@ import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
 import { StorageDto } from './storage.dto';
 
-export class OrganizationStorageDto extends BaseModel implements StaticImplements<ApiMethods<OrganizationStorageDto>, typeof OrganizationStorageDto> {
+export class OrganizationStorageDto extends StorageDto implements StaticImplements<ApiMethods<OrganizationStorageDto>, typeof OrganizationStorageDto> {
   public teams!: StorageDto[];
-  constructor() {
-    super();
+  constructor(name: string, consumedSpaceKb: number, consumedSpaceMb: number, consumedSpaceGb: number) {
+    super(name, consumedSpaceKb, consumedSpaceMb, consumedSpaceGb);
     this.teams = [];
   }
 
@@ -15,7 +15,7 @@ export class OrganizationStorageDto extends BaseModel implements StaticImplement
   }
 
   static createEmpty(): OrganizationStorageDto {
-    return new OrganizationStorageDto();
+    return new OrganizationStorageDto('', 0, 0, 0);
   }
 
   static examples(): { [key: string]: { value: OrganizationStorageDto } } {

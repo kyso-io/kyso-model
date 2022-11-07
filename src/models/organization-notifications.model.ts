@@ -5,7 +5,7 @@ import { BaseModel } from './base.model';
 
 export class OrganizationNotifications extends BaseModel implements StaticImplements<ApiMethods<OrganizationNotifications>, typeof OrganizationNotifications> {
   @IsBoolean()
-  public centralized!: boolean;
+  public centralized: boolean;
 
   @IsEmail({ each: true })
   public emails: string[];
@@ -21,7 +21,7 @@ export class OrganizationNotifications extends BaseModel implements StaticImplem
   constructor(centralized: boolean, emails: string[], slackToken: string | null, slackChannel: string | null) {
     super();
     this.centralized = centralized;
-    this.emails = [];
+    this.emails = emails;
     this.slackToken = slackToken;
     this.slackChannel = slackChannel;
   }

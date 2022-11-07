@@ -20,13 +20,13 @@ export class UserAccount extends BaseModel implements StaticImplements<ApiMethod
   @IsNotEmptyObject()
   public payload?: any;
 
-  constructor() {
+  constructor(type: LoginProviderEnum, accountId: string | null, username: string | null, accessToken?: string | null, payload?: any) {
     super();
-    this.type = LoginProviderEnum.KYSO;
-    this.username = null;
-    this.accountId = null;
-    this.payload = null;
-    this.accessToken = null;
+    this.type = type;
+    this.username = username;
+    this.accountId = accountId;
+    this.accessToken = accessToken;
+    this.payload = payload || null;
   }
 
   validate(): boolean {
@@ -34,7 +34,7 @@ export class UserAccount extends BaseModel implements StaticImplements<ApiMethod
   }
 
   static createEmpty(): UserAccount {
-    return new UserAccount();
+    return new UserAccount(LoginProviderEnum.KYSO, '', '', '', {});
   }
 
   static examples(): { [key: string]: { value: UserAccount } } {
