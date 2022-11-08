@@ -33,6 +33,7 @@ export * from './dtos/tag-request.dto';
 export * from './dtos/team-info.dto';
 export * from './dtos/update-discussion-request.dto';
 export * from './dtos/update-inline-comment.dto';
+export * from './dtos/update-kyso-setting.dto';
 export * from './dtos/update-organization-members.dto';
 export * from './dtos/update-organization.dto';
 export * from './dtos/update-report-request.dto';
