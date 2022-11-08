@@ -1,7 +1,8 @@
 import { IsDate, IsMongoId, IsObject, IsOptional, IsString } from 'class-validator';
+import { Validate } from '../interfaces/validate';
 import { Hateoas } from './hateoas.model';
 
-export abstract class BaseModel {
+export abstract class BaseModel implements Validate {
   @IsOptional()
   @IsString()
   public type?: string | null | undefined;
@@ -24,7 +25,7 @@ export abstract class BaseModel {
 
   public buildHatoes(relations?: any) {}
 
-  abstract validate(): boolean;
+  public abstract validate(): boolean;
 
   constructor(id?: string | null | undefined, created_at?: Date | null | undefined, updated_at?: Date, links?: Hateoas, type?: string) {
     this.id = id;

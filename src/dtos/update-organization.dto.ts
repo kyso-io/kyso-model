@@ -1,11 +1,11 @@
 import { Type } from 'class-transformer';
 import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { OrganizationOptions } from '../models/organization-options.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UpdateOrganizationDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
+export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
   @IsString()
   public location: string;

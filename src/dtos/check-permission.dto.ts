@@ -2,10 +2,10 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { CommentPermissionsEnum } from '../enums/comment-permissions.enum';
 import { KysoPermissions } from '../enums/general-permissions.enum';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CheckPermissionDto extends BaseModel implements StaticImplements<ApiMethods<CheckPermissionDto>, typeof CheckPermissionDto> {
+export class CheckPermissionDto extends BaseDto implements StaticImplements<ApiMethods<CheckPermissionDto>, typeof CheckPermissionDto> {
   @IsString()
   @IsNotEmpty()
   public organization: string;

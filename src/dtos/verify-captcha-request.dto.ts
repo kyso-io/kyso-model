@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class VerifyCaptchaRequestDto extends BaseModel implements StaticImplements<ApiMethods<VerifyCaptchaRequestDto>, typeof VerifyCaptchaRequestDto> {
+export class VerifyCaptchaRequestDto extends BaseDto implements StaticImplements<ApiMethods<VerifyCaptchaRequestDto>, typeof VerifyCaptchaRequestDto> {
   @IsString()
   @IsNotEmpty()
   public token!: string;

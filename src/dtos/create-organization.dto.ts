@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateOrganizationDto extends BaseModel implements StaticImplements<ApiMethods<CreateOrganizationDto>, typeof CreateOrganizationDto> {
+export class CreateOrganizationDto extends BaseDto implements StaticImplements<ApiMethods<CreateOrganizationDto>, typeof CreateOrganizationDto> {
   @IsNotEmpty()
   @IsString()
   public display_name: string;

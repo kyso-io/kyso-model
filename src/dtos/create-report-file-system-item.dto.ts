@@ -1,8 +1,10 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateReportFileSystemItemDTO extends BaseModel implements StaticImplements<ApiMethods<CreateReportFileSystemItemDTO>, typeof CreateReportFileSystemItemDTO> {
+export class CreateReportFileSystemItemDTO extends BaseDto implements StaticImplements<ApiMethods<CreateReportFileSystemItemDTO>, typeof CreateReportFileSystemItemDTO> {
+  public id: string;
+
   public path: string;
 
   public name: string;
@@ -14,7 +16,8 @@ export class CreateReportFileSystemItemDTO extends BaseModel implements StaticIm
   public text: string | null;
 
   constructor(id: string, path: string, name: string, type: string, text: string, parentId?: string) {
-    super(id);
+    super();
+    this.id = id;
     this.name = name;
     this.path = path;
     this.type = type;

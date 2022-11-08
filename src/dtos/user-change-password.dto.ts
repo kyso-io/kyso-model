@@ -1,9 +1,9 @@
 import { IsEmail, IsNotEmpty, IsString, IsUUID } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UserChangePasswordDTO extends BaseModel implements StaticImplements<ApiMethods<UserChangePasswordDTO>, typeof UserChangePasswordDTO> {
+export class UserChangePasswordDTO extends BaseDto implements StaticImplements<ApiMethods<UserChangePasswordDTO>, typeof UserChangePasswordDTO> {
   @IsEmail()
   public email: string;
 

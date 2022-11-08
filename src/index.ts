@@ -118,6 +118,7 @@ export * from './events/kyso-users-verification-email.event';
 export * from './interfaces/api-methods';
 export * from './interfaces/git-commit';
 export * from './interfaces/git-metadata';
+export * from './interfaces/validate';
 // MODELS
 export * from './models/action-with-payload.model';
 export * from './models/activity-feed.model';

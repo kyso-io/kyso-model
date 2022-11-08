@@ -1,9 +1,9 @@
 import { IsNotEmpty } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class TagRequestDTO extends BaseModel implements StaticImplements<ApiMethods<TagRequestDTO>, typeof TagRequestDTO> {
+export class TagRequestDTO extends BaseDto implements StaticImplements<ApiMethods<TagRequestDTO>, typeof TagRequestDTO> {
   @IsNotEmpty()
   public name: string;
 

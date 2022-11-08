@@ -1,8 +1,8 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class BatchReportCreationDTO extends BaseModel implements StaticImplements<ApiMethods<BatchReportCreationDTO>, typeof BatchReportCreationDTO> {
+export class BatchReportCreationDTO extends BaseDto implements StaticImplements<ApiMethods<BatchReportCreationDTO>, typeof BatchReportCreationDTO> {
   status: string;
   reason: string | null;
 

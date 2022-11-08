@@ -1,9 +1,9 @@
 import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CommentDto extends BaseModel implements StaticImplements<ApiMethods<CommentDto>, typeof CommentDto> {
+export class CommentDto extends BaseDto implements StaticImplements<ApiMethods<CommentDto>, typeof CommentDto> {
   @IsNotEmpty()
   public text: string;
 

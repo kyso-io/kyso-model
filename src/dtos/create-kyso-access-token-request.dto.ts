@@ -1,9 +1,9 @@
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateKysoAccessTokenDto extends BaseModel implements StaticImplements<ApiMethods<CreateKysoAccessTokenDto>, typeof CreateKysoAccessTokenDto> {
+export class CreateKysoAccessTokenDto extends BaseDto implements StaticImplements<ApiMethods<CreateKysoAccessTokenDto>, typeof CreateKysoAccessTokenDto> {
   @IsNotEmpty()
   public name: string;
 

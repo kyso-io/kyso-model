@@ -1,10 +1,10 @@
 import { IsEmail, IsEnum, IsMongoId } from 'class-validator';
 import { InvitationType } from '../enums/invitation-type.enum';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateInvitationDto extends BaseModel implements StaticImplements<ApiMethods<CreateInvitationDto>, typeof CreateInvitationDto> {
+export class CreateInvitationDto extends BaseDto implements StaticImplements<ApiMethods<CreateInvitationDto>, typeof CreateInvitationDto> {
   @IsEmail()
   public email: string;
 

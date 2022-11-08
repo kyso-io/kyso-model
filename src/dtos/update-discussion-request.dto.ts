@@ -1,10 +1,10 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { Discussion } from '../models/discussion.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UpdateDiscussionRequestDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateDiscussionRequestDTO>, typeof UpdateDiscussionRequestDTO> {
+export class UpdateDiscussionRequestDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateDiscussionRequestDTO>, typeof UpdateDiscussionRequestDTO> {
   @IsBoolean()
   public answered: boolean;
 

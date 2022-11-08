@@ -1,9 +1,9 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateDiscussionRequestDTO extends BaseModel implements StaticImplements<ApiMethods<CreateDiscussionRequestDTO>, typeof CreateDiscussionRequestDTO> {
+export class CreateDiscussionRequestDTO extends BaseDto implements StaticImplements<ApiMethods<CreateDiscussionRequestDTO>, typeof CreateDiscussionRequestDTO> {
   @IsBoolean()
   public answered: boolean;
 

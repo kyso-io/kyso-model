@@ -1,8 +1,8 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class StorageDto extends BaseModel implements StaticImplements<ApiMethods<StorageDto>, typeof StorageDto> {
+export class StorageDto extends BaseDto implements StaticImplements<ApiMethods<StorageDto>, typeof StorageDto> {
   public name: string;
   public consumedSpaceKb: number;
   public consumedSpaceMb: number;

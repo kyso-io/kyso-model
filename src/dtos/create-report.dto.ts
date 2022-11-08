@@ -1,10 +1,12 @@
 import { IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateReportDTO extends BaseModel implements StaticImplements<ApiMethods<CreateReportDTO>, typeof CreateReportDTO> {
+export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMethods<CreateReportDTO>, typeof CreateReportDTO> {
+  public id?: string;
+
   @IsString()
   @IsNotEmpty()
   public name: string;
@@ -56,7 +58,7 @@ export class CreateReportDTO extends BaseModel implements StaticImplements<ApiMe
     type: string,
     id?: string,
   ) {
-    super(id);
+    super();
     this.name = name;
     this.username_provider = username_provider;
     this.provider = provider;
@@ -67,6 +69,7 @@ export class CreateReportDTO extends BaseModel implements StaticImplements<ApiMe
     this.description = description;
     this.main_file = main_file;
     this.type = type;
+    this.id = id;
   }
 
   validate(): boolean {

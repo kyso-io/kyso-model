@@ -1,11 +1,11 @@
 import { ArrayMinSize, IsArray } from 'class-validator';
 import 'reflect-metadata';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 import { UserRoleDTO } from './user-role.dto';
 
-export class UpdateOrganizationMembersDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateOrganizationMembersDTO>, typeof UpdateOrganizationMembersDTO> {
+export class UpdateOrganizationMembersDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationMembersDTO>, typeof UpdateOrganizationMembersDTO> {
   @IsArray()
   @ArrayMinSize(1)
   // @ValidateNested({ each: true })

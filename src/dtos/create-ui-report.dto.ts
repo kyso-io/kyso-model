@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class CreateUIReportDTO extends BaseModel implements StaticImplements<ApiMethods<CreateUIReportDTO>, typeof CreateUIReportDTO> {
+export class CreateUIReportDTO extends BaseDto implements StaticImplements<ApiMethods<CreateUIReportDTO>, typeof CreateUIReportDTO> {
   @IsString()
   @IsNotEmpty()
   public title: string;

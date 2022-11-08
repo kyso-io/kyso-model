@@ -1,9 +1,9 @@
 import { IsMongoId, IsOptional } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class InlineCommentDto extends BaseModel implements StaticImplements<ApiMethods<InlineCommentDto>, typeof InlineCommentDto> {
+export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMethods<InlineCommentDto>, typeof InlineCommentDto> {
   public id: string;
   public created_at: Date;
   public updated_at: Date;

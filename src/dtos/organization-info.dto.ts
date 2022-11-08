@@ -1,8 +1,8 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class OrganizationInfoDto extends BaseModel implements StaticImplements<ApiMethods<OrganizationInfoDto>, typeof OrganizationInfoDto> {
+export class OrganizationInfoDto extends BaseDto implements StaticImplements<ApiMethods<OrganizationInfoDto>, typeof OrganizationInfoDto> {
   public organization_id: string;
   public members: number;
   public reports: number;

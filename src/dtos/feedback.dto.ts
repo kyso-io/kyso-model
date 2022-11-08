@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class FeedbackDto extends BaseModel implements StaticImplements<ApiMethods<FeedbackDto>, typeof FeedbackDto> {
+export class FeedbackDto extends BaseDto implements StaticImplements<ApiMethods<FeedbackDto>, typeof FeedbackDto> {
   @IsString()
   @IsNotEmpty()
   public subject: string;

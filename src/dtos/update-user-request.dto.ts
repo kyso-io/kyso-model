@@ -1,9 +1,9 @@
 import { IsOptional, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UpdateUserRequestDTO extends BaseModel implements StaticImplements<ApiMethods<UpdateUserRequestDTO>, typeof UpdateUserRequestDTO> {
+export class UpdateUserRequestDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateUserRequestDTO>, typeof UpdateUserRequestDTO> {
   @IsOptional()
   @IsString()
   public location: string;

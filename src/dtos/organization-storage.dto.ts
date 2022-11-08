@@ -1,5 +1,4 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
 import { StorageDto } from './storage.dto';
 

@@ -1,9 +1,9 @@
 import { IsAlphanumeric, IsEmail, IsNotEmpty } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class SignUpDto extends BaseModel implements StaticImplements<ApiMethods<SignUpDto>, typeof SignUpDto> {
+export class SignUpDto extends BaseDto implements StaticImplements<ApiMethods<SignUpDto>, typeof SignUpDto> {
   @IsEmail()
   public email: string;
 

@@ -1,8 +1,8 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class PaginatedResponseDto<T> extends BaseModel implements StaticImplements<ApiMethods<PaginatedResponseDto<T>>, typeof PaginatedResponseDto> {
+export class PaginatedResponseDto<T> extends BaseDto implements StaticImplements<ApiMethods<PaginatedResponseDto<T>>, typeof PaginatedResponseDto> {
   public currentPage: number;
   public itemCount: number;
   public itemsPerPage: number;

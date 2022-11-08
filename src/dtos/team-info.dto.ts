@@ -1,8 +1,8 @@
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class TeamInfoDto extends BaseModel implements StaticImplements<ApiMethods<TeamInfoDto>, typeof TeamInfoDto> {
+export class TeamInfoDto extends BaseDto implements StaticImplements<ApiMethods<TeamInfoDto>, typeof TeamInfoDto> {
   public team_id: string;
   public members: number;
   public reports: number;

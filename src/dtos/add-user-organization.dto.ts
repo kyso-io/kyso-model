@@ -1,9 +1,9 @@
 import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class AddUserOrganizationDto extends BaseModel implements StaticImplements<ApiMethods<AddUserOrganizationDto>, typeof AddUserOrganizationDto> {
+export class AddUserOrganizationDto extends BaseDto implements StaticImplements<ApiMethods<AddUserOrganizationDto>, typeof AddUserOrganizationDto> {
   @IsMongoId()
   public organizationId: string;
 

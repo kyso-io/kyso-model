@@ -1,10 +1,10 @@
 import { IsEnum, IsNotEmpty } from 'class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class AddUserAccountDTO extends BaseModel implements StaticImplements<ApiMethods<AddUserAccountDTO>, typeof AddUserAccountDTO> {
+export class AddUserAccountDTO extends BaseDto implements StaticImplements<ApiMethods<AddUserAccountDTO>, typeof AddUserAccountDTO> {
   @IsEnum(LoginProviderEnum)
   public provider: LoginProviderEnum;
 

@@ -1,9 +1,9 @@
 import { IsEmail, IsUUID } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
-import { BaseModel } from '../models/base.model';
 import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class VerifyEmailRequestDTO extends BaseModel implements StaticImplements<ApiMethods<VerifyEmailRequestDTO>, typeof VerifyEmailRequestDTO> {
+export class VerifyEmailRequestDTO extends BaseDto implements StaticImplements<ApiMethods<VerifyEmailRequestDTO>, typeof VerifyEmailRequestDTO> {
   @IsEmail()
   public email: string;
 
