@@ -53,6 +53,8 @@ export enum KysoEventEnum {
   TEAMS_REMOVE_MEMBER = 'kyso.teams.remove-member',
   TEAMS_UPDATE = 'kyso.teams.update',
   TEAMS_UPDATE_MEMBER_ROLES = 'kyso.teams.update-member-roles',
+  // TRACEABILITY
+  TRACEABILITY_CREATE = 'kyso.traceability.create',
   // USERS
   USERS_CREATE = 'kyso.users.create',
   USERS_DELETE = 'kyso.users.delete',
