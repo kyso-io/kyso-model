@@ -8,5 +8,5 @@ export interface KysoTraceabilityCreateEvent extends KysoEvent {
   user_agent: string;
   ip_address: string;
   request_method: string;
-  request_body: string;
+  request_body: { [key: string]: any };
 }
