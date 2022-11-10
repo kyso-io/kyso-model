@@ -9,4 +9,6 @@ export interface KysoTraceabilityCreateEvent extends KysoEvent {
   ip_address: string;
   request_method: string;
   request_body: { [key: string]: any } | null;
+  country: string | null;
+  location: [number, number] | null;
 }
