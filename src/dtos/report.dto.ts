@@ -1,11 +1,13 @@
 import { ReportStatus } from '../enums/report-status.enum';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
 import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
 import { Hateoas } from '../models/hateoas.model';
+import { StaticImplements } from '../types/static-implements';
 import { UserDTO } from './user.dto';
 
-export class ReportDTO extends BaseModel {
+export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<ReportDTO>, typeof ReportDTO> {
   public name: string;
   public report_type: string;
   public views: number;
@@ -104,17 +106,15 @@ export class ReportDTO extends BaseModel {
   public buildHatoes(relations?: any) {
     if (relations && relations?.user && this.user_id && this.user_id.length > 0 && relations.user.hasOwnProperty(this.user_id)) {
       const user = relations.user[this.user_id];
-      this.links = {
-        self_api: `/${user.nickname}/${this.name}`,
-        self_ui: `/${user.nickname}/${this.name}`,
-      };
+      this.links = new Hateoas(`/${user.nickname}/${this.name}`, `/${user.nickname}/${this.name}`);
     }
   }
 
-  /**
-   * @returns an empty ReportDTO
-   */
-  public static createEmpty(): ReportDTO {
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): ReportDTO {
     return new ReportDTO(
       '', //id
       new Date(), // created_at
@@ -149,5 +149,13 @@ export class ReportDTO extends BaseModel {
       '', // organization_sluglified_name
       '', // team_sluglified_name
     );
+  }
+
+  static examples(): { [key: string]: { value: ReportDTO } } {
+    return {
+      ReportDTO: {
+        value: ReportDTO.createEmpty(),
+      },
+    };
   }
 }

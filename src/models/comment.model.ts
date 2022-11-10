@@ -1,10 +1,12 @@
 import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseComment } from './base-comment.model';
 
-export class Comment extends BaseComment {
+export class Comment extends BaseComment implements StaticImplements<ApiMethods<Comment>, typeof Comment> {
   @IsNotEmpty()
   public text: string;
-  
+
   @IsNotEmpty()
   public plain_text: string;
 
@@ -37,7 +39,6 @@ export class Comment extends BaseComment {
   @IsMongoId({ each: true })
   public user_ids: string[];
 
-
   // Alias to make it compatible with BaseComment object
   get author_id(): string {
     return this.user_id;
@@ -67,5 +68,21 @@ export class Comment extends BaseComment {
     this.edited = false;
     this.mark_delete_at = null;
     this.user_ids = user_ids;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Comment {
+    return new Comment('', '', '', '', '', '', []);
+  }
+
+  static examples(): { [key: string]: { value: Comment } } {
+    return {
+      Comment: {
+        value: Comment.createEmpty(),
+      },
+    };
   }
 }

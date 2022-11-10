@@ -1,9 +1,11 @@
 import { ReportStatus } from '../enums/report-status.enum';
 import { ReportType } from '../enums/report-type.enum';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
-export class Report extends BaseModel {
+export class Report extends BaseModel implements StaticImplements<ApiMethods<Report>, typeof Report> {
   public sluglified_name: string;
   public provider_id: string | null;
   public provider: RepositoryProvider;
@@ -43,7 +45,7 @@ export class Report extends BaseModel {
     preview_picture: string,
     show_code: boolean,
     show_output: boolean,
-    main_file: string
+    main_file: string,
   ) {
     super();
     this.sluglified_name = sluglified_name;
@@ -66,5 +68,21 @@ export class Report extends BaseModel {
     this.show_code = show_code;
     this.show_output = show_output;
     this.main_file = main_file;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Report {
+    return new Report('', '', RepositoryProvider.KYSO, '', '', '', '', 0, false, '', '', '', '', [], '', false, false, '');
+  }
+
+  static examples(): { [key: string]: { value: Report } } {
+    return {
+      Report: {
+        value: Report.createEmpty(),
+      },
+    };
   }
 }

@@ -1,9 +1,11 @@
 import { IsAlphanumeric, IsArray, IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString, IsUrl, Length } from 'class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
-export class BaseUser extends BaseModel {
+export class BaseUser extends BaseModel implements StaticImplements<ApiMethods<BaseUser>, typeof BaseUser> {
   @IsEmail()
   @IsNotEmpty()
   public email: string;
@@ -65,7 +67,7 @@ export class BaseUser extends BaseModel {
     background_image_url: string,
     emailVerified: boolean,
     global_permissions: GlobalPermissionsEnum[],
-    _id?: string
+    _id?: string,
   ) {
     super();
     this.email = email;
@@ -82,5 +84,21 @@ export class BaseUser extends BaseModel {
     this.email_verified = emailVerified;
     this.global_permissions = global_permissions;
     this.show_captcha = true;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): BaseUser {
+    return new BaseUser('', '', '', '', LoginProviderEnum.KYSO, '', '', '', '', '', '', false, []);
+  }
+
+  static examples(): { [key: string]: { value: BaseUser } } {
+    return {
+      BaseUser: {
+        value: BaseUser.createEmpty(),
+      },
+    };
   }
 }

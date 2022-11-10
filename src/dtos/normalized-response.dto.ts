@@ -12,7 +12,7 @@ export class NormalizedResponseDTO<T> {
       if (data[0]) {
         // We assume that all the objects in the array are of the same type...
         if (data[0] instanceof BaseModel) {
-          data.map(x => x.buildHatoes(relations));
+          data.map((x) => x.buildHatoes(relations));
         }
       }
     } else if (data instanceof BaseModel) {
@@ -24,14 +24,14 @@ export class NormalizedResponseDTO<T> {
       return;
     }
 
-    this.relations = relations!;
+    this.relations = relations;
 
     const keys: string[] = Object.keys(relations);
 
     this.relations = keys.reduce((prev: Relations, key) => {
       if (!relations[key]) return prev;
       const collection: any = relations[key];
-      const ids = Object.keys(collection!);
+      const ids = Object.keys(collection);
 
       prev[key] = ids.reduce((last: any, id: string) => {
         const model = collection[id];

@@ -1,7 +1,9 @@
 import { IsArray, IsBoolean, IsDate, IsNumber, IsString } from 'class-validator';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
-export class Discussion extends BaseModel {
+export class Discussion extends BaseModel implements StaticImplements<ApiMethods<Discussion>, typeof Discussion> {
   @IsBoolean()
   public answered: boolean;
 
@@ -62,7 +64,7 @@ export class Discussion extends BaseModel {
     request_private: boolean,
     team_id: string,
     title: string,
-    url_name: string
+    url_name: string,
   ) {
     super();
     this.answered = answered;
@@ -80,5 +82,21 @@ export class Discussion extends BaseModel {
     this.url_name = url_name;
     this.edited = false;
     this.mark_delete_at = null;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Discussion {
+    return new Discussion(false, [], '', false, '', 0, '', '', [], false, '', '', '');
+  }
+
+  static examples(): { [key: string]: { value: Discussion } } {
+    return {
+      Discussion: {
+        value: Discussion.createEmpty(),
+      },
+    };
   }
 }

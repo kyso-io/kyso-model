@@ -2,12 +2,13 @@ import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'cl
 import { randomUUID } from 'crypto';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import slugify from '../helpers/slugify';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 import { KysoRole } from './kyso-role.model';
 
-export class Team extends BaseModel {
+export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>, typeof Team> {
   @IsNotEmpty()
-  // @Matches('(?=\S*[-])([a-zA-Z-]+)')  // name-name-name NOT SURE
   public sluglified_name: string;
 
   @IsNotEmpty()
@@ -59,7 +60,7 @@ export class Team extends BaseModel {
     visibility: TeamVisibilityEnum,
     user_id: string,
     id?: string,
-    sluglified_name?: string
+    sluglified_name?: string,
   ) {
     super();
     this.display_name = display_name;
@@ -84,5 +85,21 @@ export class Team extends BaseModel {
     if (id) {
       this.id = id;
     }
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): Team {
+    return new Team('', '', '', '', '', [], '', TeamVisibilityEnum.PRIVATE, '');
+  }
+
+  static examples(): { [key: string]: { value: Team } } {
+    return {
+      Team: {
+        value: Team.createEmpty(),
+      },
+    };
   }
 }

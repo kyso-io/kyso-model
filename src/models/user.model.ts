@@ -3,10 +3,12 @@ import { IsAlphanumeric, IsArray, IsOptional } from 'class-validator';
 import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseUser } from './base-user.model';
 import { UserAccount } from './user-account.model';
 
-export class User extends BaseUser {
+export class User extends BaseUser implements StaticImplements<ApiMethods<User>, typeof User> {
   @IsAlphanumeric()
   @Exclude()
   public hashed_password: string;
@@ -41,7 +43,7 @@ export class User extends BaseUser {
     hashed_password: string,
     access_token: string,
     _id?: string,
-    _email_verify_token?: string
+    _email_verify_token?: string,
   ) {
     super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, background_image_url, emailVerified, global_permissions, _id);
 
@@ -74,7 +76,23 @@ export class User extends BaseUser {
       false,
       request.global_permissions,
       '',
-      ''
+      '',
     );
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): User {
+    return new User('', '', '', '', LoginProviderEnum.KYSO, '', '', '', 'free', '', '', false, [], '', '');
+  }
+
+  static examples(): { [key: string]: { value: User } } {
+    return {
+      User: {
+        value: User.createEmpty(),
+      },
+    };
   }
 }

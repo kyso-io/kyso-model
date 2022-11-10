@@ -1,7 +1,9 @@
+import { ApiMethods } from '../interfaces/api-methods';
 import { GitMetadata } from '../interfaces/git-metadata';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
-export class File extends BaseModel {
+export class File extends BaseModel implements StaticImplements<ApiMethods<File>, typeof File> {
   public report_id: string;
   public name: string;
   public path_scs: string;
@@ -9,9 +11,9 @@ export class File extends BaseModel {
   public sha: string;
   public version: number;
   public message: string;
-  public git_metadata: GitMetadata;
+  public git_metadata: GitMetadata | null;
 
-  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string, git_metadata: GitMetadata) {
+  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string, git_metadata: GitMetadata | null) {
     super();
     this.report_id = report_id;
     this.name = name;
@@ -21,5 +23,21 @@ export class File extends BaseModel {
     this.version = version;
     this.message = message;
     this.git_metadata = git_metadata;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): File {
+    return new File('', '', '', 0, '', 0, '', null);
+  }
+
+  static examples(): { [key: string]: { value: File } } {
+    return {
+      File: {
+        value: File.createEmpty(),
+      },
+    };
   }
 }

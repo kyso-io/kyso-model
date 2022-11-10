@@ -1,6 +1,8 @@
+import { ApiMethods } from '../interfaces/api-methods';
+import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
-export class SearchUser extends BaseModel {
+export class SearchUser extends BaseModel implements StaticImplements<ApiMethods<SearchUser>, typeof SearchUser> {
   public organization_id: string | null;
   public team_id: string | null;
   public user_id: string | null;
@@ -13,5 +15,21 @@ export class SearchUser extends BaseModel {
     this.user_id = null;
     this.query = null;
     this.payload = null;
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): SearchUser {
+    return new SearchUser();
+  }
+
+  static examples(): { [key: string]: { value: SearchUser } } {
+    return {
+      SearchUser: {
+        value: SearchUser.createEmpty(),
+      },
+    };
   }
 }

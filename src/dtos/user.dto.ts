@@ -1,7 +1,11 @@
 import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
-import { User, UserAccount } from '..';
+import { ApiMethods } from '../interfaces/api-methods';
+import { UserAccount } from '../models/user-account.model';
+import { User } from '../models/user.model';
+import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UserDTO {
+export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<UserDTO>, typeof UserDTO> {
   @IsString()
   @IsNotEmpty()
   public id: string;
@@ -69,8 +73,9 @@ export class UserDTO {
     created_at: Date,
     accounts: UserAccount[],
     email_verified: boolean,
-    show_captcha: boolean
+    show_captcha: boolean,
   ) {
+    super();
     this.id = id;
     this.email = email;
     this.username = username;
@@ -102,13 +107,29 @@ export class UserDTO {
       user.avatar_url,
       user.background_image_url,
       user.created_at!,
-      user.accounts ? user.accounts.map((ua: UserAccount) => ({ type: ua.type, accountId: ua.accountId, username: ua.username })) : [],
+      user.accounts ? user.accounts : [],
       user.email_verified,
-      user.show_captcha
+      user.show_captcha,
     );
   }
 
   public static fromUserArray(user: User[]): UserDTO[] {
     return user.map((x: User) => UserDTO.fromUser(x));
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): UserDTO {
+    return new UserDTO('', '', '', '', '', '', '', '', '', '', '', new Date(), [], false, false);
+  }
+
+  static examples(): { [key: string]: { value: UserDTO } } {
+    return {
+      UserDTO: {
+        value: UserDTO.createEmpty(),
+      },
+    };
   }
 }

@@ -1,7 +1,10 @@
 import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
-import { Discussion } from '..';
+import { ApiMethods } from '../interfaces/api-methods';
+import { Discussion } from '../models/discussion.model';
+import { StaticImplements } from '../types/static-implements';
+import { BaseDto } from './base.dto';
 
-export class UpdateDiscussionRequestDTO {
+export class UpdateDiscussionRequestDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateDiscussionRequestDTO>, typeof UpdateDiscussionRequestDTO> {
   @IsBoolean()
   public answered: boolean;
 
@@ -52,8 +55,9 @@ export class UpdateDiscussionRequestDTO {
     request_private: boolean,
     team_id: string,
     title: string,
-    url_name: string
+    url_name: string,
   ) {
+    super();
     this.answered = answered;
     this.assignees = assignees;
     this.closed = closed;
@@ -69,8 +73,35 @@ export class UpdateDiscussionRequestDTO {
   }
 
   static fromDiscussion(discussion: Discussion): UpdateDiscussionRequestDTO {
-    return new UpdateDiscussionRequestDTO(discussion.answered, discussion.assignees, discussion.closed,
-      discussion.description, discussion.discussion_number, discussion.edited, discussion.main, discussion.participants,
-      discussion.private, discussion.team_id, discussion.title, discussion.url_name)
+    return new UpdateDiscussionRequestDTO(
+      discussion.answered,
+      discussion.assignees,
+      discussion.closed,
+      discussion.description,
+      discussion.discussion_number,
+      discussion.edited,
+      discussion.main,
+      discussion.participants,
+      discussion.private,
+      discussion.team_id,
+      discussion.title,
+      discussion.url_name,
+    );
+  }
+
+  validate(): boolean {
+    return true;
+  }
+
+  static createEmpty(): UpdateDiscussionRequestDTO {
+    return new UpdateDiscussionRequestDTO(false, [], false, '', 0, false, '', [], false, '', '', '');
+  }
+
+  static examples(): { [key: string]: { value: UpdateDiscussionRequestDTO } } {
+    return {
+      UpdateDiscussionRequestDTO: {
+        value: UpdateDiscussionRequestDTO.createEmpty(),
+      },
+    };
   }
 }
