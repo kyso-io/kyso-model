@@ -7,4 +7,5 @@ export interface KysoTeamsDeleteEvent extends KysoEvent {
   user: User;
   organization: Organization;
   team: Team;
+  user_ids: string[];
 }

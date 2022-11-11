@@ -5,4 +5,5 @@ import { KysoEvent } from './kyso-event';
 export interface KysoOrganizationsDeleteEvent extends KysoEvent {
   user: User;
   organization: Organization;
+  user_ids: string[];
 }
