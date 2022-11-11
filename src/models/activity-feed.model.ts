@@ -11,8 +11,9 @@ export class ActivityFeed extends BaseModel implements StaticImplements<ApiMetho
   public entity: EntityEnum | null;
   public entity_id: string | null;
   public action: ActionEnum | null;
+  public always_show: boolean;
 
-  constructor(user_id: string | null, organization: string | null, team: string | null, entity: EntityEnum | null, entity_id: string | null, action: ActionEnum | null) {
+  constructor(user_id: string | null, organization: string | null, team: string | null, entity: EntityEnum | null, entity_id: string | null, action: ActionEnum | null, always_show: boolean) {
     super(null, null);
     this.user_id = user_id;
     this.organization = organization;
@@ -20,6 +21,7 @@ export class ActivityFeed extends BaseModel implements StaticImplements<ApiMetho
     this.entity = entity;
     this.entity_id = entity_id;
     this.action = action;
+    this.always_show = always_show;
   }
 
   validate(): boolean {
@@ -27,7 +29,7 @@ export class ActivityFeed extends BaseModel implements StaticImplements<ApiMetho
   }
 
   static createEmpty(): ActivityFeed {
-    return new ActivityFeed('', '', '', null, '', null);
+    return new ActivityFeed('', '', '', null, '', null, false);
   }
 
   static examples(): { [key: string]: { value: ActivityFeed } } {
