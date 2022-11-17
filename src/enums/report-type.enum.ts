@@ -4,4 +4,5 @@ export enum ReportType {
   Jupyter = 'jupyter',
   Website = 'website',
   Other = 'other',
+  Embedded = 'embedded',
 }

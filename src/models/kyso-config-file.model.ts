@@ -50,6 +50,10 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
   @IsString()
   public channel?: string;
 
+  @IsOptional()
+  @IsString()
+  public url?: string;
+
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type?: ReportType | null) {
     super();
     this.main = main;
@@ -126,6 +130,16 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         return { valid: false, message: 'Property reports must be an array' };
       } else if (data.reports.length === 0) {
         return { valid: false, message: 'Property reports must have at least one element' };
+      } else {
+        return { valid: true, message: '' };
+      }
+    } else if (data.type === ReportType.Embedded) {
+      if (!data.hasOwnProperty('url')) {
+        return { valid: false, message: 'Property url is required' };
+      } else if (data.url === null) {
+        return { valid: false, message: 'Property url must be a string' };
+      } else if (typeof data.url !== 'string') {
+        return { valid: false, message: 'Property url must be a string' };
       } else {
         return { valid: true, message: '' };
       }
