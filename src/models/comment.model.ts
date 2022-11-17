@@ -56,8 +56,8 @@ export class Comment extends BaseComment implements StaticImplements<ApiMethods<
     this.user_ids = user_ids;
   }
 
-  constructor(text: string, plain_text: string, user_id: string, report_id: string, discussion_id: string, comment_id: string, user_ids: string[]) {
-    super();
+  constructor(text: string, plain_text: string, user_id: string, report_id: string, discussion_id: string, comment_id: string, user_ids: string[], id?: string) {
+    super(id);
     this.text = text;
     this.plain_text = plain_text;
     this.user_id = user_id;
