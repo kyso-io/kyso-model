@@ -1,6 +1,5 @@
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
-import { BaseModel } from './base.model';
 
 export class Hateoas implements StaticImplements<ApiMethods<Hateoas>, typeof Hateoas> {
   public self_api: string;

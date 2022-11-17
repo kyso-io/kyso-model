@@ -96,6 +96,10 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         kysoFile.authors = object.authors;
       }
 
+      if (object.hasOwnProperty('url')) {
+        kysoFile.url = object.url;
+      }
+
       return {
         valid: true,
         message: null,

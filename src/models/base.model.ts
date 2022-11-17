@@ -23,9 +23,7 @@ export abstract class BaseModel implements Validate {
   @IsObject()
   public links: Hateoas | null | undefined;
 
-  public buildHatoes(relations?: any) {
-    console.log('Building hateoas');
-  }
+  public buildHatoes(relations?: any) {}
 
   public abstract validate(): boolean;
 
