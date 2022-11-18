@@ -145,11 +145,15 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
       } else if (typeof data.url !== 'string') {
         return { valid: false, message: 'Property url must be a string' };
       } else {
-        return { valid: true, message: '' };
+        try {
+          new URL(data.url);
+        } catch (err) {
+          return { valid: false, message: 'Property url must be a valid URL' };
+        }
       }
     }
 
-    if (!data?.main || data.main.length === 0) {
+    if ((!data?.main || data.main.length === 0) && data.type !== ReportType.Embedded) {
       return { valid: false, message: 'Property main is required' };
     }
 
