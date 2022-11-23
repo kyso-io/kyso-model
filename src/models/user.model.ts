@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { IsAlphanumeric, IsArray, IsOptional } from 'class-validator';
+import { IsAlphanumeric, IsArray, IsDate, IsOptional } from 'class-validator';
 import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
@@ -25,6 +25,9 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   // @ValidateNested({ each: true })
   // @Type(() => UserAccount)
   public accounts: UserAccount[];
+
+  @IsDate()
+  public last_login?: Date | null;
 
   constructor(
     email: string,
@@ -54,6 +57,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       this._email_verify_token = _email_verify_token;
     }
     this.accounts = [];
+    this.last_login = null;
   }
 
   static fromGithubUser(userData: any, emailData: any): User {
