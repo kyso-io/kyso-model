@@ -1,7 +1,8 @@
-import { IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
+import { TableOfContentEntryDto } from './table-of-content-entry.dto';
 
 export class UpdateReportRequestDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateReportRequestDTO>, typeof UpdateReportRequestDTO> {
   @IsOptional()
@@ -32,7 +33,10 @@ export class UpdateReportRequestDTO extends BaseDto implements StaticImplements<
   @IsString({ each: true })
   public author_emails: string[];
 
-  constructor(title: string, description: string, show_code: boolean, show_output: boolean, main_file: string, tags: string[], author_emails: string[]) {
+  @IsArray()
+  public toc: TableOfContentEntryDto[];
+
+  constructor(title: string, description: string, show_code: boolean, show_output: boolean, main_file: string, tags: string[], author_emails: string[], toc: TableOfContentEntryDto[]) {
     super();
     this.title = title;
     this.description = description;
@@ -41,6 +45,7 @@ export class UpdateReportRequestDTO extends BaseDto implements StaticImplements<
     this.main_file = main_file;
     this.tags = tags;
     this.author_emails = author_emails;
+    this.toc = toc;
   }
 
   validate(): boolean {
@@ -48,7 +53,7 @@ export class UpdateReportRequestDTO extends BaseDto implements StaticImplements<
   }
 
   static createEmpty(): UpdateReportRequestDTO {
-    return new UpdateReportRequestDTO('', '', false, false, '', [], []);
+    return new UpdateReportRequestDTO('', '', false, false, '', [], [], []);
   }
 
   static examples(): { [key: string]: { value: UpdateReportRequestDTO } } {

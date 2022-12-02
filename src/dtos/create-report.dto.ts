@@ -1,8 +1,9 @@
-import { IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
+import { TableOfContentEntryDto } from './table-of-content-entry.dto';
 
 export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMethods<CreateReportDTO>, typeof CreateReportDTO> {
   public id?: string;
@@ -45,6 +46,9 @@ export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMeth
   @IsString()
   public type: string;
 
+  @IsArray()
+  public toc: TableOfContentEntryDto[];
+
   constructor(
     name: string,
     username_provider: string,
@@ -56,6 +60,7 @@ export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMeth
     description: string,
     main_file: string,
     type: string,
+    toc: TableOfContentEntryDto[],
     id?: string,
   ) {
     super();
@@ -69,6 +74,7 @@ export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMeth
     this.description = description;
     this.main_file = main_file;
     this.type = type;
+    this.toc = toc;
     this.id = id;
   }
 
@@ -77,7 +83,7 @@ export class CreateReportDTO extends BaseDto implements StaticImplements<ApiMeth
   }
 
   static createEmpty(): CreateReportDTO {
-    return new CreateReportDTO('', '', RepositoryProvider.GITHUB, '', '', '', '', '', '', '');
+    return new CreateReportDTO('', '', RepositoryProvider.GITHUB, '', '', '', '', '', '', '', []);
   }
 
   static examples(): { [key: string]: { value: CreateReportDTO } } {
