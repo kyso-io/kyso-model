@@ -5,6 +5,7 @@ import { BaseModel } from '../models/base.model';
 import { Comment } from '../models/comment.model';
 import { Hateoas } from '../models/hateoas.model';
 import { StaticImplements } from '../types/static-implements';
+import { TableOfContentEntryDto } from './table-of-content-entry.dto';
 import { UserDTO } from './user.dto';
 
 export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<ReportDTO>, typeof ReportDTO> {
@@ -36,6 +37,7 @@ export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<
   public last_version: number;
   public organization_sluglified_name: string;
   public team_sluglified_name: string;
+  public toc: TableOfContentEntryDto[];
   public authors?: UserDTO[];
 
   constructor(
@@ -71,6 +73,7 @@ export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<
     last_version: number,
     organization_sluglified_name: string,
     team_sluglified_name: string,
+    toc: TableOfContentEntryDto[],
   ) {
     super(id, created_at, updated_at, links);
     this.name = name;
@@ -101,6 +104,7 @@ export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<
     this.last_version = last_version;
     this.organization_sluglified_name = organization_sluglified_name;
     this.team_sluglified_name = team_sluglified_name;
+    this.toc = toc;
   }
 
   public buildHatoes(relations?: any) {
@@ -148,6 +152,7 @@ export class ReportDTO extends BaseModel implements StaticImplements<ApiMethods<
       0, // last_version
       '', // organization_sluglified_name
       '', // team_sluglified_name
+      [], // toc
     );
   }
 
