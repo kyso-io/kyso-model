@@ -1,3 +1,4 @@
+import { TableOfContentEntryDto } from '../dtos/table-of-content-entry.dto';
 import { ReportStatus } from '../enums/report-status.enum';
 import { ReportType } from '../enums/report-type.enum';
 import { RepositoryProvider } from '../enums/repository-provider.enum';
@@ -26,6 +27,7 @@ export class Report extends BaseModel implements StaticImplements<ApiMethods<Rep
   public show_code: boolean;
   public show_output: boolean;
   public main_file: string;
+  public toc: TableOfContentEntryDto[];
 
   constructor(
     sluglified_name: string,
@@ -46,6 +48,7 @@ export class Report extends BaseModel implements StaticImplements<ApiMethods<Rep
     show_code: boolean,
     show_output: boolean,
     main_file: string,
+    toc: TableOfContentEntryDto[],
   ) {
     super();
     this.sluglified_name = sluglified_name;
@@ -68,6 +71,7 @@ export class Report extends BaseModel implements StaticImplements<ApiMethods<Rep
     this.show_code = show_code;
     this.show_output = show_output;
     this.main_file = main_file;
+    this.toc = toc;
   }
 
   validate(): boolean {
@@ -75,7 +79,7 @@ export class Report extends BaseModel implements StaticImplements<ApiMethods<Rep
   }
 
   static createEmpty(): Report {
-    return new Report('', '', RepositoryProvider.KYSO, '', '', '', '', 0, false, '', '', '', '', [], '', false, false, '');
+    return new Report('', '', RepositoryProvider.KYSO, '', '', '', '', 0, false, '', '', '', '', [], '', false, false, '', []);
   }
 
   static examples(): { [key: string]: { value: Report } } {
