@@ -1,5 +1,6 @@
 import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
 import * as jsYaml from 'js-yaml';
+import { TableOfContentEntryDto } from '../dtos/table-of-content-entry.dto';
 import { ReportType } from '../enums/report-type.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
@@ -54,6 +55,10 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
   @IsString()
   public url?: string;
 
+  @IsOptional()
+  @IsArray()
+  public toc?: TableOfContentEntryDto[];
+
   constructor(main: string, title: string, description: string, organization: string, team: string, tags: string[], type?: ReportType | null) {
     super();
     this.main = main;
@@ -98,6 +103,10 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
 
       if (object.hasOwnProperty('url')) {
         kysoFile.url = object.url;
+      }
+
+      if (object.hasOwnProperty('toc')) {
+        kysoFile.toc = object.toc;
       }
 
       return {
@@ -168,6 +177,38 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
     if (!data?.team || data.team.length === 0) {
       if (!data?.channel || data.channel.length === 0) {
         return { valid: false, message: 'Property team or channel is required' };
+      }
+    }
+
+    if (data.hasOwnProperty('toc')) {
+      const validateTableOfContentEntry = (tableOfcontententryDto: TableOfContentEntryDto): { valid: boolean; message: string } => {
+        if (!tableOfcontententryDto.hasOwnProperty('title')) {
+          return { valid: false, message: 'Property toc.title is required' };
+        }
+        if (!tableOfcontententryDto.hasOwnProperty('url')) {
+          return { valid: false, message: 'Property toc.url is required' };
+        }
+        if (tableOfcontententryDto.hasOwnProperty('children')) {
+          if (!Array.isArray(data.toc)) {
+            return { valid: false, message: 'Property children must be an array' };
+          }
+          for (const child of tableOfcontententryDto.children!) {
+            const childValidation: { valid: boolean; message: string } = validateTableOfContentEntry(child);
+            if (!childValidation.valid) {
+              return childValidation;
+            }
+          }
+        }
+        return { valid: true, message: '' };
+      };
+      if (!Array.isArray(data.toc)) {
+        return { valid: false, message: 'Property toc must be an array' };
+      }
+      for (const toce of data.toc) {
+        const childValidation: { valid: boolean; message: string } = validateTableOfContentEntry(toce);
+        if (!childValidation.valid) {
+          return childValidation;
+        }
       }
     }
 

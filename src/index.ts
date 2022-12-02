@@ -30,6 +30,7 @@ export * from './dtos/report.dto';
 export * from './dtos/search-user.dto';
 export * from './dtos/sign-up.dto';
 export * from './dtos/storage.dto';
+export * from './dtos/table-of-content-entry.dto';
 export * from './dtos/tag-request.dto';
 export * from './dtos/team-info.dto';
 export * from './dtos/update-discussion-request.dto';
