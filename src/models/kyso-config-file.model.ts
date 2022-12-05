@@ -185,8 +185,8 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         if (!tableOfcontententryDto.hasOwnProperty('title')) {
           return { valid: false, message: 'Property toc.title is required' };
         }
-        if (!tableOfcontententryDto.hasOwnProperty('url')) {
-          return { valid: false, message: 'Property toc.url is required' };
+        if (!tableOfcontententryDto.hasOwnProperty('href')) {
+          return { valid: false, message: 'Property toc.href is required' };
         }
         if (tableOfcontententryDto.hasOwnProperty('children')) {
           if (!Array.isArray(data.toc)) {
