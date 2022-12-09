@@ -6,6 +6,14 @@ import { BaseDto } from './base.dto';
 export class UpdateUserRequestDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateUserRequestDTO>, typeof UpdateUserRequestDTO> {
   @IsOptional()
   @IsString()
+  public name: string;
+
+  @IsOptional()
+  @IsString()
+  public display_name: string;
+
+  @IsOptional()
+  @IsString()
   public location: string;
 
   @IsOptional()
@@ -16,8 +24,10 @@ export class UpdateUserRequestDTO extends BaseDto implements StaticImplements<Ap
   @IsString()
   public bio: string;
 
-  constructor(location: string, link: string, bio: string) {
+  constructor(name: string, display_name: string, location: string, link: string, bio: string) {
     super();
+    this.name = name;
+    this.display_name = display_name;
     this.location = location;
     this.link = link;
     this.bio = bio;
@@ -27,7 +37,7 @@ export class UpdateUserRequestDTO extends BaseDto implements StaticImplements<Ap
   }
 
   static createEmpty(): UpdateUserRequestDTO {
-    return new UpdateUserRequestDTO('', '', '');
+    return new UpdateUserRequestDTO('', '', '', '', '');
   }
 
   static examples(): { [key: string]: { value: UpdateUserRequestDTO } } {
