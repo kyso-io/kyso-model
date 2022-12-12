@@ -7,7 +7,7 @@ import { BaseDto } from './base.dto';
 
 export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
-  @IsArray()
+  @IsString()
   public display_name: string;
 
   @IsOptional()
