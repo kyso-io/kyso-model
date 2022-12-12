@@ -7,6 +7,10 @@ import { BaseDto } from './base.dto';
 
 export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
+  @IsArray()
+  public display_name: string;
+
+  @IsOptional()
   @IsString()
   public location: string;
 
@@ -27,8 +31,9 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
   @Type(() => OrganizationOptions)
   public options: OrganizationOptions;
 
-  constructor(location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions) {
+  constructor(display_name: string, location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions) {
     super();
+    this.display_name = display_name;
     this.location = location;
     this.link = link;
     this.bio = bio;
@@ -41,7 +46,7 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
   }
 
   static createEmpty(): UpdateOrganizationDTO {
-    return new UpdateOrganizationDTO('', '', '', [], OrganizationOptions.createEmpty());
+    return new UpdateOrganizationDTO('', '', '', '', [], OrganizationOptions.createEmpty());
   }
 
   static examples(): { [key: string]: { value: UpdateOrganizationDTO } } {
