@@ -7,6 +7,10 @@ import { BaseModel } from './base.model';
 export class UpdateTeamRequest extends BaseModel implements StaticImplements<ApiMethods<UpdateTeamRequest>, typeof UpdateTeamRequest> {
   @IsOptional()
   @IsString()
+  public display_name: string;
+
+  @IsOptional()
+  @IsString()
   public location: string;
 
   @IsOptional()
@@ -37,8 +41,19 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   @IsEnum(TeamVisibilityEnum)
   public visibility: TeamVisibilityEnum;
 
-  constructor(location: string, link: string, bio: string, access_domain: string, email_access: string, gmail_access_only: boolean, company_tax_details: object, visibility: TeamVisibilityEnum) {
+  constructor(
+    display_name: string,
+    location: string,
+    link: string,
+    bio: string,
+    access_domain: string,
+    email_access: string,
+    gmail_access_only: boolean,
+    company_tax_details: object,
+    visibility: TeamVisibilityEnum,
+  ) {
     super();
+    this.display_name = display_name;
     this.location = location;
     this.link = link;
     this.bio = bio;
@@ -54,7 +69,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   }
 
   static createEmpty(): UpdateTeamRequest {
-    return new UpdateTeamRequest('', '', '', '', '', false, {}, TeamVisibilityEnum.PRIVATE);
+    return new UpdateTeamRequest('', '', '', '', '', '', false, {}, TeamVisibilityEnum.PRIVATE);
   }
 
   static examples(): { [key: string]: { value: UpdateTeamRequest } } {
