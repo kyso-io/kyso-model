@@ -1,4 +1,5 @@
 import { IsBoolean, IsEnum, IsObject, IsOptional, IsString } from 'class-validator';
+import { AllowDownload } from '../enums/allow-download.enum';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
@@ -41,6 +42,9 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   @IsEnum(TeamVisibilityEnum)
   public visibility: TeamVisibilityEnum;
 
+  @IsEnum(AllowDownload)
+  public allow_download: AllowDownload;
+
   constructor(
     display_name: string,
     location: string,
@@ -51,6 +55,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
     gmail_access_only: boolean,
     company_tax_details: object,
     visibility: TeamVisibilityEnum,
+    allow_download: AllowDownload,
   ) {
     super();
     this.display_name = display_name;
@@ -62,6 +67,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
     this.gmail_access_only = gmail_access_only;
     this.company_tax_details = company_tax_details;
     this.visibility = visibility;
+    this.allow_download = allow_download;
   }
 
   validate(): boolean {
@@ -69,7 +75,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   }
 
   static createEmpty(): UpdateTeamRequest {
-    return new UpdateTeamRequest('', '', '', '', '', '', false, {}, TeamVisibilityEnum.PRIVATE);
+    return new UpdateTeamRequest('', '', '', '', '', '', false, {}, TeamVisibilityEnum.PRIVATE, AllowDownload.ALL);
   }
 
   static examples(): { [key: string]: { value: UpdateTeamRequest } } {
