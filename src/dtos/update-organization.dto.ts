@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsEnum, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { AllowDownload } from '../enums/allow-download.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { OrganizationOptions } from '../models/organization-options.model';
 import { StaticImplements } from '../types/static-implements';
@@ -31,7 +32,10 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
   @Type(() => OrganizationOptions)
   public options: OrganizationOptions;
 
-  constructor(display_name: string, location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions) {
+  @IsEnum(AllowDownload)
+  public allow_download: AllowDownload;
+
+  constructor(display_name: string, location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions, allow_download: AllowDownload) {
     super();
     this.display_name = display_name;
     this.location = location;
@@ -39,6 +43,7 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
     this.bio = bio;
     this.allowed_access_domains = allowed_access_domains;
     this.options = options;
+    this.allow_download = allow_download;
   }
 
   validate(): boolean {
@@ -46,7 +51,7 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
   }
 
   static createEmpty(): UpdateOrganizationDTO {
-    return new UpdateOrganizationDTO('', '', '', '', [], OrganizationOptions.createEmpty());
+    return new UpdateOrganizationDTO('', '', '', '', [], OrganizationOptions.createEmpty(), AllowDownload.ALL);
   }
 
   static examples(): { [key: string]: { value: UpdateOrganizationDTO } } {
