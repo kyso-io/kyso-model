@@ -1,6 +1,7 @@
-import { IsArray, IsBoolean, IsEmail, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsEmail, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { randomUUID } from 'crypto';
 import { JoinCodes } from '../dtos/join-codes.dto';
+import { AllowDownload } from '../enums/allow-download.enum';
 import slugify from '../helpers/slugify';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
@@ -71,6 +72,9 @@ export class Organization extends BaseModel implements StaticImplements<ApiMetho
   @IsOptional()
   public join_codes: JoinCodes | null;
 
+  @IsEnum(AllowDownload)
+  public allow_download: AllowDownload;
+
   constructor(
     display_name: string,
     legal_name: string,
@@ -86,6 +90,7 @@ export class Organization extends BaseModel implements StaticImplements<ApiMetho
     avatar_url: string,
     invitation_code: string,
     user_id: string,
+    allow_download: AllowDownload,
     id?: string,
     sluglified_name?: string,
     options?: OrganizationOptions,
@@ -117,6 +122,7 @@ export class Organization extends BaseModel implements StaticImplements<ApiMetho
     this.avatar_url = avatar_url;
     this.invitation_code = invitation_code;
     this.user_id = user_id;
+    this.allow_download = allow_download;
     this.join_codes = null;
 
     if (options) {
@@ -135,7 +141,7 @@ export class Organization extends BaseModel implements StaticImplements<ApiMetho
   }
 
   static createEmpty(): Organization {
-    return new Organization('', '', [], [], '', '', '', false, '', '', '', '', '', '');
+    return new Organization('', '', [], [], '', '', '', false, '', '', '', '', '', '', AllowDownload.ALL);
   }
 
   static examples(): { [key: string]: { value: Organization } } {

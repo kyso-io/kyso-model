@@ -1,5 +1,6 @@
 import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { randomUUID } from 'crypto';
+import { AllowDownload } from '../enums/allow-download.enum';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import slugify from '../helpers/slugify';
 import { ApiMethods } from '../interfaces/api-methods';
@@ -49,6 +50,9 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
   @IsMongoId()
   public user_id: string;
 
+  @IsEnum(AllowDownload)
+  public allow_download: AllowDownload;
+
   constructor(
     display_name: string,
     avatar_url: string,
@@ -59,6 +63,7 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
     organization_id: string,
     visibility: TeamVisibilityEnum,
     user_id: string,
+    allow_download: AllowDownload,
     id?: string,
     sluglified_name?: string,
   ) {
@@ -81,6 +86,7 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
     this.organization_id = organization_id;
     this.visibility = visibility;
     this.user_id = user_id;
+    this.allow_download = allow_download;
     this.slackChannel = null;
     if (id) {
       this.id = id;
@@ -92,7 +98,7 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
   }
 
   static createEmpty(): Team {
-    return new Team('', '', '', '', '', [], '', TeamVisibilityEnum.PRIVATE, '');
+    return new Team('', '', '', '', '', [], '', TeamVisibilityEnum.PRIVATE, '', AllowDownload.ALL);
   }
 
   static examples(): { [key: string]: { value: Team } } {

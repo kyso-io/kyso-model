@@ -49,6 +49,7 @@ export * from './dtos/verify-captcha-request.dto';
 export * from './dtos/verify-email-request.dto';
 // ENUMS
 export * from './enums/action.enum';
+export * from './enums/allow-download.enum';
 export * from './enums/bitbucket-repos-permissions.enum';
 export * from './enums/comment-permissions.enum';
 export * from './enums/discussion-permissions.enum';
