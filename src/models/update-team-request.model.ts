@@ -42,6 +42,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   @IsEnum(TeamVisibilityEnum)
   public visibility: TeamVisibilityEnum;
 
+  @IsOptional()
   @IsEnum(AllowDownload)
   public allow_download: AllowDownload;
 
