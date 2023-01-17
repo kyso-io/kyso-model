@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { IsAlphanumeric, IsArray, IsDate, IsOptional } from 'class-validator';
+import { IsAlphanumeric, IsArray, IsBoolean, IsDate, IsOptional } from 'class-validator';
 import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
@@ -29,6 +29,9 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   @IsDate()
   public last_login?: Date | null;
 
+  @IsBoolean()
+  public show_onboarding: boolean;
+
   constructor(
     email: string,
     username: string,
@@ -45,11 +48,13 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
     global_permissions: GlobalPermissionsEnum[],
     hashed_password: string,
     access_token: string,
+    show_onboarding: boolean,
     _id?: string,
     _email_verify_token?: string,
   ) {
     super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, background_image_url, emailVerified, global_permissions, _id);
 
+    this.show_onboarding = show_onboarding;
     this.hashed_password = hashed_password;
     this.accessToken = access_token;
 
@@ -61,7 +66,24 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   }
 
   static fromGithubUser(userData: any, emailData: any): User {
-    return new User(emailData.email, userData.login, userData.name, userData.login, LoginProviderEnum.GITHUB, '', '', '', 'free', userData.avatar_url, userData.background_image_url, true, [], '', '');
+    return new User(
+      emailData.email, // email
+      userData.login, // username
+      userData.name, //name
+      userData.login, // display_name
+      LoginProviderEnum.GITHUB, // Login provider
+      '', // Bio
+      '', // Location
+      '', // Link
+      'free', // Plan
+      userData.avatar_url, // Avatar URL
+      userData.background_image_url, // Background Image URL
+      true, // email_verified
+      [], // GlobalPermissionsEnum
+      '', // hashed_password
+      '', //access_token
+      true, // show_onboarding
+    );
   }
 
   static fromCreateUserRequest(request: CreateUserRequestDTO): User {
@@ -77,10 +99,11 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       request.plan,
       request.avatar_url,
       request.background_image_url,
-      false,
+      false, // email_verified
       request.global_permissions,
-      '',
-      '',
+      '', // hashed_password
+      '', // access_token
+      true, // show_onboarding
     );
   }
 
@@ -89,7 +112,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   }
 
   static createEmpty(): User {
-    return new User('', '', '', '', LoginProviderEnum.KYSO, '', '', '', 'free', '', '', false, [], '', '');
+    return new User('', '', '', '', LoginProviderEnum.KYSO, '', '', '', 'free', '', '', false, [], '', '', false);
   }
 
   static examples(): { [key: string]: { value: User } } {
