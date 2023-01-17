@@ -58,6 +58,9 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
   @IsBoolean()
   public show_captcha: boolean;
 
+  @IsBoolean()
+  public show_onboarding: boolean;
+
   constructor(
     id: string,
     email: string,
@@ -74,6 +77,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
     accounts: UserAccount[],
     email_verified: boolean,
     show_captcha: boolean,
+    show_onboarding: boolean,
   ) {
     super();
     this.id = id;
@@ -91,6 +95,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
     this.accounts = accounts;
     this.email_verified = email_verified;
     this.show_captcha = show_captcha;
+    this.show_onboarding = show_onboarding;
   }
 
   public static fromUser(user: User): UserDTO {
@@ -110,6 +115,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
       user.accounts ? user.accounts : [],
       user.email_verified,
       user.show_captcha,
+      user.show_onboarding,
     );
   }
 
@@ -122,7 +128,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
   }
 
   static createEmpty(): UserDTO {
-    return new UserDTO('', '', '', '', '', '', '', '', '', '', '', new Date(), [], false, false);
+    return new UserDTO('', '', '', '', '', '', '', '', '', '', '', new Date(), [], false, true, true);
   }
 
   static examples(): { [key: string]: { value: UserDTO } } {
