@@ -50,6 +50,9 @@ export class Token extends BaseModel implements StaticImplements<ApiMethods<Toke
   @IsBoolean()
   public show_captcha: boolean;
 
+  @IsBoolean()
+  public show_onboarding: boolean;
+
   public accounts: {
     type: LoginProviderEnum;
     accountId: string;
@@ -69,6 +72,7 @@ export class Token extends BaseModel implements StaticImplements<ApiMethods<Toke
     bio: string,
     email_verified: boolean,
     show_captcha: boolean,
+    show_onboarding: boolean,
     accounts: {
       type: LoginProviderEnum;
       accountId: string;
@@ -95,6 +99,7 @@ export class Token extends BaseModel implements StaticImplements<ApiMethods<Toke
     this.bio = bio;
     this.email_verified = email_verified;
     this.show_captcha = show_captcha;
+    this.show_onboarding = show_onboarding;
     this.accounts = accounts;
   }
 
@@ -111,7 +116,7 @@ export class Token extends BaseModel implements StaticImplements<ApiMethods<Toke
   }
 
   static createEmpty(): Token {
-    return new Token('', '', '', '', '', '', '', '', '', '', false, false, []);
+    return new Token('', '', '', '', '', '', '', '', '', '', false, false, true, []);
   }
 
   static examples(): { [key: string]: { value: Token } } {
