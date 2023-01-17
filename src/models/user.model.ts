@@ -112,7 +112,24 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   }
 
   static createEmpty(): User {
-    return new User('', '', '', '', LoginProviderEnum.KYSO, '', '', '', 'free', '', '', false, [], '', '', false);
+    return new User(
+      '', // email
+      '', // username
+      '', // name
+      '', // display_name
+      LoginProviderEnum.KYSO, // login provider
+      '', // bio
+      '', // location
+      '', // link
+      'free', // plan
+      '', // avatar_url
+      '', // background_image_url
+      false, // email_verified
+      [], // global_permissions
+      '', // hashed_password
+      '', // access_token
+      false, // show_onboarding
+    );
   }
 
   static examples(): { [key: string]: { value: User } } {
