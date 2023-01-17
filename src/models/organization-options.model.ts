@@ -19,7 +19,7 @@ export class OrganizationOptions extends BaseModel implements StaticImplements<A
   constructor() {
     super();
     this.auth = new OrganizationAuthOptions();
-    this.notifications = new OrganizationNotifications(false, [], null, null);
+    this.notifications = new OrganizationNotifications(false, [], null, null, null);
   }
 
   validate(): boolean {
