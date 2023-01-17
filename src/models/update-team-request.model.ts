@@ -34,7 +34,20 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   @IsString()
   public slackChannel: string | null;
 
-  constructor(display_name: string, location: string, link: string, bio: string, visibility: TeamVisibilityEnum, allow_download: AllowDownload, slackChannel: string | null) {
+  @IsOptional()
+  @IsString()
+  public teamsIncomingWebhookUrl: string | null;
+
+  constructor(
+    display_name: string,
+    location: string,
+    link: string,
+    bio: string,
+    visibility: TeamVisibilityEnum,
+    allow_download: AllowDownload,
+    slackChannel: string | null,
+    teamsIncomingWebhookUrl: string | null,
+  ) {
     super();
     this.display_name = display_name;
     this.location = location;
@@ -43,6 +56,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
     this.visibility = visibility;
     this.allow_download = allow_download;
     this.slackChannel = slackChannel;
+    this.teamsIncomingWebhookUrl = teamsIncomingWebhookUrl;
   }
 
   validate(): boolean {
@@ -50,7 +64,7 @@ export class UpdateTeamRequest extends BaseModel implements StaticImplements<Api
   }
 
   static createEmpty(): UpdateTeamRequest {
-    return new UpdateTeamRequest('', '', '', '', TeamVisibilityEnum.PRIVATE, AllowDownload.NONE, null);
+    return new UpdateTeamRequest('', '', '', '', TeamVisibilityEnum.PRIVATE, AllowDownload.NONE, null, null);
   }
 
   static examples(): { [key: string]: { value: UpdateTeamRequest } } {

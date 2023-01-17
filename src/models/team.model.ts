@@ -47,6 +47,10 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
   @IsString()
   public slackChannel: string | null;
 
+  @IsOptional()
+  @IsString()
+  public teamsIncomingWebhookUrl: string | null;
+
   @IsMongoId()
   public user_id: string;
 
@@ -88,6 +92,7 @@ export class Team extends BaseModel implements StaticImplements<ApiMethods<Team>
     this.user_id = user_id;
     this.allow_download = allow_download;
     this.slackChannel = null;
+    this.teamsIncomingWebhookUrl = null;
     if (id) {
       this.id = id;
     }

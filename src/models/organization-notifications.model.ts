@@ -18,12 +18,17 @@ export class OrganizationNotifications extends BaseModel implements StaticImplem
   @IsString()
   public slackChannel: string | null;
 
-  constructor(centralized: boolean, emails: string[], slackToken: string | null, slackChannel: string | null) {
+  @IsOptional()
+  @IsString()
+  public teamsIncomingWebhookUrl: string | null;
+
+  constructor(centralized: boolean, emails: string[], slackToken: string | null, slackChannel: string | null, teamsIncomingWebhookUrl: string | null) {
     super();
     this.centralized = centralized;
     this.emails = emails;
     this.slackToken = slackToken;
     this.slackChannel = slackChannel;
+    this.teamsIncomingWebhookUrl = teamsIncomingWebhookUrl;
   }
 
   validate(): boolean {
@@ -31,7 +36,7 @@ export class OrganizationNotifications extends BaseModel implements StaticImplem
   }
 
   static createEmpty(): OrganizationNotifications {
-    return new OrganizationNotifications(false, [], null, null);
+    return new OrganizationNotifications(false, [], null, null, null);
   }
 
   static examples(): { [key: string]: { value: OrganizationNotifications } } {
