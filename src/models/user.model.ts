@@ -6,6 +6,7 @@ import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseUser } from './base-user.model';
+import { OnboardingProgress } from './onboarding-progress.model';
 import { UserAccount } from './user-account.model';
 
 export class User extends BaseUser implements StaticImplements<ApiMethods<User>, typeof User> {
@@ -32,6 +33,8 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
   @IsBoolean()
   public show_onboarding: boolean;
 
+  public onboarding_progress: OnboardingProgress;
+
   constructor(
     email: string,
     username: string,
@@ -49,11 +52,13 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
     hashed_password: string,
     access_token: string,
     show_onboarding: boolean,
+    onboarding_progress: OnboardingProgress,
     _id?: string,
     _email_verify_token?: string,
   ) {
     super(email, username, name, display_name, provider, bio, location, link, plan, avatarUrl, background_image_url, emailVerified, global_permissions, _id);
 
+    this.onboarding_progress = onboarding_progress;
     this.show_onboarding = show_onboarding;
     this.hashed_password = hashed_password;
     this.accessToken = access_token;
@@ -83,6 +88,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', //access_token
       true, // show_onboarding
+      new OnboardingProgress(true, false, false, false, false), // onboarding_progress
     );
   }
 
@@ -104,6 +110,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', // access_token
       true, // show_onboarding
+      new OnboardingProgress(true, false, false, false, false), // onboarding_progress
     );
   }
 
@@ -129,6 +136,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', // access_token
       false, // show_onboarding
+      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
     );
   }
 
