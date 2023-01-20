@@ -1,5 +1,6 @@
 import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
+import { OnboardingProgress } from '../models/onboarding-progress.model';
 import { UserAccount } from '../models/user-account.model';
 import { User } from '../models/user.model';
 import { StaticImplements } from '../types/static-implements';
@@ -61,6 +62,8 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
   @IsBoolean()
   public show_onboarding: boolean;
 
+  public onboarding_progress: OnboardingProgress;
+
   constructor(
     id: string,
     email: string,
@@ -78,6 +81,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
     email_verified: boolean,
     show_captcha: boolean,
     show_onboarding: boolean,
+    onboarding_progress: OnboardingProgress,
   ) {
     super();
     this.id = id;
@@ -96,6 +100,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
     this.email_verified = email_verified;
     this.show_captcha = show_captcha;
     this.show_onboarding = show_onboarding;
+    this.onboarding_progress = onboarding_progress;
   }
 
   public static fromUser(user: User): UserDTO {
@@ -116,6 +121,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
       user.email_verified,
       user.show_captcha,
       user.show_onboarding,
+      user.onboarding_progress,
     );
   }
 
@@ -128,7 +134,7 @@ export class UserDTO extends BaseDto implements StaticImplements<ApiMethods<User
   }
 
   static createEmpty(): UserDTO {
-    return new UserDTO('', '', '', '', '', '', '', '', '', '', '', new Date(), [], false, true, true);
+    return new UserDTO('', '', '', '', '', '', '', '', '', '', '', new Date(), [], false, true, true, OnboardingProgress.createEmpty());
   }
 
   static examples(): { [key: string]: { value: UserDTO } } {
