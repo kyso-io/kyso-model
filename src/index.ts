@@ -155,6 +155,7 @@ export * from './models/kyso-role.model';
 export * from './models/kyso-setting.model';
 export * from './models/kyso-user-access-token.model';
 export * from './models/login.model';
+export * from './models/onboarding-progress.model';
 export * from './models/organization-auth-options.model';
 export * from './models/organization-member-join.model';
 export * from './models/organization-member.model';
