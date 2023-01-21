@@ -41,7 +41,7 @@ export class OnboardingProgress {
   }
 
   static createEmpty(): OnboardingProgress {
-    return new OnboardingProgress(true, false, false, false, false);
+    return new OnboardingProgress(false, false, false, false, false);
   }
 
   static examples(): { [key: string]: { value: OnboardingProgress } } {

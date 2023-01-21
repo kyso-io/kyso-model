@@ -88,7 +88,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', //access_token
       true, // show_onboarding
-      new OnboardingProgress(true, false, false, false, false), // onboarding_progress
+      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
     );
   }
 
@@ -110,7 +110,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', // access_token
       true, // show_onboarding
-      new OnboardingProgress(true, false, false, false, false), // onboarding_progress
+      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
     );
   }
 
