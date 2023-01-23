@@ -88,7 +88,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', //access_token
       true, // show_onboarding
-      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
+      OnboardingProgress.createEmpty(), // onboarding_progress
     );
   }
 
@@ -110,7 +110,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', // access_token
       true, // show_onboarding
-      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
+      OnboardingProgress.createEmpty(), // onboarding_progress
     );
   }
 
@@ -136,7 +136,7 @@ export class User extends BaseUser implements StaticImplements<ApiMethods<User>,
       '', // hashed_password
       '', // access_token
       false, // show_onboarding
-      new OnboardingProgress(false, false, false, false, false), // onboarding_progress
+      OnboardingProgress.createEmpty(), // onboarding_progress
     );
   }
 
