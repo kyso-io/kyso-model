@@ -7,4 +7,5 @@ export interface KysoTeamsCreateEvent extends KysoEvent {
   user: User;
   organization: Organization;
   team: Team;
+  frontendUrl: string;
 }

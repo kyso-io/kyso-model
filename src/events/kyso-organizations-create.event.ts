@@ -5,4 +5,5 @@ import { KysoEvent } from './kyso-event';
 export interface KysoOrganizationsCreateEvent extends KysoEvent {
   user: User;
   organization: Organization;
+  frontendUrl: string;
 }
