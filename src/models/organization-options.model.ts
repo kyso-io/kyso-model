@@ -6,10 +6,11 @@ import { OrganizationAuthOptions } from './organization-auth-options.model';
 import { OrganizationNotifications } from './organization-notifications.model';
 
 export class OrganizationOptions extends BaseModel implements StaticImplements<ApiMethods<OrganizationOptions>, typeof OrganizationOptions> {
-  @IsOptional()
+  // DEPRECATED
+  // @IsOptional()
   // @ValidateNested()
   // @Type(() => OrganizationAuthOptions)
-  public auth?: OrganizationAuthOptions;
+  // public auth?: OrganizationAuthOptions;
 
   @IsOptional()
   // @ValidateNested()
@@ -18,7 +19,7 @@ export class OrganizationOptions extends BaseModel implements StaticImplements<A
 
   constructor() {
     super();
-    this.auth = new OrganizationAuthOptions();
+    // this.auth = new OrganizationAuthOptions();
     this.notifications = new OrganizationNotifications(false, [], null, null, null);
   }
 
