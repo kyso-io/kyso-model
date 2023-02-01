@@ -5,7 +5,7 @@ import { ApiMethods } from '../interfaces/api-methods';
 import { OrganizationOptions } from '../models/organization-options.model';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
-import { OrganizationOptionsDTO } from './organization-notifications.dto copy';
+import { OrganizationOptionsDTO } from './organization-options.dto';
 
 export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
