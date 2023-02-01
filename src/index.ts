@@ -24,6 +24,8 @@ export * from './dtos/invite-user.dto';
 export * from './dtos/join-codes.dto';
 export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
+export * from './dtos/organization-notifications.dto';
+export * from './dtos/organization-options.dto';
 export * from './dtos/organization-storage.dto';
 export * from './dtos/paginated-response.dto';
 export * from './dtos/report.dto';
