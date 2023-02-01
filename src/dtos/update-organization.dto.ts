@@ -5,6 +5,7 @@ import { ApiMethods } from '../interfaces/api-methods';
 import { OrganizationOptions } from '../models/organization-options.model';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
+import { OrganizationOptionsDTO } from './organization-notifications.dto copy';
 
 export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<ApiMethods<UpdateOrganizationDTO>, typeof UpdateOrganizationDTO> {
   @IsOptional()
@@ -29,13 +30,13 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
 
   @IsOptional()
   @ValidateNested()
-  @Type(() => OrganizationOptions)
-  public options: OrganizationOptions;
+  @Type(() => OrganizationOptionsDTO)
+  public options: OrganizationOptionsDTO;
 
   @IsEnum(AllowDownload)
   public allow_download: AllowDownload;
 
-  constructor(display_name: string, location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptions, allow_download: AllowDownload) {
+  constructor(display_name: string, location: string, link: string, bio: string, allowed_access_domains: string[], options: OrganizationOptionsDTO, allow_download: AllowDownload) {
     super();
     this.display_name = display_name;
     this.location = location;
@@ -51,7 +52,7 @@ export class UpdateOrganizationDTO extends BaseDto implements StaticImplements<A
   }
 
   static createEmpty(): UpdateOrganizationDTO {
-    return new UpdateOrganizationDTO('', '', '', '', [], OrganizationOptions.createEmpty(), AllowDownload.ALL);
+    return new UpdateOrganizationDTO('', '', '', '', [], OrganizationOptionsDTO.createEmpty(), AllowDownload.ALL);
   }
 
   static examples(): { [key: string]: { value: UpdateOrganizationDTO } } {
