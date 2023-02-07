@@ -1,4 +1,4 @@
-import { IsArray, IsDate, IsEnum, IsMongoId, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsDate, IsEnum, IsMongoId, IsNumber, IsString } from '@nestjs/class-validator';
 import { KysoPermissions } from '../enums/general-permissions.enum';
 import { KysoUserAccessTokenStatus } from '../enums/kyso-user-access-token-status.enum';
 import { ApiMethods } from '../interfaces/api-methods';

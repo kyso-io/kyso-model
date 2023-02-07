@@ -1,4 +1,4 @@
-import { IsEmail, IsEnum, IsMongoId } from 'class-validator';
+import { IsEmail, IsEnum, IsMongoId } from '@nestjs/class-validator';
 import { InvitationType } from '../enums/invitation-type.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';

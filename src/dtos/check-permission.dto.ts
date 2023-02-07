@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from '@nestjs/class-validator';
 import { CommentPermissionsEnum } from '../enums/comment-permissions.enum';
 import { KysoPermissions } from '../enums/general-permissions.enum';
 import { ApiMethods } from '../interfaces/api-methods';

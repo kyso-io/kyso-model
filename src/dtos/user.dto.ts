@@ -1,4 +1,4 @@
-import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
+import { IsBoolean, IsDate, IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { OnboardingProgress } from '../models/onboarding-progress.model';
 import { UserAccount } from '../models/user-account.model';

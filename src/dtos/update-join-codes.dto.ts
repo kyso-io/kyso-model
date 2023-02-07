@@ -1,4 +1,4 @@
-import { IsBoolean, IsDateString } from 'class-validator';
+import { IsBoolean, IsDateString } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';

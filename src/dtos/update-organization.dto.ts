@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsEnum, IsOptional, IsString, ValidateNested } from 'class-validator';
+import { IsArray, IsEnum, IsOptional, IsString, ValidateNested } from '@nestjs/class-validator';
 import { AllowDownload } from '../enums/allow-download.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { OrganizationOptions } from '../models/organization-options.model';

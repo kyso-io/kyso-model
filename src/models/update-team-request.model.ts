@@ -1,4 +1,4 @@
-import { IsEnum, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsOptional, IsString } from '@nestjs/class-validator';
 import { AllowDownload } from '../enums/allow-download.enum';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
 import { ApiMethods } from '../interfaces/api-methods';

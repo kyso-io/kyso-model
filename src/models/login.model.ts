@@ -1,4 +1,4 @@
-import { IsEnum, IsLowercase, IsNotEmpty, IsOptional, IsString, ValidateIf } from 'class-validator';
+import { IsEnum, IsLowercase, IsNotEmpty, IsOptional, IsString, ValidateIf } from '@nestjs/class-validator';
 import { IsType } from '../decorators/is-type';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';

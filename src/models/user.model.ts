@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { IsAlphanumeric, IsArray, IsBoolean, IsDate, IsOptional } from 'class-validator';
+import { IsAlphanumeric, IsArray, IsBoolean, IsDate, IsOptional } from '@nestjs/class-validator';
 import { CreateUserRequestDTO } from '../dtos/create-user-request.dto';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';

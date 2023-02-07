@@ -1,4 +1,4 @@
-import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsBoolean, IsMongoId, IsNotEmpty, IsOptional } from '@nestjs/class-validator';
 import { BaseModel } from './base.model';
 
 export abstract class BaseComment extends BaseModel {

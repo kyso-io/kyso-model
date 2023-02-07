@@ -1,4 +1,4 @@
-import { IsDate, IsMongoId, IsObject, IsOptional, IsString } from 'class-validator';
+import { IsDate, IsMongoId, IsObject, IsOptional, IsString } from '@nestjs/class-validator';
 import { Validate } from '../interfaces/validate';
 import { Hateoas } from './hateoas.model';
 

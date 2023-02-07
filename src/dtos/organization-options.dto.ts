@@ -1,4 +1,4 @@
-import { IsOptional } from 'class-validator';
+import { IsOptional } from '@nestjs/class-validator';
 import { BaseDto } from './base.dto';
 import { OrganizationNotificationsDTO } from './organization-notifications.dto';
 

@@ -1,4 +1,4 @@
-import { ValidateBy, ValidationOptions } from 'class-validator';
+import { ValidateBy, ValidationOptions } from '@nestjs/class-validator';
 import { ValidationArguments } from 'class-validator/types/validation/ValidationArguments';
 
 const IS_TYPE = 'isType';
@@ -12,6 +12,6 @@ export function IsType(types: Array<'string' | 'number' | 'bigint' | 'boolean' |
         defaultMessage: ({ value }: ValidationArguments) => `Current type ${typeof value} is not in [${types.join(', ')}]`,
       },
     },
-    validationOptions
+    validationOptions,
   );
 }

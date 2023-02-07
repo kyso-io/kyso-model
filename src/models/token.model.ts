@@ -1,4 +1,4 @@
-import { IsAlphanumeric, IsBoolean, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from 'class-validator';
+import { IsAlphanumeric, IsBoolean, IsEmail, IsNotEmpty, IsObject, IsOptional, IsUrl } from '@nestjs/class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';

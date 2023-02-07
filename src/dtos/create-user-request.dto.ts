@@ -1,4 +1,4 @@
-import { IsAlphanumeric } from 'class-validator';
+import { IsAlphanumeric } from '@nestjs/class-validator';
 import { GlobalPermissionsEnum } from '../enums/general-permissions.enum';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';

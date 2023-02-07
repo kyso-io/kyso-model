@@ -1,4 +1,4 @@
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsString } from '@nestjs/class-validator';
 import { TeamMembershipOriginEnum } from '../enums/team-membership-origin.enum';
 import slug from '../helpers/slugify';
 import { ApiMethods } from '../interfaces/api-methods';

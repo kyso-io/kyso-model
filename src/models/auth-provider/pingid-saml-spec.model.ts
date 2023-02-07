@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsUrl } from 'class-validator';
+import { IsNotEmpty, IsString, IsUrl } from '@nestjs/class-validator';
 import { ApiMethods } from '../../interfaces/api-methods';
 import { StaticImplements } from '../../types/static-implements';
 import { BaseModel } from '../base.model';

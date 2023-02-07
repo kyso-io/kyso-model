@@ -1,4 +1,4 @@
-import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsEnum, IsMongoId, IsNotEmpty, IsOptional, IsString } from '@nestjs/class-validator';
 import { randomUUID } from 'crypto';
 import { AllowDownload } from '../enums/allow-download.enum';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';

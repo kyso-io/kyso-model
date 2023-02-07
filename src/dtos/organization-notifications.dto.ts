@@ -1,4 +1,4 @@
-import { IsBoolean, IsEmail, IsOptional, IsString } from 'class-validator';
+import { IsBoolean, IsEmail, IsOptional, IsString } from '@nestjs/class-validator';
 import { BaseDto } from './base.dto';
 
 export class OrganizationNotificationsDTO extends BaseDto {

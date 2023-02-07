@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsNumber, IsString } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { Discussion } from '../models/discussion.model';
 import { StaticImplements } from '../types/static-implements';

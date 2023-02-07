@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsBoolean, IsOptional, IsString } from '@nestjs/class-validator';
 import * as jsYaml from 'js-yaml';
 import { TableOfContentEntryDto } from '../dtos/table-of-content-entry.dto';
 import { ReportType } from '../enums/report-type.enum';

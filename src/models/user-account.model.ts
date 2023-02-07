@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsNotEmptyObject, IsOptional } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNotEmptyObject, IsOptional } from '@nestjs/class-validator';
 import { LoginProviderEnum } from '../enums/login-provider.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';

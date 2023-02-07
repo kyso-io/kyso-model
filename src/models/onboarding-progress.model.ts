@@ -1,4 +1,4 @@
-import { IsBoolean } from 'class-validator';
+import { IsBoolean } from '@nestjs/class-validator';
 
 export class OnboardingProgress {
   @IsBoolean()

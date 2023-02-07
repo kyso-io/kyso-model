@@ -1,4 +1,4 @@
-import { IsEnum, IsMongoId } from 'class-validator';
+import { IsEnum, IsMongoId } from '@nestjs/class-validator';
 import { EntityEnum } from '../enums/entity.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';

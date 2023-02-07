@@ -1,4 +1,4 @@
-import { ArrayMinSize, IsArray } from 'class-validator';
+import { ArrayMinSize, IsArray } from '@nestjs/class-validator';
 import 'reflect-metadata';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
