@@ -1,5 +1,5 @@
 import { ValidateBy, ValidationOptions } from '@nestjs/class-validator';
-import { ValidationArguments } from 'class-validator/types/validation/ValidationArguments';
+import { ValidationArguments } from '@nestjs/class-validator/types/validation/ValidationArguments';
 
 const IS_TYPE = 'isType';
 
