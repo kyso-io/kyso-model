@@ -3,6 +3,7 @@ import { ApiMethods } from '../interfaces/api-methods';
 import { GitMetadata } from '../interfaces/git-metadata';
 import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
+import { ColumnStats } from './column-stats.model';
 
 export class File extends BaseModel implements StaticImplements<ApiMethods<File>, typeof File> {
   public report_id: string;
@@ -14,8 +15,20 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   public message: string;
   public git_metadata: GitMetadata | null;
   public toc: TableOfContentEntryDto[];
+  public columnsStats: ColumnStats[];
 
-  constructor(report_id: string, name: string, path_scs: string, size: number, sha: string, version: number, message: string, git_metadata: GitMetadata | null, toc: TableOfContentEntryDto[]) {
+  constructor(
+    report_id: string,
+    name: string,
+    path_scs: string,
+    size: number,
+    sha: string,
+    version: number,
+    message: string,
+    git_metadata: GitMetadata | null,
+    toc: TableOfContentEntryDto[],
+    columnsStats: ColumnStats[],
+  ) {
     super();
     this.report_id = report_id;
     this.name = name;
@@ -26,6 +39,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
     this.message = message;
     this.git_metadata = git_metadata;
     this.toc = toc;
+    this.columnsStats = columnsStats;
   }
 
   validate(): boolean {
@@ -33,7 +47,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   }
 
   static createEmpty(): File {
-    return new File('', '', '', 0, '', 0, '', null, []);
+    return new File('', '', '', 0, '', 0, '', null, [], []);
   }
 
   static examples(): { [key: string]: { value: File } } {
