@@ -18,8 +18,6 @@ export class RequestAccess extends BaseModel implements StaticImplements<ApiMeth
 
   public resolved_by: string | null;
 
-  public team_visibility?: TeamVisibilityEnum;
-
   public secret: string;
 
   constructor(requester_user_id: string, organization_id: string | null, channel_id: string | null, status: RequestAccessStatusEnum, resolved_at: Date | null, resolved_by: string | null) {
