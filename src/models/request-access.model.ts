@@ -1,5 +1,6 @@
 import { RequestAccessStatusEnum } from '../enums/request-access-status.enum';
 import { TeamVisibilityEnum } from '../enums/team-visibility.enum';
+import { Helper } from '../helpers/helper';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
@@ -19,6 +20,8 @@ export class RequestAccess extends BaseModel implements StaticImplements<ApiMeth
 
   public team_visibility?: TeamVisibilityEnum;
 
+  public secret: string;
+
   constructor(requester_user_id: string, organization_id: string | null, channel_id: string | null, status: RequestAccessStatusEnum, resolved_at: Date | null, resolved_by: string | null) {
     super();
     this.requester_user_id = requester_user_id;
@@ -27,6 +30,7 @@ export class RequestAccess extends BaseModel implements StaticImplements<ApiMeth
     this.status = status;
     this.resolved_at = resolved_at;
     this.resolved_by = resolved_by;
+    this.secret = Helper.generateRandomPassword();
   }
 
   validate(): boolean {
