@@ -27,6 +27,9 @@ export enum KysoEventEnum {
   ORGANIZATIONS_UPDATE_MEMBER_ROLE = 'kyso.organizations.update-member-role',
   ORGANIZATIONS_UPDATE_CENTRALIZED_COMMUNICATIONS = 'kyso.organizations.update-centralized-communications',
   ORGANIZATIONS_UPDATE_OPTIONS = 'kyso.organizations.update-options',
+  ORGANIZATION_REQUEST_ACCESS_CREATED = 'kyso.organizations.request-access-created',
+  ORGANIZATION_REQUEST_ACCESS_ACCEPTED = 'kyso.organizations.request-access-accepted',
+  ORGANIZATION_REQUEST_ACCESS_REJECTED = 'kyso.organizations.request-access-rejected',
   // REPORTS
   REPORTS_ADD_AUTHOR = 'kyso.reports.add-author',
   REPORTS_CREATE = 'kyso.reports.create',
@@ -53,6 +56,9 @@ export enum KysoEventEnum {
   TEAMS_REMOVE_MEMBER = 'kyso.teams.remove-member',
   TEAMS_UPDATE = 'kyso.teams.update',
   TEAMS_UPDATE_MEMBER_ROLES = 'kyso.teams.update-member-roles',
+  TEAMS_REQUEST_ACCESS_CREATED = 'kyso.teams.request-access-created',
+  TEAMS_REQUEST_ACCESS_ACCEPTED = 'kyso.teams.request-access-accepted',
+  TEAMS_REQUEST_ACCESS_REJECTED = 'kyso.teams.request-access-rejected',
   // TRACEABILITY
   TRACEABILITY_CREATE = 'kyso.traceability.create',
   // USERS
