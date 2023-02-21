@@ -136,7 +136,6 @@ export * from './models/base-role.model';
 export * from './models/base-user.model';
 export * from './models/base.model';
 export * from './models/column-stats.model';
-export * from './models/column-value.model';
 export * from './models/comment.model';
 export * from './models/constants';
 export * from './models/discussion.model';

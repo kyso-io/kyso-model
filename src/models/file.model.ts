@@ -15,7 +15,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   public message: string;
   public git_metadata: GitMetadata | null;
   public toc: TableOfContentEntryDto[];
-  public columnsStats: ColumnStats[];
+  public columns_stats: ColumnStats[];
 
   constructor(
     report_id: string,
@@ -27,7 +27,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
     message: string,
     git_metadata: GitMetadata | null,
     toc: TableOfContentEntryDto[],
-    columnsStats: ColumnStats[],
+    columns_stats: ColumnStats[],
   ) {
     super();
     this.report_id = report_id;
@@ -39,7 +39,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
     this.message = message;
     this.git_metadata = git_metadata;
     this.toc = toc;
-    this.columnsStats = columnsStats;
+    this.columns_stats = columns_stats;
   }
 
   validate(): boolean {
