@@ -1,4 +1,8 @@
 export enum KysoEventEnum {
+  // ANALYTICS
+  ANALYTICS_REPORT_DOWNLOAD = 'kyso.analytics.report.download',
+  ANALYTICS_REPORT_SHARE = 'kyso.analytics.report.share',
+  ANALYTICS_REPORT_VIEW = 'kyso.analytics.report.view',
   // COMMENTS
   COMMENTS_CREATE = 'kyso.comments.create',
   COMMENTS_DELETE = 'kyso.comments.delete',
