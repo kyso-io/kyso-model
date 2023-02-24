@@ -1,4 +1,5 @@
 import { AnalyticsSource } from '../enums/analytics-source.enum';
+import { DeviceDetector } from '../interfaces/device-detector';
 import { KysoEvent } from './kyso-event';
 
 export interface KysoAnalyticsReportView extends KysoEvent {
@@ -9,6 +10,6 @@ export interface KysoAnalyticsReportView extends KysoEvent {
     lat: number;
     lng: number;
   } | null;
-  device: any | null;
+  device: DeviceDetector | null;
   source: AnalyticsSource;
 }

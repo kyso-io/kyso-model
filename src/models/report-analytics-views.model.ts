@@ -1,5 +1,6 @@
 import { IsArray, IsObject } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
+import { DeviceDetector } from '../interfaces/device-detector';
 import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
@@ -9,7 +10,7 @@ export class ReportAnalyticsViews extends BaseModel implements StaticImplements<
     timestamp: Date;
     user_id: string;
     location: string | null;
-    device: any | null;
+    device: DeviceDetector | null;
   }[];
 
   @IsArray()

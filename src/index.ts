@@ -129,6 +129,7 @@ export * from './events/kyso-users-update.event';
 export * from './events/kyso-users-verification-email.event';
 // INTERFACES
 export * from './interfaces/api-methods';
+export * from './interfaces/device-detector';
 export * from './interfaces/git-commit';
 export * from './interfaces/git-metadata';
 export * from './interfaces/validate';
