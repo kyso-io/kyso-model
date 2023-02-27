@@ -1,10 +1,14 @@
-import { IsArray, IsObject } from '@nestjs/class-validator';
+import { IsArray, IsInt, IsObject, Min } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { DeviceDetector } from '../interfaces/device-detector';
 import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
 
 export class ReportAnalyticsViews extends BaseModel implements StaticImplements<ApiMethods<ReportAnalyticsViews>, typeof ReportAnalyticsViews> {
+  @IsInt()
+  @Min(0)
+  public count: number;
+
   @IsArray()
   public last_items: {
     timestamp: Date;
@@ -34,6 +38,7 @@ export class ReportAnalyticsViews extends BaseModel implements StaticImplements<
 
   constructor() {
     super();
+    this.count = 0;
     this.last_items = [];
     this.locations = [];
     this.devices = {};
