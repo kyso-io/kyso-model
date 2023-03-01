@@ -9,6 +9,6 @@ export interface KysoTeamRequestAccessCreatedEvent extends KysoEvent {
   organization: Organization;
   team: Team;
   requesterUser: User;
-  organizationAdmins: string[];
+  organizationAdmins: User[];
   frontendUrl: string;
 }
