@@ -203,5 +203,7 @@ export * from './models/user-forgot-password.model';
 export * from './models/user-notifications-settings.model';
 export * from './models/user-verification.model';
 export * from './models/user.model';
+// QUERIES
+export * from './queries/teams-info.query';
 // TYPES
 export * from './types/static-implements';
