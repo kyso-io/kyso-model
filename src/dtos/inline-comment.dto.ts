@@ -23,9 +23,10 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   public mentions: string[];
 
   public parent_comment_id: string | null;
-  public report_version: number;
-  public current_status: InlineCommentStatusEnum;
-  public status_history: InlineCommentStatusHistoryDto[]; // date, from_status, to_status, user_id, report_version
+  public report_version: number | null;
+  public current_status: InlineCommentStatusEnum | null;
+  public status_history: InlineCommentStatusHistoryDto[];
+  public inline_comments: InlineCommentDto[];
 
   constructor(
     id: string,
@@ -40,9 +41,9 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     user_name: string,
     user_avatar: string,
     mentions: string[],
-    parent_comment_id: string | null = null,
-    report_version: number,
-    current_status: InlineCommentStatusEnum,
+    parent_comment_id: string | null,
+    report_version: number | null,
+    current_status: InlineCommentStatusEnum | null,
   ) {
     super();
     this.id = id;
@@ -61,6 +62,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     this.report_version = report_version;
     this.current_status = current_status;
     this.status_history = [];
+    this.inline_comments = [];
   }
 
   validate(): boolean {
@@ -68,7 +70,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   }
 
   static createEmpty(): InlineCommentDto {
-    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', false, false, '', '', [], null, 0, InlineCommentStatusEnum.OPEN);
+    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', false, false, '', '', [], null, null, InlineCommentStatusEnum.OPEN);
   }
 
   static examples(): { [key: string]: { value: InlineCommentDto } } {

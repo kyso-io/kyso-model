@@ -1,3 +1,5 @@
+import { InlineCommentStatusHistoryDto } from '../dtos/inline-comment-status-history.dto';
+import { InlineCommentStatusEnum } from '../enums/inline-comment-status.enum';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseModel } from './base.model';
@@ -10,6 +12,10 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   public edited: boolean;
   public markedAsDeleted: boolean;
   public mentions: string[];
+  public parent_comment_id: string | null;
+  public report_version: number | null;
+  public current_status: InlineCommentStatusEnum | null;
+  public status_history: InlineCommentStatusHistoryDto[];
 
   // Alias to make it compatible with BaseComment object
   get user_ids(): string[] {
@@ -41,7 +47,18 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
     return undefined;
   }
 
-  constructor(report_id: string, cell_id: string, user_id: string, text: string, edited: boolean, markedAsDelete: boolean, mentions: string[]) {
+  constructor(
+    report_id: string,
+    cell_id: string,
+    user_id: string,
+    text: string,
+    edited: boolean,
+    markedAsDelete: boolean,
+    mentions: string[],
+    parent_comment_id: string | null,
+    report_version: number | null,
+    current_status: InlineCommentStatusEnum | null,
+  ) {
     super();
     this.report_id = report_id;
     this.cell_id = cell_id;
@@ -50,6 +67,10 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
     this.edited = edited;
     this.markedAsDeleted = markedAsDelete;
     this.mentions = mentions;
+    this.parent_comment_id = parent_comment_id;
+    this.report_version = report_version;
+    this.current_status = current_status;
+    this.status_history = [];
   }
 
   validate(): boolean {
@@ -57,7 +78,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   }
 
   static createEmpty(): InlineComment {
-    return new InlineComment('', '', '', '', false, false, []);
+    return new InlineComment('', '', '', '', false, false, [], null, null, InlineCommentStatusEnum.OPEN);
   }
 
   static examples(): { [key: string]: { value: InlineComment } } {
