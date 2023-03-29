@@ -19,12 +19,17 @@ export class CreateInlineCommentDto extends BaseDto implements StaticImplements<
   @IsMongoId({ each: true })
   public mentions: string[];
 
-  constructor(report_id: string, cell_id: string, text: string, mentions: string[]) {
+  @IsOptional()
+  @IsMongoId()
+  public parent_comment_id: string | null;
+
+  constructor(report_id: string, cell_id: string, text: string, mentions: string[], parent_comment_id: string | null) {
     super();
     this.report_id = report_id;
     this.cell_id = cell_id;
     this.text = text;
     this.mentions = mentions;
+    this.parent_comment_id = parent_comment_id;
   }
 
   validate(): boolean {
@@ -32,7 +37,7 @@ export class CreateInlineCommentDto extends BaseDto implements StaticImplements<
   }
 
   static createEmpty(): CreateInlineCommentDto {
-    return new CreateInlineCommentDto('', '', '', []);
+    return new CreateInlineCommentDto('', '', '', [], null);
   }
 
   static examples(): { [key: string]: { value: CreateInlineCommentDto } } {
