@@ -6,6 +6,7 @@ import { BaseModel } from './base.model';
 
 export class InlineComment extends BaseModel implements StaticImplements<ApiMethods<InlineComment>, typeof InlineComment> {
   public report_id: string;
+  public file_id: string;
   public cell_id: string;
   public user_id: string;
   public text: string;
@@ -49,6 +50,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
 
   constructor(
     report_id: string,
+    file_id: string,
     cell_id: string,
     user_id: string,
     text: string,
@@ -61,6 +63,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   ) {
     super();
     this.report_id = report_id;
+    this.file_id = file_id;
     this.cell_id = cell_id;
     this.user_id = user_id;
     this.text = text;
@@ -78,7 +81,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   }
 
   static createEmpty(): InlineComment {
-    return new InlineComment('', '', '', '', false, false, [], null, null, InlineCommentStatusEnum.OPEN);
+    return new InlineComment('', '', '', '', '', false, false, [], null, null, InlineCommentStatusEnum.OPEN);
   }
 
   static examples(): { [key: string]: { value: InlineComment } } {

@@ -5,6 +5,9 @@ import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
 
 export class UpdateInlineCommentDto extends BaseDto implements StaticImplements<ApiMethods<UpdateInlineCommentDto>, typeof UpdateInlineCommentDto> {
+  @IsMongoId()
+  public file_id: string;
+
   @IsString()
   @IsNotEmpty()
   public text: string;
@@ -16,8 +19,9 @@ export class UpdateInlineCommentDto extends BaseDto implements StaticImplements<
   @IsEnum(InlineCommentStatusEnum)
   public status: InlineCommentStatusEnum;
 
-  constructor(text: string, mentions: string[], status: InlineCommentStatusEnum) {
+  constructor(file_id: string, text: string, mentions: string[], status: InlineCommentStatusEnum) {
     super();
+    this.file_id = file_id;
     this.text = text;
     this.mentions = mentions;
     this.status = status;
@@ -28,7 +32,7 @@ export class UpdateInlineCommentDto extends BaseDto implements StaticImplements<
   }
 
   static createEmpty(): UpdateInlineCommentDto {
-    return new UpdateInlineCommentDto('', [], InlineCommentStatusEnum.OPEN);
+    return new UpdateInlineCommentDto('', '', [], InlineCommentStatusEnum.OPEN);
   }
 
   static examples(): { [key: string]: { value: UpdateInlineCommentDto } } {
