@@ -164,13 +164,21 @@ export class FullTextSearchDTO extends BaseModel implements StaticImplements<Api
   public discussions: FullTextSearchResultType;
   public comments: FullTextSearchResultType;
   public members: FullTextSearchResultType;
+  public inlineComments: FullTextSearchResultType;
 
-  constructor(reports: FullTextSearchResultType, discussions: FullTextSearchResultType, comments: FullTextSearchResultType, members: FullTextSearchResultType) {
+  constructor(
+    reports: FullTextSearchResultType,
+    discussions: FullTextSearchResultType,
+    comments: FullTextSearchResultType,
+    members: FullTextSearchResultType,
+    inlineComments: FullTextSearchResultType,
+  ) {
     super();
     this.reports = reports;
     this.discussions = discussions;
     this.comments = comments;
     this.members = members;
+    this.inlineComments = inlineComments;
   }
 
   validate(): boolean {
@@ -178,7 +186,13 @@ export class FullTextSearchDTO extends BaseModel implements StaticImplements<Api
   }
 
   static createEmpty(): FullTextSearchDTO {
-    return new FullTextSearchDTO(FullTextSearchResultType.createEmpty(), FullTextSearchResultType.createEmpty(), FullTextSearchResultType.createEmpty(), FullTextSearchResultType.createEmpty());
+    return new FullTextSearchDTO(
+      FullTextSearchResultType.createEmpty(),
+      FullTextSearchResultType.createEmpty(),
+      FullTextSearchResultType.createEmpty(),
+      FullTextSearchResultType.createEmpty(),
+      FullTextSearchResultType.createEmpty(),
+    );
   }
 
   static examples(): { [key: string]: { value: FullTextSearchDTO } } {
