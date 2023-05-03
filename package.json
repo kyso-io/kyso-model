@@ -1,6 +1,6 @@
 {
   "name": "@kyso-io/kyso-model",
-  "version": "1.2.70",
+  "version": "1.2.69",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -44,7 +44,6 @@
     "@nestjs/class-validator": "^0.13.4",
     "class-transformer": "^0.5.1",
     "es6-shim": "^0.35.6",
-    "husky": "^8.0.0",
     "js-yaml": "^4.1.0",
     "reflect-metadata": "^0.1.13",
     "slugify": "^1.6.5"
