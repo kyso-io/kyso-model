@@ -71,7 +71,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
     this.type = type;
   }
 
-  static fromObject(object: any): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
+  static fromObject(object: any): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile: KysoConfigFile | null } {
     const validationResult: { valid: boolean; message: string } = KysoConfigFile.isValid(object);
 
     const kysoFile: KysoConfigFile = new KysoConfigFile(
@@ -114,6 +114,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         valid: true,
         message: null,
         kysoConfigFile: kysoFile,
+        errorKysoConfigFile: null,
       };
     } else {
       return {
@@ -125,12 +126,12 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
     }
   }
 
-  static fromYaml(yaml: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
+  static fromYaml(yaml: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile: KysoConfigFile | null } {
     const object: any = jsYaml.load(yaml);
     return this.fromObject(object);
   }
 
-  static fromJSON(json: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
+  static fromJSON(json: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile: KysoConfigFile | null } {
     const object: any = JSON.parse(json);
     return this.fromObject(object);
   }
