@@ -71,44 +71,45 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
     this.type = type;
   }
 
-  static fromObject(object: any): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
+  static fromObject(object: any): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
     const validationResult: { valid: boolean; message: string } = KysoConfigFile.isValid(object);
+
+    const kysoFile: KysoConfigFile = new KysoConfigFile(
+      object.main ? object.main : null,
+      object.title ? object.title : null,
+      object.description ? object.description : null,
+      object.organization ? object.organization : null,
+      object.channel ? object.channel : object.team ? object.team : null,
+      object.tags ? object.tags : [],
+      object.type ? object.type : ReportType.Other,
+    );
+
+    // Now check and set the optional variables (less channel, which is already setted)
+    if (object.hasOwnProperty('hideRoot')) {
+      kysoFile.hideRoot = object.hideRoot;
+    }
+
+    if (object.hasOwnProperty('reports')) {
+      kysoFile.reports = object.reports;
+    }
+
+    if (object.hasOwnProperty('preview')) {
+      kysoFile.preview = object.preview;
+    }
+
+    if (object.hasOwnProperty('authors')) {
+      kysoFile.authors = object.authors;
+    }
+
+    if (object.hasOwnProperty('url')) {
+      kysoFile.url = object.url;
+    }
+
+    if (object.hasOwnProperty('toc')) {
+      kysoFile.toc = object.toc;
+    }
+
     if (validationResult.valid) {
-      const kysoFile: KysoConfigFile = new KysoConfigFile(
-        object.main,
-        object.title,
-        object.description,
-        object.organization,
-        object.channel ? object.channel : object.team,
-        object.tags,
-        object.type ? object.type : ReportType.Other,
-      );
-
-      // Now check and set the optional variables (less channel, which is already setted)
-      if (object.hasOwnProperty('hideRoot')) {
-        kysoFile.hideRoot = object.hideRoot;
-      }
-
-      if (object.hasOwnProperty('reports')) {
-        kysoFile.reports = object.reports;
-      }
-
-      if (object.hasOwnProperty('preview')) {
-        kysoFile.preview = object.preview;
-      }
-
-      if (object.hasOwnProperty('authors')) {
-        kysoFile.authors = object.authors;
-      }
-
-      if (object.hasOwnProperty('url')) {
-        kysoFile.url = object.url;
-      }
-
-      if (object.hasOwnProperty('toc')) {
-        kysoFile.toc = object.toc;
-      }
-
       return {
         valid: true,
         message: null,
@@ -119,6 +120,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         valid: validationResult.valid,
         message: validationResult.message,
         kysoConfigFile: null,
+        errorKysoConfigFile: kysoFile,
       };
     }
   }
@@ -216,7 +218,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
   }
 
   validate(): boolean {
-    return true;
+    return KysoConfigFile.isValid(this).valid;
   }
 
   static createEmpty(): KysoConfigFile {
