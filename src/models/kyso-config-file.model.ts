@@ -125,12 +125,12 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
     }
   }
 
-  static fromYaml(yaml: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
+  static fromYaml(yaml: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
     const object: any = jsYaml.load(yaml);
     return this.fromObject(object);
   }
 
-  static fromJSON(json: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null } {
+  static fromJSON(json: string): { valid: boolean; message: string | null; kysoConfigFile: KysoConfigFile | null; errorKysoConfigFile?: KysoConfigFile } {
     const object: any = JSON.parse(json);
     return this.fromObject(object);
   }
