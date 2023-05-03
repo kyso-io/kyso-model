@@ -1,4 +1,8 @@
 export enum KysoEventEnum {
+  // ANALYTICS
+  ANALYTICS_REPORT_DOWNLOAD = 'kyso.analytics.report.download',
+  ANALYTICS_REPORT_SHARE = 'kyso.analytics.report.share',
+  ANALYTICS_REPORT_VIEW = 'kyso.analytics.report.view',
   // COMMENTS
   COMMENTS_CREATE = 'kyso.comments.create',
   COMMENTS_DELETE = 'kyso.comments.delete',
@@ -45,6 +49,7 @@ export enum KysoEventEnum {
   REPORTS_UNPIN_GLOBAL = 'kyso.reports.unpin-global',
   REPORTS_UNSTAR = 'kyso.reports.unstar',
   REPORTS_UPDATE = 'kyso.reports.update',
+  REPORTS_UPDATED_MAIN_FILE = 'kyso.reports.updated-main-file',
   // TAGS
   TAGS_CREATE = 'kyso.tags.create',
   TAGS_DELETE = 'kyso.tags.delete',
