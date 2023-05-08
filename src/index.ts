@@ -20,8 +20,8 @@ export * from './dtos/create-user-request.dto';
 export * from './dtos/email-user-change-password.dto';
 export * from './dtos/feedback.dto';
 export * from './dtos/full-text-search.dto';
-export * from './dtos/inline-comment.dto';
 export * from './dtos/inline-comment-status-history.dto';
+export * from './dtos/inline-comment.dto';
 export * from './dtos/invite-user.dto';
 export * from './dtos/join-codes.dto';
 export * from './dtos/normalized-response.dto';
@@ -206,6 +206,7 @@ export * from './models/user-notifications-settings.model';
 export * from './models/user-verification.model';
 export * from './models/user.model';
 // QUERIES
+export * from './queries/search-inline-comments.query';
 export * from './queries/teams-info.query';
 // TYPES
 export * from './types/static-implements';
