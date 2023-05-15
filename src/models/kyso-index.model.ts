@@ -18,6 +18,7 @@ export class KysoIndex extends BaseModel implements StaticImplements<ApiMethods<
   public isPublic: boolean;
   public stars: number;
   public numComments: number;
+  public numTasks: number;
   public updatedAt: number;
 
   constructor() {
@@ -36,6 +37,7 @@ export class KysoIndex extends BaseModel implements StaticImplements<ApiMethods<
     this.isPublic = false;
     this.stars = 0;
     this.numComments = 0;
+    this.numTasks = 0;
     this.updatedAt = 0;
   }
 
