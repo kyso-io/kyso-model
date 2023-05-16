@@ -8,5 +8,5 @@ export interface KysoTeamsDeleteEvent extends KysoEvent {
   organization: Organization;
   team: Team;
   user_ids: string[];
-  deletedOrganization: boolean;
+  notifyUsers: boolean;
 }
