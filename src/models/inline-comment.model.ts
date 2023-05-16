@@ -17,6 +17,11 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   public report_version: number | null;
   public current_status: InlineCommentStatusEnum | null;
   public status_history: InlineCommentStatusHistoryDto[];
+  /**
+   * Only makes sense for Jupyter Notebook inline comments. An orphan inline comment is related
+   * to a cell_id which does not exists in the latest version of the report
+   */
+  public orphan: boolean;
 
   // Alias to make it compatible with BaseComment object
   get user_ids(): string[] {
@@ -60,6 +65,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
     parent_comment_id: string | null,
     report_version: number | null,
     current_status: InlineCommentStatusEnum | null,
+    orphan?: boolean,
   ) {
     super();
     this.report_id = report_id;
@@ -74,6 +80,12 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
     this.report_version = report_version;
     this.current_status = current_status;
     this.status_history = [];
+
+    if (orphan) {
+      this.orphan = orphan;
+    } else {
+      this.orphan = false;
+    }
   }
 
   validate(): boolean {
@@ -81,7 +93,7 @@ export class InlineComment extends BaseModel implements StaticImplements<ApiMeth
   }
 
   static createEmpty(): InlineComment {
-    return new InlineComment('', '', '', '', '', false, false, [], null, null, InlineCommentStatusEnum.OPEN);
+    return new InlineComment('', '', '', '', '', false, false, [], null, null, InlineCommentStatusEnum.OPEN, false);
   }
 
   static examples(): { [key: string]: { value: InlineComment } } {
