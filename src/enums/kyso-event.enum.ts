@@ -20,6 +20,11 @@ export enum KysoEventEnum {
   DISCUSSIONS_USER_UNASSIGNED = 'kyso.discussions.user-unassigned',
   // FEEDBACK
   FEEDBACK_CREATE = 'kyso.feedback.create',
+  // INLINE COMMENTS
+  INLINE_COMMENTS_CREATE = 'kyso.inline-comments.create',
+  INLINE_COMMENTS_DELETE = 'kyso.inline-comments.delete',
+  INLINE_COMMENTS_REPLY = 'kyso.inline-comments.reply',
+  INLINE_COMMENTS_UPDATE = 'kyso.inline-comments.update',
   // INVITATIONS
   INVITATIONS_TEAM_CREATE = 'kyso.invitations.team-create',
   // ORGANIZATION
