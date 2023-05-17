@@ -18,6 +18,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   public markedAsDeleted: boolean;
   public user_name: string;
   public user_avatar: string;
+  public orphan: boolean;
 
   @IsOptional()
   @IsMongoId({ each: true })
@@ -46,6 +47,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     parent_comment_id: string | null,
     report_version: number | null,
     current_status: InlineCommentStatusEnum | null,
+    orphan?: boolean,
   ) {
     super();
     this.id = id;
@@ -66,6 +68,12 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     this.current_status = current_status;
     this.status_history = [];
     this.inline_comments = [];
+
+    if (orphan) {
+      this.orphan = orphan;
+    } else {
+      this.orphan = false;
+    }
   }
 
   validate(): boolean {
