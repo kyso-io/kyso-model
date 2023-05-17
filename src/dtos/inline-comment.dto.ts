@@ -47,7 +47,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     parent_comment_id: string | null,
     report_version: number | null,
     current_status: InlineCommentStatusEnum | null,
-    orphan?: boolean,
+    orphan: boolean,
   ) {
     super();
     this.id = id;
@@ -68,12 +68,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     this.current_status = current_status;
     this.status_history = [];
     this.inline_comments = [];
-
-    if (orphan) {
-      this.orphan = orphan;
-    } else {
-      this.orphan = false;
-    }
+    this.orphan = orphan;
   }
 
   validate(): boolean {
@@ -81,7 +76,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   }
 
   static createEmpty(): InlineCommentDto {
-    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', '', false, false, '', '', [], null, null, InlineCommentStatusEnum.OPEN);
+    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', '', false, false, '', '', [], null, null, InlineCommentStatusEnum.OPEN, false);
   }
 
   static examples(): { [key: string]: { value: InlineCommentDto } } {
