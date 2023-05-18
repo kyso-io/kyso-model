@@ -11,6 +11,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   public updated_at: Date;
   public report_id: string;
   public file_id: string;
+  public file_path_scs: string;
   public cell_id: string;
   public user_id: string;
   public text: string;
@@ -36,6 +37,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     updated_at: Date,
     report_id: string,
     file_id: string,
+    file_path_scs: string,
     cell_id: string,
     user_id: string,
     text: string,
@@ -69,6 +71,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
     this.status_history = [];
     this.inline_comments = [];
     this.orphan = orphan;
+    this.file_path_scs = file_path_scs;
   }
 
   validate(): boolean {
@@ -76,7 +79,7 @@ export class InlineCommentDto extends BaseDto implements StaticImplements<ApiMet
   }
 
   static createEmpty(): InlineCommentDto {
-    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', '', false, false, '', '', [], null, null, InlineCommentStatusEnum.OPEN, false);
+    return new InlineCommentDto('', new Date(), new Date(), '', '', '', '', '', '', false, false, '', '', [], null, null, InlineCommentStatusEnum.OPEN, false);
   }
 
   static examples(): { [key: string]: { value: InlineCommentDto } } {
