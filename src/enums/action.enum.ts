@@ -10,6 +10,7 @@ export enum ActionEnum {
   PIN = 'pin',
   PIN_GLOBAL = 'pin_global',
   REGISTER = 'register',
+  REPLY = 'reply',
   REMOVE_ASSIGNMENT = 'remove_assignment',
   REMOVE_MEMBER = 'remove_member',
   STAR = 'star',
@@ -17,6 +18,7 @@ export enum ActionEnum {
   UNPIN_GLOBAL = 'unpin_global',
   UNSTAR = 'unstar',
   UPDATE = 'update',
+  UPDATE_REPLY = 'update_reply',
   UPDATE_MEMBER_ROLE = 'update_member_role',
   VERIFICATION_EMAIL = 'verification_email',
 }
