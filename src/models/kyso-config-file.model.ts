@@ -17,10 +17,12 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
   public description: string;
 
   @IsString()
-  public organization: string;
+  @IsOptional()
+  public organization?: string;
 
   @IsString()
-  public team: string;
+  @IsOptional()
+  public team?: string;
 
   @IsOptional()
   @IsString({ each: true })
