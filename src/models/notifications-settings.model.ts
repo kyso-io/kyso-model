@@ -54,6 +54,29 @@ export class NotificationsSettings implements StaticImplements<ApiMethods<Notifi
   @IsBoolean()
   public report_comment_removed: boolean;
 
+  // Tasks
+
+  @IsBoolean()
+  public new_task: boolean;
+
+  @IsBoolean()
+  public new_task_reply: boolean;
+
+  @IsBoolean()
+  public task_status_changed: boolean;
+
+  @IsBoolean()
+  public task_updated: boolean;
+
+  @IsBoolean()
+  public task_reply_updated: boolean;
+
+  @IsBoolean()
+  public task_removed: boolean;
+
+  @IsBoolean()
+  public task_reply_removed: boolean;
+
   constructor() {
     // Organization
     this.new_member_organization = true;
@@ -74,6 +97,14 @@ export class NotificationsSettings implements StaticImplements<ApiMethods<Notifi
     this.replay_comment_in_report = true;
     this.new_mention_in_report = true;
     this.report_comment_removed = true;
+    // Tasks
+    this.new_task = true;
+    this.new_task_reply = true;
+    this.task_status_changed = true;
+    this.task_updated = true;
+    this.task_reply_updated = true;
+    this.task_removed = true;
+    this.task_reply_removed = true;
   }
 
   validate(): boolean {

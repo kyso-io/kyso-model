@@ -21,6 +21,7 @@ export enum KysoEventEnum {
   // FEEDBACK
   FEEDBACK_CREATE = 'kyso.feedback.create',
   // INLINE COMMENTS
+  INLINE_COMMENTS_CHANGE_STATUS = 'kyso.inline-comments.change-status',
   INLINE_COMMENTS_CREATE = 'kyso.inline-comments.create',
   INLINE_COMMENTS_DELETE = 'kyso.inline-comments.delete',
   INLINE_COMMENTS_REPLY = 'kyso.inline-comments.reply',

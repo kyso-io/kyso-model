@@ -1,5 +1,6 @@
-import { BaseComment } from '../models/base-comment.model';
+import { Comment } from '../models/comment.model';
 import { Discussion } from '../models/discussion.model';
+import { InlineComment } from '../models/inline-comment.model';
 import { Organization } from '../models/organization.model';
 import { Report } from '../models/report.model';
 import { Team } from '../models/team.model';
@@ -10,7 +11,7 @@ export interface KysoCommentsCreateEvent extends KysoEvent {
   user: User;
   organization: Organization;
   team: Team;
-  comment: BaseComment;
+  comment: Comment | InlineComment;
   discussion?: Discussion;
   report?: Report;
   frontendUrl: string;
