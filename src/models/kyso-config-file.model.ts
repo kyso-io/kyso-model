@@ -171,6 +171,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
       return { valid: false, message: 'Property title is required' };
     }
 
+    /* If there is a meta report on top these properties can be ommited
     if (!data?.organization || data.organization.length === 0) {
       return { valid: false, message: 'Property organization is required' };
     }
@@ -180,6 +181,7 @@ export class KysoConfigFile extends BaseModel implements StaticImplements<ApiMet
         return { valid: false, message: 'Property team or channel is required' };
       }
     }
+    */
 
     if (data.hasOwnProperty('toc')) {
       const validateTableOfContentEntry = (tableOfcontententryDto: TableOfContentEntryDto): { valid: boolean; message: string } => {
