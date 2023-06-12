@@ -16,6 +16,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   public git_metadata: GitMetadata | null;
   public toc: TableOfContentEntryDto[];
   public columns_stats: ColumnStats[];
+  public exceeded_hardlinks?: boolean;
 
   constructor(
     report_id: string,

@@ -95,4 +95,5 @@ export enum KysoSettingsEnum {
   KYSO_COMMENT_STATES_VALUES = 'KYSO_COMMENT_STATES_VALUES',
   // Data Applications Manager
   KYSO_DAM_URL = 'KYSO_DAM_URL',
+  MAX_NUMBER_HARDLINKS = 'MAX_NUMBER_HARDLINKS',
 }
