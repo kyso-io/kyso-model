@@ -24,6 +24,7 @@ export * from './dtos/inline-comment-status-history.dto';
 export * from './dtos/inline-comment.dto';
 export * from './dtos/invite-user.dto';
 export * from './dtos/join-codes.dto';
+export * from './dtos/move-report.dto';
 export * from './dtos/normalized-response.dto';
 export * from './dtos/organization-info.dto';
 export * from './dtos/organization-notifications.dto';

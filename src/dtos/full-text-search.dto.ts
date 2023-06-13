@@ -19,7 +19,6 @@ export class FullTextSearchResult extends KysoIndex implements StaticImplements<
     content: string,
     version: number,
     filePath: string,
-    isPublic: boolean,
     score: number,
   ) {
     super();
@@ -34,7 +33,6 @@ export class FullTextSearchResult extends KysoIndex implements StaticImplements<
     this.content = content;
     this.version = version;
     this.filePath = filePath;
-    this.isPublic = isPublic;
     this.score = score;
   }
 
@@ -43,7 +41,7 @@ export class FullTextSearchResult extends KysoIndex implements StaticImplements<
   }
 
   static createEmpty(): FullTextSearchResult {
-    return new FullTextSearchResult('', ElasticSearchIndex.Report, '', '', '', '', [], [], '', 0, '', false, 0);
+    return new FullTextSearchResult('', ElasticSearchIndex.Report, '', '', '', '', [], [], '', 0, '', 0);
   }
 
   static examples(): { [key: string]: { value: FullTextSearchResult } } {
