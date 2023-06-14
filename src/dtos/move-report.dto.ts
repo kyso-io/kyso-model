@@ -1,4 +1,4 @@
-import { IsMongoId } from '@nestjs/class-validator';
+import { IsMongoId, IsString } from '@nestjs/class-validator';
 import { ApiMethods } from '../interfaces/api-methods';
 import { StaticImplements } from '../types/static-implements';
 import { BaseDto } from './base.dto';
@@ -13,11 +13,15 @@ export class MoveReportDto extends BaseDto implements StaticImplements<ApiMethod
   @IsMongoId()
   public targetTeamId: string;
 
-  constructor(reportId: string, sourceTeamId: string, targetTeamId: string) {
+  @IsString()
+  public title: string;
+
+  constructor(reportId: string, sourceTeamId: string, targetTeamId: string, title: string) {
     super();
     this.reportId = reportId;
     this.sourceTeamId = sourceTeamId;
     this.targetTeamId = targetTeamId;
+    this.title = title;
   }
 
   validate(): boolean {
@@ -25,7 +29,7 @@ export class MoveReportDto extends BaseDto implements StaticImplements<ApiMethod
   }
 
   static createEmpty(): MoveReportDto {
-    return new MoveReportDto('', '', '');
+    return new MoveReportDto('', '', '', '');
   }
 
   static examples(): { [key: string]: { value: MoveReportDto } } {
