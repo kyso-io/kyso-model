@@ -8,20 +8,16 @@ export class MoveReportDto extends BaseDto implements StaticImplements<ApiMethod
   public reportId: string;
 
   @IsMongoId()
-  public sourceTeamId: string;
-
-  @IsMongoId()
   public targetTeamId: string;
 
   @IsString()
-  public title: string;
+  public name: string;
 
-  constructor(reportId: string, sourceTeamId: string, targetTeamId: string, title: string) {
+  constructor(reportId: string, targetTeamId: string, name: string) {
     super();
     this.reportId = reportId;
-    this.sourceTeamId = sourceTeamId;
     this.targetTeamId = targetTeamId;
-    this.title = title;
+    this.name = name;
   }
 
   validate(): boolean {
@@ -29,7 +25,7 @@ export class MoveReportDto extends BaseDto implements StaticImplements<ApiMethod
   }
 
   static createEmpty(): MoveReportDto {
-    return new MoveReportDto('', '', '', '');
+    return new MoveReportDto('', '', '');
   }
 
   static examples(): { [key: string]: { value: MoveReportDto } } {
