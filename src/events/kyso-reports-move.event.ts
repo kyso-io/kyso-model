@@ -6,7 +6,7 @@ import { KysoEvent } from './kyso-event';
 
 export interface KysoReportsMoveEvent extends KysoEvent {
   user: User;
-  sourceTrganization: Organization;
+  sourceOrganization: Organization;
   sourceTeam: Team;
   targetOrganization: Organization;
   targetTeam: Team;
