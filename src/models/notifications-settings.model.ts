@@ -54,6 +54,9 @@ export class NotificationsSettings implements StaticImplements<ApiMethods<Notifi
   @IsBoolean()
   public report_comment_removed: boolean;
 
+  @IsBoolean()
+  public report_moved: boolean;
+
   // Tasks
 
   @IsBoolean()
@@ -97,6 +100,7 @@ export class NotificationsSettings implements StaticImplements<ApiMethods<Notifi
     this.replay_comment_in_report = true;
     this.new_mention_in_report = true;
     this.report_comment_removed = true;
+    this.report_moved = true;
     // Tasks
     this.new_task = true;
     this.new_task_reply = true;

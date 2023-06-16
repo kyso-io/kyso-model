@@ -115,6 +115,7 @@ export * from './events/kyso-reports-create-no-permissions.event';
 export * from './events/kyso-reports-create.event';
 export * from './events/kyso-reports-delete.event';
 export * from './events/kyso-reports-mentions.event';
+export * from './events/kyso-reports-move.event';
 export * from './events/kyso-reports-new-mention.event';
 export * from './events/kyso-reports-new-version.event';
 export * from './events/kyso-reports-pin.event';
