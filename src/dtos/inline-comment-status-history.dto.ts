@@ -9,14 +9,16 @@ export class InlineCommentStatusHistoryDto extends BaseDto implements StaticImpl
   public to_status: InlineCommentStatusEnum;
   public user_id: string;
   public report_version: number;
+  public edited: boolean;
 
-  constructor(date: Date, from_status: InlineCommentStatusEnum, to_status: InlineCommentStatusEnum, user_id: string, report_version: number) {
+  constructor(date: Date, from_status: InlineCommentStatusEnum, to_status: InlineCommentStatusEnum, user_id: string, report_version: number, edited: boolean) {
     super();
     this.date = date;
     this.from_status = from_status;
     this.to_status = to_status;
     this.user_id = user_id;
     this.report_version = report_version;
+    this.edited = edited;
   }
 
   validate(): boolean {
@@ -24,7 +26,7 @@ export class InlineCommentStatusHistoryDto extends BaseDto implements StaticImpl
   }
 
   static createEmpty(): InlineCommentStatusHistoryDto {
-    return new InlineCommentStatusHistoryDto(new Date(), InlineCommentStatusEnum.OPEN, InlineCommentStatusEnum.OPEN, '', 0);
+    return new InlineCommentStatusHistoryDto(new Date(), InlineCommentStatusEnum.OPEN, InlineCommentStatusEnum.OPEN, '', 0, false);
   }
 
   static examples(): { [key: string]: { value: InlineCommentStatusHistoryDto } } {
