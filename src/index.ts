@@ -17,6 +17,7 @@ export * from './dtos/create-report-file-system-item.dto';
 export * from './dtos/create-report.dto';
 export * from './dtos/create-ui-report.dto';
 export * from './dtos/create-user-request.dto';
+export * from './dtos/email-in-use.dto';
 export * from './dtos/email-user-change-password.dto';
 export * from './dtos/feedback.dto';
 export * from './dtos/full-text-search.dto';
