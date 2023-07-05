@@ -3,7 +3,8 @@ import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
 export interface KysoOrganizationsAddMemberEvent extends KysoEvent {
-  user: User;
+  userA: User;
+  userB: User;
   organization: Organization;
   emailsCentralized: string[];
   role: string;

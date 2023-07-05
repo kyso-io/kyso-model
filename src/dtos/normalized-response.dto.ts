@@ -24,7 +24,11 @@ export class NormalizedResponseDTO<T> {
       return;
     }
 
-    this.relations = relations;
+    if (relations) {
+      this.relations = relations;
+    } else {
+      this.relations = {};
+    }
 
     const keys: string[] = Object.keys(relations);
 
