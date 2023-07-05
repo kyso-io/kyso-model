@@ -4,8 +4,8 @@ import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
 export interface KysoTeamsAddMemberEvent extends KysoEvent {
-  userA: User;
-  userB: User;
+  userCreatingAction: User | null;
+  userReceivingAction: User;
   organization: Organization;
   team: Team;
   emailsCentralized: string[];
