@@ -4,6 +4,7 @@ import { User } from '../models/user.model';
 import { KysoEvent } from './kyso-event';
 
 export interface KysoTeamsRemoveMemberEvent extends KysoEvent {
+  userCreatingAction: User | null;
   user: User;
   organization: Organization;
   team: Team;
