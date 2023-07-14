@@ -6,7 +6,6 @@ export interface KysoOrganizationsAddMemberEvent extends KysoEvent {
   userCreatingAction: User | null;
   userReceivingAction: User;
   organization: Organization;
-  emailsCentralized: string[];
   previousRole: string;
   newRole: string;
   frontendUrl: string;

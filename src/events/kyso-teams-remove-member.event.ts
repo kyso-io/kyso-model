@@ -8,6 +8,5 @@ export interface KysoTeamsRemoveMemberEvent extends KysoEvent {
   user: User;
   organization: Organization;
   team: Team;
-  emailsCentralized: string[];
   frontendUrl: string;
 }

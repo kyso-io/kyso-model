@@ -8,7 +8,6 @@ export interface KysoTeamsUpdateMemberRolesEvent extends KysoEvent {
   userReceivingAction: User;
   organization: Organization;
   team: Team;
-  emailsCentralized: string[];
   previousRoles: string[];
   currentRoles: string[];
   frontendUrl: string;

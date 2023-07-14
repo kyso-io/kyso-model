@@ -8,7 +8,6 @@ export interface KysoTeamsAddMemberEvent extends KysoEvent {
   userReceivingAction: User;
   organization: Organization;
   team: Team;
-  emailsCentralized: string[];
   roles: string[];
   frontendUrl: string;
 }

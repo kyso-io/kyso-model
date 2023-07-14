@@ -6,6 +6,5 @@ export interface KysoOrganizationsRemoveMemberEvent extends KysoEvent {
   userCreatingAction: User;
   user: User;
   organization: Organization;
-  emailsCentralized: string[];
   frontendUrl: string;
 }
