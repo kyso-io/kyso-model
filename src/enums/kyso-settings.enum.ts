@@ -98,4 +98,6 @@ export enum KysoSettingsEnum {
   MAX_NUMBER_HARDLINKS = 'MAX_NUMBER_HARDLINKS',
   // Only global administrators are going to be able to create organizations
   ONLY_GLOBAL_ADMINS_CAN_CREATE_ORGANIZATIONS = 'ONLY_GLOBAL_ADMINS_CAN_CREATE_ORGANIZATIONS',
+  // SAML mapping properties for OKTA-KYSO integration
+  OKTA_SAML_USER_MAPPING = 'OKTA_SAML_USER_MAPPING',
 }
