@@ -38,6 +38,8 @@ export enum KysoSettingsEnum {
   // Outcoming mail configuration
   MAIL_TRANSPORT = 'MAIL_TRANSPORT',
   MAIL_FROM = 'MAIL_FROM',
+  MAIL_USER = 'MAIL_USER',
+  MAIL_PASSWORD = 'MAIL_PASSWORD',
   FRONTEND_URL = 'FRONTEND_URL',
   // Sftp configuration
   SFTP_HOST = 'SFTP_HOST',
