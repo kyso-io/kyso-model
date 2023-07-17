@@ -96,4 +96,6 @@ export enum KysoSettingsEnum {
   // Data Applications Manager
   KYSO_DAM_URL = 'KYSO_DAM_URL',
   MAX_NUMBER_HARDLINKS = 'MAX_NUMBER_HARDLINKS',
+  // Only global administrators are going to be able to create organizations
+  ONLY_GLOBAL_ADMINS_CAN_CREATE_ORGANIZATIONS = 'ONLY_GLOBAL_ADMINS_CAN_CREATE_ORGANIZATIONS',
 }
