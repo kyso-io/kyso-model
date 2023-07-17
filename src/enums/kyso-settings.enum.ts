@@ -37,6 +37,7 @@ export enum KysoSettingsEnum {
   BASE_URL = 'BASE_URL',
   // Outcoming mail configuration
   MAIL_TRANSPORT = 'MAIL_TRANSPORT',
+  MAIL_PORT = 'MAIL_PORT',
   MAIL_FROM = 'MAIL_FROM',
   MAIL_USER = 'MAIL_USER',
   MAIL_PASSWORD = 'MAIL_PASSWORD',
