@@ -87,6 +87,7 @@ export * from './enums/team-visibility.enum';
 export * from './enums/token-status.enum';
 export * from './enums/user-notifications-settings-scope.enum';
 export * from './enums/user-permissions.enum';
+export * from './enums/websocket-event.enum';
 // EVENTS
 export * from './events/kyso-analytics-report-download.event';
 export * from './events/kyso-analytics-report-share.event';
