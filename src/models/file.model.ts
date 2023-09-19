@@ -16,6 +16,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   public git_metadata: GitMetadata | null;
   public toc: TableOfContentEntryDto[];
   public columns_stats: ColumnStats[];
+  public is_main_file: boolean;
   public exceeded_hardlinks?: boolean;
 
   constructor(
@@ -29,6 +30,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
     git_metadata: GitMetadata | null,
     toc: TableOfContentEntryDto[],
     columns_stats: ColumnStats[],
+    is_main_file: boolean,
   ) {
     super();
     this.report_id = report_id;
@@ -41,6 +43,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
     this.git_metadata = git_metadata;
     this.toc = toc;
     this.columns_stats = columns_stats;
+    this.is_main_file = is_main_file;
   }
 
   validate(): boolean {
@@ -48,7 +51,7 @@ export class File extends BaseModel implements StaticImplements<ApiMethods<File>
   }
 
   static createEmpty(): File {
-    return new File('', '', '', 0, '', 0, '', null, [], []);
+    return new File('', '', '', 0, '', 0, '', null, [], [], false);
   }
 
   static examples(): { [key: string]: { value: File } } {
